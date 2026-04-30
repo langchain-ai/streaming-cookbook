@@ -1,0 +1,7 @@
+packages:
+  - "streaming"
+  - "multimodal"
+  - "react-custom-transport"
+  - "ui-angular"
+  - "ui-svelte"
+  - "ui-vue"

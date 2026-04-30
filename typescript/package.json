@@ -1,0 +1,18 @@
+{
+  "name": "typescript-streaming-cookbook",
+  "private": true,
+  "scripts": {
+    "build": "pnpm --filter @examples/ui-multimodal build && pnpm --filter @examples/ui-angular build && pnpm --filter @examples/ui-react-transport build:internal && pnpm --filter @examples/ui-svelte build:internal && pnpm --filter @examples/ui-vue build:internal",
+    "lint": "pnpm --filter @examples/ui-multimodal lint",
+    "dev:multimodal": "pnpm --filter @examples/ui-multimodal dev",
+    "dev:react-transport": "pnpm --filter @examples/ui-react-transport dev",
+    "dev:angular": "pnpm --filter @examples/ui-angular dev",
+    "dev:svelte": "pnpm --filter @examples/ui-svelte dev",
+    "dev:vue": "pnpm --filter @examples/ui-vue dev"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.13",
+    "typescript": "^6.0.3"
+  },
+  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
+}
