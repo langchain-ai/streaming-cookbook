@@ -25,11 +25,11 @@ The cookbook tracks these preview docs pages. These APIs and docs are still in p
 
 Client and framework SDK docs:
 
-- [Client Streaming SDK docs](https://github.com/langchain-ai/langgraphjs/blob/5e2014ff1a85fc77416a90b5f22fec9e46336d09/libs/sdk/docs)
-- [React v1 SDK docs](https://github.com/langchain-ai/langgraphjs/blob/173c6ab0179baf88e07605f577e3f64e2840ab0d/libs/sdk-react/docs)
-- [Vue v1 SDK docs](https://github.com/langchain-ai/langgraphjs/blob/173c6ab0179baf88e07605f577e3f64e2840ab0d/libs/sdk-vue/docs)
-- [Svelte v1 SDK docs](https://github.com/langchain-ai/langgraphjs/blob/173c6ab0179baf88e07605f577e3f64e2840ab0d/libs/sdk-svelte/docs)
-- [Angular v1 SDK docs](https://github.com/langchain-ai/langgraphjs/blob/173c6ab0179baf88e07605f577e3f64e2840ab0d/libs/sdk-angular/docs)
+- [Client Streaming SDK docs](https://github.com/langchain-ai/langgraphjs/blob/ee952a5b6426ec93c6515d58425e75a9a1037079/libs/sdk/docs)
+- [React v1 SDK docs](https://github.com/langchain-ai/langgraphjs/blob/ee952a5b6426ec93c6515d58425e75a9a1037079/libs/sdk-react/docs)
+- [Vue v1 SDK docs](https://github.com/langchain-ai/langgraphjs/blob/ee952a5b6426ec93c6515d58425e75a9a1037079/libs/sdk-vue/docs)
+- [Svelte v1 SDK docs](https://github.com/langchain-ai/langgraphjs/blob/ee952a5b6426ec93c6515d58425e75a9a1037079/libs/sdk-svelte/docs)
+- [Angular v1 SDK docs](https://github.com/langchain-ai/langgraphjs/blob/ee952a5b6426ec93c6515d58425e75a9a1037079/libs/sdk-angular/docs)
 
 Streaming protocol and generated bindings:
 
