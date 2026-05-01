@@ -22,7 +22,7 @@ try {
 
   const thread = client.threads.stream({ assistantId: "deep-agent" });
 
-  await thread.run.input({
+  await thread.run.start({
     input: {
       messages: [{ role: "user", content: "Write me a haiku about the sea" }],
     },

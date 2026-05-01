@@ -26,7 +26,7 @@ try {
     channels: ["messages", "tools", "values", "lifecycle"],
   });
 
-  await thread.run.input({
+  await thread.run.start({
     input: {
       messages: [{ role: "user", content: "What is 42 * 17?" }],
     },

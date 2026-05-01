@@ -25,7 +25,7 @@ async function main() {
       assistantId: "human-in-the-loop",
     });
 
-    await thread.run.input({
+    await thread.run.start({
       input: {
         messages: [
           {

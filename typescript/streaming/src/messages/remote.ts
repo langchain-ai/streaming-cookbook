@@ -22,7 +22,7 @@ async function main() {
   try {
     const client = new Client({ apiUrl: url });
     const thread = client.threads.stream({ assistantId: "simple-tool-graph" });
-    await thread.run.input({
+    await thread.run.start({
       input: {
         messages: [
           {

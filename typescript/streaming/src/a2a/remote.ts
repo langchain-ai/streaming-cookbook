@@ -28,7 +28,7 @@ async function main() {
     // Subscribe only to A2A custom events via the "custom:a2a" channel
     const events = await thread.subscribe("custom:a2a");
 
-    await thread.run.input({
+    await thread.run.start({
       input: {
         messages: [
           {

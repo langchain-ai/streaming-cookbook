@@ -25,7 +25,7 @@ async function main() {
       assistantId: "research-pipeline",
     });
 
-    await thread.run.input({
+    await thread.run.start({
       input: {
         messages: [
           {

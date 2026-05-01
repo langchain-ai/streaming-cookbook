@@ -17,7 +17,7 @@
  *     on run end)
  *
  * Access order is flexible: a single shared `custom` subscription is
- * opened eagerly by `thread.run.input(...)` and buffers every custom
+ * opened eagerly by `thread.run.start(...)` and buffers every custom
  * event for the run. Per-name handles created before, during, or after
  * the run are backfilled from that buffer and resolve correctly either
  * way — mirroring the in-process `run.extensions.<name>` shape (which
@@ -64,7 +64,7 @@ async function main() {
       assistantId: "simple-tool-with-metrics",
     });
 
-    await thread.run.input({
+    await thread.run.start({
       input: {
         messages: [
           {

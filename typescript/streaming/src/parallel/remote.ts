@@ -29,7 +29,7 @@ async function main() {
       channels: ["messages", "tools", "values", "lifecycle"],
     });
 
-    await thread.run.input({
+    await thread.run.start({
       input: {
         messages: [
           {

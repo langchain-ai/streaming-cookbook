@@ -25,7 +25,7 @@ async function main() {
 
     const thread = client.threads.stream({ assistantId: "deep-agent" });
 
-    await thread.run.input({
+    await thread.run.start({
       input: {
         messages: [
           {
@@ -45,9 +45,9 @@ async function main() {
       const total = started + completed + failed;
       console.log(
         `  [${total} subagent(s)] ` +
-          `started: ${started}, ` +
-          `completed: ${completed}, ` +
-          `failed: ${failed}`
+        `started: ${started}, ` +
+        `completed: ${completed}, ` +
+        `failed: ${failed}`
       );
     }
 
