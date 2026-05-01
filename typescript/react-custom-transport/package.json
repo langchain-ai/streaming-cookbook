@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "pnpm run --parallel \"/^dev:(client|server)$/\"",
+    "dev": "pnpm --filter . run --parallel \"/^dev:(client|server)$/\"",
     "dev:client": "vite",
     "dev:server": "tsx watch --env-file=../../.env --clear-screen=false src/app.ts",
     "build:internal": "tsc -b && vite build",

@@ -74,5 +74,5 @@ The Vite dev server proxies `/api` to the local Hono server on `http://localhost
 
 ## SDK Docs
 
-- [React SDK docs](https://github.com/langchain-ai/langgraphjs/blob/173c6ab0179baf88e07605f577e3f64e2840ab0d/libs/sdk-react/docs): `StreamProvider`, custom transports, extension projections, and React stream consumption.
+- [React SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-react/docs): `StreamProvider`, custom transports, extension projections, and React stream consumption.
 - [Client Streaming SDK docs](https://github.com/langchain-ai/langgraphjs/blob/5e2014ff1a85fc77416a90b5f22fec9e46336d09/libs/sdk/docs): the lower-level stream, subscription, channel, and namespace behavior that this example reimplements locally.

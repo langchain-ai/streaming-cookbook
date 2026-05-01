@@ -2,7 +2,7 @@
   "name": "@examples/ui-angular",
   "version": "0.0.21",
   "scripts": {
-    "dev": "pnpm run --parallel \"/^dev:(client|server)$/\"",
+    "dev": "pnpm --filter . run --parallel \"/^dev:(client|server)$/\"",
     "dev:client": "NG_CLI_ANALYTICS=false ng serve",
     "dev:server": "langgraphjs dev --no-browser",
     "ng": "ng",

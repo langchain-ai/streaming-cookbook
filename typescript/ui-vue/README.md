@@ -68,5 +68,5 @@ const stream = useStream({
 
 ## SDK Docs
 
-- [Vue SDK docs](https://github.com/langchain-ai/langgraphjs/blob/173c6ab0179baf88e07605f577e3f64e2840ab0d/libs/sdk-vue/docs): `useStream`, streamed values, optimistic updates, and Vue integration patterns.
+- [Vue SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-vue/docs): `useStream`, streamed values, optimistic updates, and Vue integration patterns.
 - [Client Streaming SDK docs](https://github.com/langchain-ai/langgraphjs/blob/5e2014ff1a85fc77416a90b5f22fec9e46336d09/libs/sdk/docs): remote stream behavior shared by all framework SDKs.

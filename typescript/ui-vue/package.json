@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "pnpm run --parallel \"/^dev:(client|server)$/\"",
+    "dev": "pnpm --filter . run --parallel \"/^dev:(client|server)$/\"",
     "dev:client": "vite",
     "dev:server": "langgraphjs dev --no-browser",
     "build:internal": "vite build",

@@ -46,10 +46,10 @@ Many packages use `workspace:*` LangChain dependencies because these examples we
 Use these docs as the API reference while reading or extending the examples:
 
 - [Client Streaming SDK docs](https://github.com/langchain-ai/langgraphjs/blob/5e2014ff1a85fc77416a90b5f22fec9e46336d09/libs/sdk/docs): remote `Client`, `ThreadStream`, subscriptions, channels, namespaces, and replay behavior.
-- [React SDK docs](https://github.com/langchain-ai/langgraphjs/blob/173c6ab0179baf88e07605f577e3f64e2840ab0d/libs/sdk-react/docs): `useStream`, `StreamProvider`, media hooks, custom transports, and extension projections.
-- [Vue SDK docs](https://github.com/langchain-ai/langgraphjs/blob/173c6ab0179baf88e07605f577e3f64e2840ab0d/libs/sdk-vue/docs): Vue `useStream` patterns.
-- [Svelte SDK docs](https://github.com/langchain-ai/langgraphjs/blob/173c6ab0179baf88e07605f577e3f64e2840ab0d/libs/sdk-svelte/docs): Svelte `useStream` patterns.
-- [Angular SDK docs](https://github.com/langchain-ai/langgraphjs/blob/173c6ab0179baf88e07605f577e3f64e2840ab0d/libs/sdk-angular/docs): Angular `injectStream` patterns.
+- [React SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-react/docs): `useStream`, `StreamProvider`, media hooks, custom transports, and extension projections.
+- [Vue SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-vue/docs): Vue `useStream` patterns.
+- [Svelte SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-svelte/docs): Svelte `useStream` patterns.
+- [Angular SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-angular/docs): Angular `injectStream` patterns.
 
 ## Common Commands
 
