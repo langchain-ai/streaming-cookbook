@@ -1,0 +1,61 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/typescript/streaming"
+    schedule:
+      interval: "weekly"
+    groups:
+      streaming-dependencies:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 1
+
+  - package-ecosystem: "npm"
+    directory: "/typescript/multimodal"
+    schedule:
+      interval: "weekly"
+    groups:
+      multimodal-dependencies:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 1
+
+  - package-ecosystem: "npm"
+    directory: "/typescript/react-custom-transport"
+    schedule:
+      interval: "weekly"
+    groups:
+      react-custom-transport-dependencies:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 1
+
+  - package-ecosystem: "npm"
+    directory: "/typescript/ui-angular"
+    schedule:
+      interval: "weekly"
+    groups:
+      ui-angular-dependencies:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 1
+
+  - package-ecosystem: "npm"
+    directory: "/typescript/ui-svelte"
+    schedule:
+      interval: "weekly"
+    groups:
+      ui-svelte-dependencies:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 1
+
+  - package-ecosystem: "npm"
+    directory: "/typescript/ui-vue"
+    schedule:
+      interval: "weekly"
+    groups:
+      ui-vue-dependencies:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 1
