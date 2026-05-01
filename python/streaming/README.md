@@ -42,7 +42,6 @@ uv run custom-transformer
 uv run subgraphs
 uv run hitl
 uv run subagents
-uv run subagent-status
 uv run a2a
 ```
 
@@ -64,15 +63,3 @@ uv run messages-model
 | Human in the loop     | `hitl-*`                           | Pausing on interrupts, reading `run.interrupted` and `run.interrupts`, then resuming with `Command`.                       |
 | Deep Agents subagents | `subagents-*`, `subagent-status-*` | Reading `run.subagents` in process and observing remote subagent lifecycle chunks.                                         |
 | A2A projection        | `a2a-*`                            | Translating LangGraph protocol events into A2A-shaped status and artifact events through a custom transformer.             |
-
-## Important Files
-
-- `src/streaming_examples/agents/simple_tool_graph.py`: a small tool-calling graph used by the basic, message, parallel, and custom-transformer examples.
-- `src/streaming_examples/agents/simple_tool_with_metrics.py`: the same tool graph compiled with metric transformers.
-- `src/streaming_examples/agents/research_pipeline.py`: a graph with nested researcher and analyst work for subgraph examples.
-- `src/streaming_examples/agents/hitl_agent.py`: an interruptible agent for approve/resume flows.
-- `src/streaming_examples/agents/deep_agent.py`: a Deep Agents example that delegates work through subagents.
-- `src/streaming_examples/agents/a2a_research.py`: the graph used by the A2A examples.
-- `src/streaming_examples/shared/custom_transformers.py`: reusable stream transformers for tool activity and aggregate token/tool stats.
-- `src/streaming_examples/shared/a2a_transformer.py`: emits A2A-shaped events into a named `StreamChannel`.
-- `src/streaming_examples/shared/dev_server.py`: starts `langgraph dev` for remote SDK examples.
