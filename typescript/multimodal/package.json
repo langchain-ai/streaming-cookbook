@@ -16,7 +16,7 @@
     "@langchain/langgraph": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004",
     "@langchain/openai": "^1.4.4",
     "@langchain/react": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@9c3a004",
-    "deepagents": "https://pkg.pr.new/deepagents@c8514ee",
+    "deepagents": "https://pkg.pr.new/deepagents@9eaa3ac",
     "langchain": "1.4.0-dev-1777615538778",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
