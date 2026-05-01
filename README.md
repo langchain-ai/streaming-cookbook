@@ -96,7 +96,31 @@ pnpm dev:vue
 
 ### Python
 
-`python/` is reserved for Python cookbook examples that mirror the same streaming concepts.
+See `python/README.md` for the Python overview and package commands.
+
+#### Terminal Streaming Scripts
+
+`python/streaming` mirrors the TypeScript terminal scripts where the Python SDK has equivalent surfaces. It includes in-process and remote examples for protocol events, message projections, parallel streams, custom transformers, subgraphs, human-in-the-loop interrupts, Deep Agents subagents, and A2A-shaped projections.
+
+Start from the Python package directory:
+
+```bash
+cd python/streaming
+uv sync
+```
+
+Then run individual examples:
+
+```bash
+uv run basic
+uv run messages
+uv run parallel
+uv run custom-transformer
+uv run subgraphs
+uv run hitl
+uv run subagents
+uv run a2a
+```
 
 ## Streaming Surfaces Covered
 
