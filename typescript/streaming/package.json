@@ -30,10 +30,10 @@
     "@langchain/langgraph": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004",
     "@langchain/langgraph-cli": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004",
     "@langchain/langgraph-sdk": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004",
-    "@langchain/protocol": "^0.0.13",
+    "@langchain/protocol": "^0.0.15",
     "deepagents": "https://pkg.pr.new/deepagents@9eaa3ac",
     "langchain": "1.4.0-dev-1777615538778",
     "tsx": "^4.21.0",
-    "zod": "^4.3.6"
+    "zod": "^4.4.1"
   }
 }
