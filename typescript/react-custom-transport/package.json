@@ -11,23 +11,23 @@
   },
   "dependencies": {
     "@a2a-js/sdk": "^0.3.13",
-    "@hono/node-server": "^1.19.13",
+    "@hono/node-server": "^2.0.1",
     "@langchain/core": "1.1.43-dev-1777615538778",
     "@langchain/langgraph": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004",
     "@langchain/openai": "^1.4.1",
-    "@langchain/protocol": "^0.0.14",
+    "@langchain/protocol": "^0.0.15",
     "@langchain/react": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@9c3a004",
     "hono": "^4.12.12",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "zod": "^3.25.76"
+    "zod": "^4.4.1"
   },
   "devDependencies": {
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "@vitejs/plugin-react": "^5.1.4",
+    "@vitejs/plugin-react": "^6.0.1",
     "tsx": "^4.19.3",
-    "typescript": "^5.4.5",
-    "vite": "^7.0.0"
+    "typescript": "^6.0.3",
+    "vite": "^8.0.10"
   }
 }
