@@ -1,12 +1,12 @@
 # React Custom Transport
 
-React and Vite example that uses `@langchain/react` with a custom local transport instead of the default LangGraph hosted transport. It also projects the stream into A2A-compatible events through a custom `StreamTransformer`.
+React and Vite example that uses `@langchain/react` against a local Agent Streaming Protocol server instead of the default LangGraph hosted transport. It also projects the stream into A2A-compatible events through a custom `StreamTransformer`.
 
 ## What It Demonstrates
 
-- `StreamProvider` with a custom `AgentServerAdapter`.
-- A local HTTP/SSE bridge that serves `streamEvents(..., { version: "v3" })` from a Hono server.
-- Subscription filtering by protocol channel and namespace.
+- `StreamProvider` with `HttpAgentServerAdapter` pointed at local command and stream endpoints.
+- A local Hono server that implements the Agent Streaming Protocol over HTTP and SSE.
+- Subscription filtering by protocol channel, namespace, depth, and replay cursor.
 - A remote `StreamChannel` named `a2a` exposed as a custom projection.
 - Rendering standard chat messages and custom A2A status/artifact events side by side.
 
@@ -52,16 +52,21 @@ The Vite dev server proxies `/api` to the local Hono server on `http://localhost
 
 ## How It Works
 
-`src/app.ts` builds a simple LangGraph chat agent and starts `CustomGraphServer`. The server exposes `POST /api/stream`. When the client subscribes to `custom:a2a`, the server returns the `run.extensions.a2a` stream. Other subscriptions receive the regular protocol event stream encoded as SSE.
+`src/app.ts` builds a simple LangGraph chat agent and starts `CustomServer`. The server exposes the Agent Streaming Protocol routes consumed by `HttpAgentServerAdapter`:
 
-`src/transport.ts` implements the browser-side adapter. It submits input, parses SSE frames, normalizes custom events into protocol messages, and fans events out to local subscribers that match requested channels and namespaces.
+- `POST /api/threads/:threadId/commands` accepts `run.start` commands and starts an in-process `streamEvents(..., { version: "v3" })` run.
+- `POST /api/threads/:threadId/stream` opens a filtered SSE subscription and replays matching buffered events when a cursor is provided.
+
+`src/client.tsx` configures `HttpAgentServerAdapter` with those local paths and passes it to `StreamProvider`. The SDK handles command submission, SSE parsing, subscription rotation, and projection hooks in the browser.
+
+`src/app/session.ts` is the server-side counterpart. It buffers protocol events by sequence number, applies subscription filters, normalizes remote transformer events into `custom:<name>` events, and fans matching SSE frames out to active subscribers. When the client subscribes to `custom:a2a`, it receives the events emitted by the remote `StreamChannel` from `src/app/transformer.ts`.
 
 ## Important Files
 
 - `src/client.tsx`: React entrypoint, `StreamProvider`, and the UI shell.
-- `src/transport.ts`: custom `AgentServerAdapter` implementation.
+- `src/app/session.ts`: in-memory thread session, replay buffer, subscription filtering, and SSE framing.
 - `src/app.ts`: graph definition and local server bootstrap.
-- `src/app/server.ts`: Hono endpoint that serves protocol events and custom channel streams.
+- `src/app/server.ts`: Hono routes for Agent Streaming Protocol commands and stream subscriptions.
 - `src/app/transformer.ts`: A2A `StreamTransformer` that emits `status-update` and `artifact-update` events.
 - `src/components/Chat.tsx`: standard streamed chat rendering.
 - `src/components/A2AProjectionPanel.tsx`: custom projection rendering.

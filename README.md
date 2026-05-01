@@ -19,17 +19,17 @@ The new streaming work moves LangGraph and LangChain from low-level stream-mode 
 
 The cookbook tracks these preview docs pages. These APIs and docs are still in preview and may change:
 
-- [LangGraph streaming](https://langchain-5e9cc07a-preview-cbnews-1777416002-49cb50c.mintlify.app/oss/langgraph/streaming/overview): LangGraph streaming overview, Event Streaming, remote streaming, namespaces, protocol, `StreamChannel`, and custom transformers.
-- [LangChain streaming projections](https://langchain-5e9cc07a-preview-cbnews-1777416002-49cb50c.mintlify.app/oss/langchain/streaming-projections): LangChain agent streaming projections for messages, reasoning, tool calls, state, output, and extensions.
-- [Deep Agents streaming projections](https://langchain-5e9cc07a-preview-cbnews-1777416002-49cb50c.mintlify.app/oss/deepagents/streaming-projections): Deep Agents subagent streaming, nested messages, subagent tool calls, and subagent-vs-subgraph guidance.
+- [LangGraph streaming](https://langchain-5e9cc07a-preview-cbnews-1777613032-0dd3692.mintlify.app/oss/langgraph/streaming/overview): LangGraph streaming overview, Event Streaming, remote streaming, namespaces, protocol, `StreamChannel`, and custom transformers.
+- [LangChain streaming projections](https://langchain-5e9cc07a-preview-cbnews-1777613032-0dd3692.mintlify.app/oss/langchain/streaming-projections): LangChain agent streaming projections for messages, reasoning, tool calls, state, output, and extensions.
+- [Deep Agents streaming projections](https://langchain-5e9cc07a-preview-cbnews-1777613032-0dd3692.mintlify.app/oss/deepagents/streaming-projections): Deep Agents subagent streaming, nested messages, subagent tool calls, and subagent-vs-subgraph guidance.
 
 Client and framework SDK docs:
 
-- [Client Streaming SDK docs](https://github.com/langchain-ai/langgraphjs/blob/ee952a5b6426ec93c6515d58425e75a9a1037079/libs/sdk/docs)
-- [React v1 SDK docs](https://github.com/langchain-ai/langgraphjs/blob/ee952a5b6426ec93c6515d58425e75a9a1037079/libs/sdk-react/docs)
-- [Vue v1 SDK docs](https://github.com/langchain-ai/langgraphjs/blob/ee952a5b6426ec93c6515d58425e75a9a1037079/libs/sdk-vue/docs)
-- [Svelte v1 SDK docs](https://github.com/langchain-ai/langgraphjs/blob/ee952a5b6426ec93c6515d58425e75a9a1037079/libs/sdk-svelte/docs)
-- [Angular v1 SDK docs](https://github.com/langchain-ai/langgraphjs/blob/ee952a5b6426ec93c6515d58425e75a9a1037079/libs/sdk-angular/docs)
+- [Client Streaming SDK docs](https://github.com/langchain-ai/langgraphjs/blob/cb/stream-improvements/libs/sdk/docs)
+- [React v1 SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-react/docs)
+- [Vue v1 SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-vue/docs)
+- [Svelte v1 SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-svelte/docs)
+- [Angular v1 SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-angular/docs)
 
 Streaming protocol and generated bindings:
 

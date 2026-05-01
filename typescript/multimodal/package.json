@@ -12,19 +12,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@langchain/core": "^1.1.40",
-    "@langchain/langgraph": "workspace:*",
+    "@langchain/core": "1.1.43-dev-1777615538778",
+    "@langchain/langgraph": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004",
     "@langchain/openai": "^1.4.4",
-    "@langchain/react": "workspace:*",
-    "deepagents": "https://pkg.pr.new/deepagents@cd6d654",
-    "langchain": "1.4.0-dev-1777426124745",
+    "@langchain/react": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@9c3a004",
+    "deepagents": "https://pkg.pr.new/deepagents@c8514ee",
+    "langchain": "1.4.0-dev-1777615538778",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "zod": "^4.3.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
-    "@langchain/langgraph-cli": "workspace:*",
+    "@langchain/langgraph-cli": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004",
     "@types/node": "^24.12.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

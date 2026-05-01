@@ -18,10 +18,10 @@
     "@angular/forms": "^21.2.7",
     "@angular/platform-browser": "^21.2.7",
     "@angular/router": "^21.2.7",
-    "@langchain/angular": "workspace:*",
-    "@langchain/core": "^1.1.38",
-    "@langchain/langgraph": "workspace:*",
-    "@langchain/langgraph-sdk": "workspace:*",
+    "@langchain/angular": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/angular@9c3a004",
+    "@langchain/core": "1.1.43-dev-1777615538778",
+    "@langchain/langgraph": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004",
+    "@langchain/langgraph-sdk": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004",
     "@langchain/openai": "^1.4.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -32,7 +32,7 @@
     "@angular/build": "^21.2.6",
     "@angular/cli": "^21.2.6",
     "@angular/compiler-cli": "^21.2.7",
-    "@langchain/langgraph-cli": "workspace:*",
+    "@langchain/langgraph-cli": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004",
     "typescript": "~5.9.2"
   }
 }
