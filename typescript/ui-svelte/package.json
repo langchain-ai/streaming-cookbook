@@ -15,14 +15,14 @@
     "@langchain/langgraph-sdk": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004",
     "@langchain/openai": "^1.4.1",
     "@langchain/svelte": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/svelte@9c3a004",
-    "zod": "^3.23.8"
+    "zod": "^4.4.1"
   },
   "devDependencies": {
     "@langchain/langgraph-cli": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004",
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "svelte": "^5.55.1",
     "tsx": "^4.19.3",
-    "typescript": "^5.4.5",
-    "vite": "^7.0.0"
+    "typescript": "^6.0.3",
+    "vite": "^8.0.10"
   }
 }
