@@ -1,0 +1,12 @@
+{
+  "python_version": "3.11",
+  "graphs": {
+    "simple-tool-graph": "./src/streaming_examples/agents/simple_tool_graph.py:graph",
+    "simple-tool-with-metrics": "./src/streaming_examples/agents/simple_tool_with_metrics.py:graph",
+    "research-pipeline": "./src/streaming_examples/agents/research_pipeline.py:graph",
+    "human-in-the-loop": "./src/streaming_examples/agents/hitl_agent.py:agent",
+    "deep-agent": "./src/streaming_examples/agents/deep_agent.py:agent",
+    "a2a-research": "./src/streaming_examples/agents/a2a_research.py:graph"
+  },
+  "env": "../../.env"
+}
