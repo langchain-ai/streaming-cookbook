@@ -19,9 +19,9 @@ The new streaming work moves LangGraph and LangChain from low-level stream-mode 
 
 The cookbook tracks these preview docs pages. These APIs and docs are still in preview and may change:
 
-- [LangGraph streaming](https://langchain-5e9cc07a-preview-cbnews-1777613032-0dd3692.mintlify.app/oss/langgraph/streaming/overview): LangGraph streaming overview, Event Streaming, remote streaming, namespaces, protocol, `StreamChannel`, and custom transformers.
-- [LangChain streaming projections](https://langchain-5e9cc07a-preview-cbnews-1777613032-0dd3692.mintlify.app/oss/langchain/streaming-projections): LangChain agent streaming projections for messages, reasoning, tool calls, state, output, and extensions.
-- [Deep Agents streaming projections](https://langchain-5e9cc07a-preview-cbnews-1777613032-0dd3692.mintlify.app/oss/deepagents/streaming-projections): Deep Agents subagent streaming, nested messages, subagent tool calls, and subagent-vs-subgraph guidance.
+- [LangGraph streaming](https://langchain-5e9cc07a-preview-cbnews-1777613032-0dd3692.mintlify.app/oss/python/langgraph/streaming/overview): LangGraph streaming overview, Event Streaming, remote streaming, namespaces, protocol, `StreamChannel`, and custom transformers.
+- [LangChain streaming projections](https://langchain-5e9cc07a-preview-cbnews-1777613032-0dd3692.mintlify.app/oss/python/langchain/event-streaming): LangChain agent streaming projections for messages, reasoning, tool calls, state, output, and extensions.
+- [Deep Agents streaming projections](https://langchain-5e9cc07a-preview-cbnews-1777613032-0dd3692.mintlify.app/oss/python/deepagents/event-streaming): Deep Agents subagent streaming, nested messages, subagent tool calls, and subagent-vs-subgraph guidance.
 
 Client and framework SDK docs:
 
