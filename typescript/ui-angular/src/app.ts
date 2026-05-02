@@ -1,7 +1,6 @@
 import { Component, computed, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { injectStream } from "@langchain/angular";
-import type { Message } from "@langchain/langgraph-sdk";
 
 @Component({
   selector: "app-root",
@@ -153,13 +152,7 @@ export class App {
 
     const newMessage = { content, type: "human" };
     void this.stream.submit(
-      { messages: [newMessage] },
-      {
-        optimisticValues: (prev) => ({
-          ...prev,
-          messages: [...((prev["messages"] ?? []) as Message[]), newMessage],
-        }),
-      }
+      { messages: [newMessage] }
     );
 
     this.message.set("");

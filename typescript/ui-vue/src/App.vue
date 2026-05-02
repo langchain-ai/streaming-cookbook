@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { Message } from "@langchain/langgraph-sdk";
 import { useStream } from "@langchain/vue";
 import { computed, ref } from "vue";
 
@@ -24,13 +23,7 @@ function handleSubmit() {
   const newMessage = { content, type: "human" };
 
   void stream.submit(
-    { messages: [newMessage] },
-    {
-      optimisticValues: (prev) => ({
-        ...prev,
-        messages: [...((prev.messages ?? []) as Message[]), newMessage],
-      }),
-    }
+    { messages: [newMessage] }
   );
   input.value = "";
 }
