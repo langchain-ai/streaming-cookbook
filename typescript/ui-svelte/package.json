@@ -11,14 +11,14 @@
   },
   "dependencies": {
     "@langchain/core": "1.1.44",
-    "@langchain/langgraph": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004",
-    "@langchain/langgraph-sdk": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004",
+    "@langchain/langgraph": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2",
+    "@langchain/langgraph-sdk": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2",
     "@langchain/openai": "^1.4.5",
-    "@langchain/svelte": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/svelte@9c3a004",
+    "@langchain/svelte": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/svelte@48278e2",
     "zod": "^4.4.2"
   },
   "devDependencies": {
-    "@langchain/langgraph-cli": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004",
+    "@langchain/langgraph-cli": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2",
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "svelte": "^5.55.5",
     "tsx": "^4.21.0",

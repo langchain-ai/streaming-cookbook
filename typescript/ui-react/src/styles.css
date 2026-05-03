@@ -1,0 +1,333 @@
+body {
+  margin: 0;
+  background: #030710;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.chat-shell {
+  --bg-primary: #030710;
+  --bg-secondary: #0d1322;
+  --bg-card: #161f34;
+  --text-primary: #f2faff;
+  --text-secondary: #99d3ff;
+  --accent: #7fc8ff;
+  --accent-bright: #006ddd;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-height: 100vh;
+  padding: 48px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.chat-shell.light {
+  --bg-primary: #f2faff;
+  --bg-secondary: #e5f4ff;
+  --bg-card: #cce9ff;
+  --text-primary: #030710;
+  --text-secondary: #161f34;
+  --accent: #006ddd;
+  --accent-bright: #0052a8;
+}
+
+.hero-card,
+.reconnect-card,
+.chat-card,
+.composer {
+  box-sizing: border-box;
+  width: min(920px, 100%);
+  margin: 0 auto;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 28px;
+  background: var(--bg-secondary);
+}
+
+.hero-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 32px 112px 32px 32px;
+}
+
+.framework-logo {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 18px;
+  background: var(--bg-card);
+  color: var(--accent);
+}
+
+.framework-logo svg {
+  width: 38px;
+  height: 38px;
+}
+
+.eyebrow,
+.message span,
+.message small,
+.error,
+.reconnect-banner,
+.reconnect-card span,
+.reconnect-card button,
+.composer button {
+  font-family:
+    "IBM Plex Mono",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+  letter-spacing: -0.02em;
+}
+
+.eyebrow {
+  grid-column: 1 / -1;
+  color: var(--accent);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+p {
+  margin: 0;
+}
+
+.hero-copy p {
+  max-width: 650px;
+  margin-top: 18px;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+code {
+  font-family:
+    "IBM Plex Mono",
+    ui-monospace,
+    monospace;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 999px;
+  background: var(--bg-secondary);
+  color: var(--accent);
+  cursor: pointer;
+  padding: 0;
+}
+
+.theme-toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.theme-toggle svg circle {
+  fill: currentColor;
+  stroke: none;
+}
+
+.theme-toggle .moon-shape {
+  stroke-width: 2.2;
+}
+
+.reconnect-card {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto auto;
+  gap: 12px;
+  align-items: stretch;
+  padding: 18px;
+}
+
+.reconnect-card div {
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  border-radius: 16px;
+  background: var(--bg-card);
+}
+
+.reconnect-card span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.reconnect-card strong {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.reconnect-card button,
+.composer button {
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #030710;
+  cursor: pointer;
+  padding: 12px 18px;
+}
+
+.reconnect-card button:last-child {
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.reconnect-card button:disabled,
+.composer button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.chat-card {
+  display: grid;
+  min-height: 360px;
+  gap: 14px;
+  align-content: start;
+  padding: 28px;
+}
+
+.reconnect-banner {
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 16px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  padding: 14px;
+  line-height: 1.45;
+}
+
+.empty-state {
+  display: grid;
+  min-height: 240px;
+  place-items: center;
+  border: 1px dashed color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 20px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.message {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+  max-width: 82%;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.message.user {
+  justify-self: end;
+  background: var(--accent-bright);
+}
+
+.message span,
+.message small {
+  color: var(--accent);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.message.user span,
+.message.user small {
+  color: #f2faff;
+}
+
+.message p {
+  white-space: pre-wrap;
+  line-height: 1.55;
+}
+
+.error {
+  align-self: end;
+  color: var(--accent);
+  font-size: 0.88rem;
+}
+
+.composer {
+  display: grid;
+  gap: 14px;
+  padding: 22px;
+}
+
+.composer textarea {
+  width: 100%;
+  min-height: 96px;
+  box-sizing: border-box;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 20px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font: inherit;
+  line-height: 1.5;
+  resize: vertical;
+  padding: 16px;
+}
+
+.composer textarea::placeholder {
+  color: color-mix(in srgb, var(--text-secondary) 70%, transparent);
+}
+
+.composer button {
+  justify-self: start;
+}
+
+@media (max-width: 760px) {
+  .chat-shell {
+    padding: 28px 16px;
+  }
+
+  .hero-card {
+    padding: 28px;
+  }
+
+  .framework-logo {
+    position: static;
+  }
+
+  .reconnect-card {
+    grid-template-columns: 1fr;
+  }
+
+  .message {
+    max-width: 100%;
+  }
+}

@@ -2,6 +2,7 @@ packages:
   - "streaming"
   - "multimodal"
   - "react-custom-transport"
+  - "ui-react"
   - "ui-angular"
   - "ui-svelte"
   - "ui-vue"

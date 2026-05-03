@@ -63,6 +63,10 @@ See `typescript/README.md` for the workspace overview and package-by-package com
 
 ![Multimodal storybook demo](assets/multimodal.png)
 
+#### React Reconnect
+
+`typescript/ui-react` shows browser reconnect and replay with the standard LangGraph dev server. Start a streamed run, refresh the page while it is still loading, and the React UI reattaches to the same thread so buffered messages catch up before live events continue.
+
 #### Custom React Transport
 
 `typescript/react-custom-transport` shows how to connect `@langchain/react` to your own backend transport. It serves LangGraph protocol events through a local Hono server and exposes a custom A2A projection beside the normal chat stream.
@@ -88,6 +92,7 @@ Then run individual examples:
 pnpm --filter @examples/streaming basic:in-process
 pnpm --filter @examples/streaming subagents:remote
 pnpm dev:multimodal
+pnpm dev:react
 pnpm dev:react-transport
 pnpm dev:angular
 pnpm dev:svelte
@@ -107,5 +112,6 @@ pnpm dev:vue
 - Subgraph and subagent discovery.
 - Human-in-the-loop interrupts and resume commands.
 - Custom projections through `StreamTransformer`, `StreamChannel`, and `extensions`.
+- Reconnect and replay behavior with browser refresh recovery, sequence cursors, filtered subscriptions, and event-id deduplication.
 - Frontend framework hooks for React, Angular, Svelte, and Vue.
 - Media projections for image, audio, and video streams.

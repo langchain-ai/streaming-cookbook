@@ -72,6 +72,12 @@ There is also a model-level streaming script:
 pnpm messages:model
 ```
 
+Browser reconnect/replay is covered by the React UI package:
+
+```bash
+pnpm --filter @examples/ui-react dev
+```
+
 ## Example Map
 
 | Area | Scripts | What it demonstrates |
@@ -84,6 +90,7 @@ pnpm messages:model
 | Human in the loop | `hitl:*` | Pausing on interrupts, reading `run.interrupted` and `run.interrupts`, then resuming with `Command`. |
 | Deep Agents subagents | `subagents:*`, `subagent-status:*` | Reading `run.subagents` or `thread.subagents`, watching delegated task input, messages, tool calls, and completion status. |
 | A2A projection | `a2a:*` | Translating LangGraph protocol events into A2A `status-update` and `artifact-update` events through a custom transformer. |
+| Browser reconnect | `../ui-react` | Refreshing the page mid-stream, preserving the thread id, and rendering replayed token messages through `useMessages`. |
 
 The package currently also has `api:*` script entries for lower-level protocol experiments. Those scripts expect files under `src/api`; if that directory is not present in your checkout, skip them or re-import the API examples before running.
 
@@ -98,6 +105,7 @@ The package currently also has `api:*` script entries for lower-level protocol e
 - `src/shared/custom-transformers.ts`: reusable stream transformers for tool activity and aggregate token/tool stats.
 - `src/shared/a2a-transformer.ts`: emits A2A-compatible events into a remote `StreamChannel`.
 - `src/shared/dev-server.ts`: starts `langgraphjs dev` for remote SDK examples.
+- `src/reconnect/issue-responses.md`: GitHub response drafts for streaming-related issues found during the original reconnect/replay planning pass.
 
 ## Concepts Covered
 
@@ -109,3 +117,4 @@ The scripts are intentionally small and explicit. Use them to learn which projec
 - Use `run.subgraphs` for graph execution structure.
 - Use `run.subagents` for Deep Agents task delegation that should appear in an application UI.
 - Use `run.extensions` or `thread.extensions` when a custom stream transformer shapes events into product-specific data.
+- Use `../ui-react` when you need a browser-level reconnect demo with page refresh, replayed messages, and token streaming through `useMessages`.

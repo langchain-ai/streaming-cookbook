@@ -1,42 +1,33 @@
 {
-  "name": "@examples/ui-multimodal",
+  "name": "@examples/ui-react",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently -k -n agent,web -c magenta,cyan \"npx --no-install langgraphjs dev --no-browser --port 2024\" \"vite\"",
-    "dev:agent": "npx --no-install langgraphjs dev --no-browser --port 2024",
-    "dev:web": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "dev": "pnpm --filter . run --parallel \"/^dev:(client|server)$/\"",
+    "dev:client": "vite",
+    "dev:server": "langgraphjs dev --no-browser",
+    "build:internal": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@langchain/core": "1.1.44",
     "@langchain/langgraph": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2",
+    "@langchain/langgraph-sdk": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2",
     "@langchain/openai": "^1.4.5",
     "@langchain/react": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@48278e2",
     "deepagents": "https://pkg.pr.new/deepagents@9eaa3ac",
-    "langchain": "1.4.0-dev-1777615538778",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "zod": "^4.4.2"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
     "@langchain/langgraph-cli": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
-    "concurrently": "^9.2.1",
-    "eslint": "^10.3.0",
-    "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-react-refresh": "^0.5.2",
-    "globals": "^17.6.0",
     "tsx": "^4.21.0",
-    "typescript": "~6.0.3",
-    "typescript-eslint": "^8.59.1",
+    "typescript": "^6.0.3",
     "vite": "^8.0.10"
   }
 }

@@ -23,6 +23,7 @@ The workspace is declared in `pnpm-workspace.yaml` and includes:
 
 - `streaming`
 - `multimodal`
+- `ui-react`
 - `react-custom-transport`
 - `ui-angular`
 - `ui-svelte`
@@ -36,6 +37,7 @@ Many packages use `workspace:*` LangChain dependencies because these examples we
 | ------------------------ | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `streaming`              | Terminal scripts for in-process and remote streaming projections. | Learn `streamEvents`, `client.threads.stream`, messages, values, subgraphs, subagents, custom transformers, interrupts, and A2A projection streams. |
 | `multimodal`             | React storybook with text, images, audio, and video.              | See how media projections and subgraph-scoped hooks build a rich streamed UI.                                                                       |
+| `ui-react`               | React reconnect chat.                                             | Refresh the page mid-stream and reattach to the same LangGraph thread.                                                                              |
 | `react-custom-transport` | React app with a custom local transport and A2A projection.       | Use when you need to serve protocol events from your own backend shape.                                                                             |
 | `ui-angular`             | Minimal Angular chat.                                             | Learn `@langchain/angular` `injectStream` with optimistic message state.                                                                            |
 | `ui-svelte`              | Minimal Svelte chat.                                              | Learn `@langchain/svelte` `useStream` with reactive message state.                                                                                  |
@@ -59,6 +61,7 @@ Run package commands from the package directory, or from this workspace root wit
 pnpm --filter @examples/streaming basic:in-process
 pnpm --filter @examples/streaming subagents:remote
 pnpm --filter @examples/ui-multimodal dev
+pnpm --filter @examples/ui-react dev
 pnpm --filter @examples/ui-react-transport dev
 pnpm --filter @examples/ui-angular dev
 pnpm --filter @examples/ui-svelte dev
@@ -69,6 +72,7 @@ Convenience scripts are also available at the workspace root:
 
 ```bash
 pnpm dev:multimodal
+pnpm dev:react
 pnpm dev:react-transport
 pnpm dev:angular
 pnpm dev:svelte
@@ -88,5 +92,6 @@ LangGraph dev-server examples read `../../.env` through `langgraph.json`. The te
 - Choose `streaming/custom-transformer` or `react-custom-transport` when your product needs a projection that is not built in.
 - Choose `streaming/subgraphs` when internal graph structure matters to the UI.
 - Choose `streaming/subagents` when Deep Agents task delegation is the user-facing concept.
+- Choose `ui-react` when you want to see browser refresh recovery against a LangGraph dev server.
 - Choose `multimodal` when you need scoped media streams across parallel graph nodes.
 - Choose one of the `ui-*` chat apps when validating framework bindings.

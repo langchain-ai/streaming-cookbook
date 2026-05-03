@@ -11,15 +11,15 @@
   },
   "dependencies": {
     "@langchain/core": "1.1.44",
-    "@langchain/langgraph": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004",
-    "@langchain/langgraph-sdk": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004",
+    "@langchain/langgraph": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2",
+    "@langchain/langgraph-sdk": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2",
     "@langchain/openai": "^1.4.5",
-    "@langchain/vue": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/vue@9c3a004",
+    "@langchain/vue": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/vue@48278e2",
     "vue": "^3.5.33",
     "zod": "^4.4.2"
   },
   "devDependencies": {
-    "@langchain/langgraph-cli": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004",
+    "@langchain/langgraph-cli": "https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-vue": "^6.0.6",

@@ -2,9 +2,10 @@
   "name": "typescript-streaming-cookbook",
   "private": true,
   "scripts": {
-    "build": "pnpm --filter @examples/ui-multimodal build && pnpm --filter @examples/ui-angular build && pnpm --filter @examples/ui-react-transport build:internal && pnpm --filter @examples/ui-svelte build:internal && pnpm --filter @examples/ui-vue build:internal",
+    "build": "pnpm --filter @examples/ui-multimodal build && pnpm --filter @examples/ui-angular build && pnpm --filter @examples/ui-react build:internal && pnpm --filter @examples/ui-react-transport build:internal && pnpm --filter @examples/ui-svelte build:internal && pnpm --filter @examples/ui-vue build:internal",
     "lint": "pnpm --filter @examples/ui-multimodal lint",
     "dev:multimodal": "pnpm --filter @examples/ui-multimodal dev",
+    "dev:react": "pnpm --filter @examples/ui-react dev",
     "dev:react-transport": "pnpm --filter @examples/ui-react-transport dev",
     "dev:angular": "pnpm --filter @examples/ui-angular dev",
     "dev:svelte": "pnpm --filter @examples/ui-svelte dev",

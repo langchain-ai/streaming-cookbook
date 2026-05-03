@@ -21,14 +21,14 @@ importers:
         specifier: 1.1.44
         version: 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
       '@langchain/langgraph':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
       '@langchain/openai':
         specifier: ^1.4.5
         version: 1.4.5(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(ws@8.20.0)
       '@langchain/react':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
       deepagents:
         specifier: https://pkg.pr.new/deepagents@9eaa3ac
         version: https://pkg.pr.new/deepagents@9eaa3ac(langsmith@0.6.0(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))
@@ -49,8 +49,8 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.3.0(jiti@2.6.1))
       '@langchain/langgraph-cli':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@1.8.10(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3)))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@1.8.10(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3)))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
       '@types/node':
         specifier: ^25.6.0
         version: 25.6.0
@@ -103,8 +103,8 @@ importers:
         specifier: 1.1.44
         version: 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
       '@langchain/langgraph':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
       '@langchain/openai':
         specifier: ^1.4.5
         version: 1.4.5(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(ws@8.20.0)
@@ -112,8 +112,8 @@ importers:
         specifier: ^0.0.15
         version: 0.0.15
       '@langchain/react':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
       hono:
         specifier: ^4.12.16
         version: 4.12.16
@@ -158,14 +158,14 @@ importers:
         specifier: 1.1.44
         version: 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
       '@langchain/langgraph':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
       '@langchain/langgraph-cli':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
       '@langchain/langgraph-sdk':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
       '@langchain/protocol':
         specifier: ^0.0.15
         version: 0.0.15
@@ -203,17 +203,17 @@ importers:
         specifier: ^21.2.11
         version: 21.2.11(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)(zone.js@0.16.1))(@angular/platform-browser@21.2.11(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)(zone.js@0.16.1)))(rxjs@7.8.2)
       '@langchain/angular':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/angular@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/angular@9c3a004(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)(zone.js@0.16.1))(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/angular@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/angular@48278e2(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)(zone.js@0.16.1))(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
       '@langchain/core':
         specifier: 1.1.44
         version: 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
       '@langchain/langgraph':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
       '@langchain/langgraph-sdk':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
       '@langchain/openai':
         specifier: ^1.4.5
         version: 1.4.5(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(ws@8.20.0)
@@ -240,11 +240,66 @@ importers:
         specifier: ^21.2.11
         version: 21.2.11(@angular/compiler@21.2.11)(typescript@6.0.3)
       '@langchain/langgraph-cli':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
       typescript:
         specifier: ~6.0.3
         version: 6.0.3
+
+  ui-react:
+    dependencies:
+      '@langchain/core':
+        specifier: 1.1.44
+        version: 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
+      '@langchain/langgraph':
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
+      '@langchain/langgraph-sdk':
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+      '@langchain/openai':
+        specifier: ^1.4.5
+        version: 1.4.5(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(ws@8.20.0)
+      '@langchain/react':
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+      deepagents:
+        specifier: https://pkg.pr.new/deepagents@9eaa3ac
+        version: https://pkg.pr.new/deepagents@9eaa3ac(langsmith@0.6.0(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))
+      react:
+        specifier: ^19.2.5
+        version: 19.2.5
+      react-dom:
+        specifier: ^19.2.5
+        version: 19.2.5(react@19.2.5)
+      zod:
+        specifier: ^4.4.2
+        version: 4.4.2
+    devDependencies:
+      '@langchain/langgraph-cli':
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
+      '@types/node':
+        specifier: ^25.6.0
+        version: 25.6.0
+      '@types/react':
+        specifier: ^19.2.14
+        version: 19.2.14
+      '@types/react-dom':
+        specifier: ^19.2.3
+        version: 19.2.3(@types/react@19.2.14)
+      '@vitejs/plugin-react':
+        specifier: ^6.0.1
+        version: 6.0.1(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(sass@1.97.3)(tsx@4.21.0)(yaml@2.8.3))
+      tsx:
+        specifier: ^4.21.0
+        version: 4.21.0
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vite:
+        specifier: ^8.0.10
+        version: 8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(sass@1.97.3)(tsx@4.21.0)(yaml@2.8.3)
 
   ui-svelte:
     dependencies:
@@ -252,24 +307,24 @@ importers:
         specifier: 1.1.44
         version: 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
       '@langchain/langgraph':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
       '@langchain/langgraph-sdk':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
       '@langchain/openai':
         specifier: ^1.4.5
         version: 1.4.5(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(ws@8.20.0)
       '@langchain/svelte':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/svelte@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/svelte@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/svelte@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/svelte@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
       zod:
         specifier: ^4.4.2
         version: 4.4.2
     devDependencies:
       '@langchain/langgraph-cli':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
       '@sveltejs/vite-plugin-svelte':
         specifier: ^7.0.0
         version: 7.0.0(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(sass@1.97.3)(tsx@4.21.0)(yaml@2.8.3))
@@ -292,17 +347,17 @@ importers:
         specifier: 1.1.44
         version: 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
       '@langchain/langgraph':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
       '@langchain/langgraph-sdk':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
       '@langchain/openai':
         specifier: ^1.4.5
         version: 1.4.5(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(ws@8.20.0)
       '@langchain/vue':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/vue@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/vue@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/vue@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/vue@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
       vue:
         specifier: ^3.5.33
         version: 3.5.33(typescript@6.0.3)
@@ -311,8 +366,8 @@ importers:
         version: 4.4.2
     devDependencies:
       '@langchain/langgraph-cli':
-        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004
-        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
+        specifier: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2
+        version: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14
@@ -1382,12 +1437,12 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@langchain/angular@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/angular@9c3a004':
-    resolution: {integrity: sha512-imQRxTnxMpwKg2HF6c4xWlvVsaKKmhQhj+1FwrekHRMuNqKpeJVYKtncO8Sg09+NChiYvPXUBDmowp3c7+SCIA==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/angular@9c3a004}
-    version: 0.4.6
+  '@langchain/angular@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/angular@48278e2':
+    resolution: {integrity: sha512-Nu+Tdb6L3tMPPmps5NmUgRpy7Vakzas4zddcOWQeEfWPlA8XwuVLOyY6JW3gRxyl63N4xeRIARTy+rlre/pDRQ==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/angular@48278e2}
+    version: 0.4.7
     peerDependencies:
       '@angular/core': ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0
-      '@langchain/core': ^1.1.27
+      '@langchain/core': ^1.1.44
 
   '@langchain/anthropic@1.3.28':
     resolution: {integrity: sha512-gOF8oXJL8xDdYes2KXNI9vFm/9TldBBBHOjuCdt27kganVaQKzLvTw5kV6R4mjbnFagV5CWteNH7APLZYCpdwg==}
@@ -1403,12 +1458,12 @@ packages:
     resolution: {integrity: sha512-RePW1IjGCHr9ua2vcby3aE8mOOz3EnwDZxMEGbNDT91kf14eqkJqxDXvaZFviGdcN9DTrxM5RPQNAHmwSm4tbg==}
     engines: {node: '>=20'}
 
-  '@langchain/langgraph-api@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-api@9c3a00400d74dceef95b19911fae1cb37d801959':
-    resolution: {tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-api@9c3a00400d74dceef95b19911fae1cb37d801959}
+  '@langchain/langgraph-api@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-api@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc':
+    resolution: {integrity: sha512-Gy7dD0dOFpsz5Ryq0rU65oCn1cezxkHm0cKN9T5Bk77UCNMDOvS5Y9EJZHK3v3LY770TS5jwi7843ePNI5Mmdw==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-api@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc}
     version: 1.1.17
     engines: {node: ^18.19.0 || >=20.16.0}
     peerDependencies:
-      '@langchain/core': ^0.3.59 || ^1.1.40
+      '@langchain/core': ^1.1.44
       '@langchain/langgraph': ^0.2.57 || ^0.3.0 || ^0.4.0 || ^1.0.0-alpha || ^1.0.0
       '@langchain/langgraph-checkpoint': ~0.0.16 || ^0.1.0 || ~1.0.0
       '@langchain/langgraph-sdk': ^1.6.5
@@ -1423,6 +1478,13 @@ packages:
     peerDependencies:
       '@langchain/core': ^1.0.1
 
+  '@langchain/langgraph-checkpoint@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-checkpoint@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc':
+    resolution: {integrity: sha512-6Io7OCx7Amk/xOUDZGFQJz8F5zbCS+ihD4mKK3+QW+FtJ18DYfwCla/yCROFbGjSSI5RpUJuDwumwDT9Ows1mg==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-checkpoint@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc}
+    version: 1.0.1
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@langchain/core': ^1.1.44
+
   '@langchain/langgraph-checkpoint@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-checkpoint@9c3a00400d74dceef95b19911fae1cb37d801959':
     resolution: {tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-checkpoint@9c3a00400d74dceef95b19911fae1cb37d801959}
     version: 1.0.1
@@ -1430,8 +1492,8 @@ packages:
     peerDependencies:
       '@langchain/core': ^1.1.40
 
-  '@langchain/langgraph-cli@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004':
-    resolution: {tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004}
+  '@langchain/langgraph-cli@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2':
+    resolution: {integrity: sha512-YNwX3J/sCCkgcdmG246C4QpwTxJlntFcZBb16UnVtbYdpoqxXj90LQKZnzQzFO5BqP29COkuuJlePMN97aS4xw==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2}
     version: 1.1.17
     engines: {node: ^18.19.0 || >=20.16.0}
     hasBin: true
@@ -1447,6 +1509,42 @@ packages:
     peerDependenciesMeta:
       '@langchain/core':
         optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+
+  '@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2':
+    resolution: {integrity: sha512-p7X6H7R/45qMv0KjQEwJpLI5GOgEW8ZllUNpYteUxvd2WtB/z0Fnj7M9fsq0ng9FTHdEeFAPsxqSVoOQl8ZPDA==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2}
+    version: 1.8.10
+    peerDependencies:
+      react: ^18 || ^19
+      react-dom: ^18 || ^19
+      svelte: ^4.0.0 || ^5.0.0
+      vue: ^3.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+
+  '@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc':
+    resolution: {integrity: sha512-p7X6H7R/45qMv0KjQEwJpLI5GOgEW8ZllUNpYteUxvd2WtB/z0Fnj7M9fsq0ng9FTHdEeFAPsxqSVoOQl8ZPDA==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc}
+    version: 1.8.10
+    peerDependencies:
+      react: ^18 || ^19
+      react-dom: ^18 || ^19
+      svelte: ^4.0.0 || ^5.0.0
+      vue: ^3.0.0
+    peerDependenciesMeta:
       react:
         optional: true
       react-dom:
@@ -1492,11 +1590,23 @@ packages:
       vue:
         optional: true
 
-  '@langchain/langgraph-ui@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-ui@9c3a00400d74dceef95b19911fae1cb37d801959':
-    resolution: {tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-ui@9c3a00400d74dceef95b19911fae1cb37d801959}
+  '@langchain/langgraph-ui@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-ui@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc':
+    resolution: {integrity: sha512-cm6sEaQWJh5vIbBV5Vavkpro8W6reDUe3Gc1PXBpnYxotIrPxqGB9MY2R3TRAM6zfhj6iMdIamF7kXRfCkhJSg==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-ui@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc}
     version: 1.1.17
     engines: {node: ^18.19.0 || >=20.16.0}
     hasBin: true
+
+  '@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2':
+    resolution: {integrity: sha512-ABZIn8ltomuDIRnG1JH/lCgpCJXigd0CKcyeaV7jTJznv46VgoL6MBJfbLWL13R4KyamSF3HXIT45ZVw3XV3+w==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2}
+    version: 1.2.9
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@langchain/core': ^1.1.44
+      zod: ^3.25.32 || ^4.2.0
+      zod-to-json-schema: ^3.x
+    peerDependenciesMeta:
+      zod-to-json-schema:
+        optional: true
 
   '@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004':
     resolution: {tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004}
@@ -1519,25 +1629,25 @@ packages:
   '@langchain/protocol@0.0.15':
     resolution: {integrity: sha512-MllvbpMjqHevUm+v94M422mH7XKN+wGCvJRBVROTWBotEDOATYB4Ktk2UheYP859y9o2LlhtPek5t1T9eyfAbQ==}
 
-  '@langchain/react@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@9c3a004':
-    resolution: {tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@9c3a004}
-    version: 0.3.4
+  '@langchain/react@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@48278e2':
+    resolution: {integrity: sha512-aFjF0zdy/yzWwJVKz1FUYECmrRQralwbwYL0DdQqH2HBhxvO0DuDYlxCMsBoobr41i4Vl98iO/ug6vDQPMX5VA==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@48278e2}
+    version: 0.3.5
     peerDependencies:
-      '@langchain/core': ^1.1.27
+      '@langchain/core': ^1.1.44
       react: ^18 || ^19
 
-  '@langchain/svelte@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/svelte@9c3a004':
-    resolution: {integrity: sha512-2XRy1pIRQhN5BDoFgwUacMWOTUAKWoJEZemX+7w9+XYHrDNiZA/kiQ0ph24Q4fCesBCok+mpQ5S6dUT9kW04Qg==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/svelte@9c3a004}
-    version: 0.4.6
+  '@langchain/svelte@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/svelte@48278e2':
+    resolution: {integrity: sha512-ymNu4L6m1xRj+l4LB8xNb4p8N0V7w1DgxkuPZyNFURjOl3E2Thg8ruNQ6BxuxVWxKCe/HGkNyWMNwmEUrK6FQQ==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/svelte@48278e2}
+    version: 0.4.7
     peerDependencies:
-      '@langchain/core': ^1.1.27
+      '@langchain/core': ^1.1.44
       svelte: ^5.0.0
 
-  '@langchain/vue@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/vue@9c3a004':
-    resolution: {integrity: sha512-QkAfKni57yvTMenIfgpjLLeufdMYySFrFpaBEWMyxP4i06m+o8uayjTAKR0dRiWaFFppmpqjEyFFld/u3zIx6g==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/vue@9c3a004}
-    version: 0.4.6
+  '@langchain/vue@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/vue@48278e2':
+    resolution: {integrity: sha512-Q4CSnTiEYdQWOBrn5PvSLnKwysfFLo1qHXRJIuQttxy5mfUbB7BjLEH4IEApJYACZ+65ah3lPJa62pPbCTkXcg==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/vue@48278e2}
+    version: 0.4.7
     peerDependencies:
-      '@langchain/core': ^1.1.27
+      '@langchain/core': ^1.1.44
       vue: ^3.0.0
 
   '@listr2/prompt-adapter-inquirer@3.0.5':
@@ -2794,8 +2904,8 @@ packages:
     resolution: {integrity: sha512-tJtZBBHA6vjIAaF6EnIaq6laBBP9aq/Y3ouVJjEfoHbRBcHBAHYcMh/w8LDrk2PvIMMq8gmopa5D4V8RmbrxGw==}
     engines: {node: '>= 0.10'}
 
-  create-langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/create-langgraph@9c3a00400d74dceef95b19911fae1cb37d801959:
-    resolution: {tarball: https://pkg.pr.new/langchain-ai/langgraphjs/create-langgraph@9c3a00400d74dceef95b19911fae1cb37d801959}
+  create-langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/create-langgraph@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc:
+    resolution: {integrity: sha512-VAsxs1/GbdK70VL/FbKY0q+k0skwCOPo6ZyfhVm7AyNx8zdVZ1AZDFoh0qiq+k9s6ecyWjsPRRciorMSEJE9AQ==, tarball: https://pkg.pr.new/langchain-ai/langgraphjs/create-langgraph@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc}
     version: 1.1.5
     hasBin: true
 
@@ -5583,11 +5693,11 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@langchain/angular@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/angular@9c3a004(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)(zone.js@0.16.1))(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)':
+  '@langchain/angular@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/angular@48278e2(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)(zone.js@0.16.1))(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)':
     dependencies:
       '@angular/core': 21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)(zone.js@0.16.1)
       '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
-      '@langchain/langgraph-sdk': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a00400d74dceef95b19911fae1cb37d801959(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+      '@langchain/langgraph-sdk': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
     transitivePeerDependencies:
       - '@opentelemetry/api'
       - '@opentelemetry/exporter-trace-otlp-proto'
@@ -5643,16 +5753,16 @@ snapshots:
       - openai
       - ws
 
-  '@langchain/langgraph-api@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-api@9c3a00400d74dceef95b19911fae1cb37d801959(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@1.8.10(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3)))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)':
+  '@langchain/langgraph-api@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-api@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@1.8.10(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3)))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)':
     dependencies:
       '@babel/code-frame': 7.29.0
       '@hono/node-server': 1.19.14(hono@4.12.16)
       '@hono/node-ws': 1.3.0(@hono/node-server@1.19.14(hono@4.12.16))(hono@4.12.16)
       '@hono/zod-validator': 0.7.6(hono@4.12.16)(zod@4.4.2)
       '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
-      '@langchain/langgraph': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
+      '@langchain/langgraph': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
       '@langchain/langgraph-checkpoint': 1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))
-      '@langchain/langgraph-ui': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-ui@9c3a00400d74dceef95b19911fae1cb37d801959
+      '@langchain/langgraph-ui': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-ui@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc
       '@langchain/protocol': 0.0.15
       '@types/json-schema': 7.0.15
       '@typescript/vfs': 1.6.4(typescript@6.0.3)
@@ -5684,16 +5794,16 @@ snapshots:
       - utf-8-validate
       - ws
 
-  ? '@langchain/langgraph-api@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-api@9c3a00400d74dceef95b19911fae1cb37d801959(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)'
+  ? '@langchain/langgraph-api@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-api@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)'
   : dependencies:
       '@babel/code-frame': 7.29.0
       '@hono/node-server': 1.19.14(hono@4.12.16)
       '@hono/node-ws': 1.3.0(@hono/node-server@1.19.14(hono@4.12.16))(hono@4.12.16)
       '@hono/zod-validator': 0.7.6(hono@4.12.16)(zod@4.4.2)
       '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
-      '@langchain/langgraph': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
+      '@langchain/langgraph': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)
       '@langchain/langgraph-checkpoint': 1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))
-      '@langchain/langgraph-ui': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-ui@9c3a00400d74dceef95b19911fae1cb37d801959
+      '@langchain/langgraph-ui': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-ui@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc
       '@langchain/protocol': 0.0.15
       '@types/json-schema': 7.0.15
       '@typescript/vfs': 1.6.4(typescript@6.0.3)
@@ -5713,7 +5823,7 @@ snapshots:
       winston-console-format: 1.0.8
       zod: 4.4.2
     optionalDependencies:
-      '@langchain/langgraph-sdk': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+      '@langchain/langgraph-sdk': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
     transitivePeerDependencies:
       - '@opentelemetry/api'
       - '@opentelemetry/exporter-trace-otlp-proto'
@@ -5735,6 +5845,11 @@ snapshots:
       '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
       uuid: 10.0.0
 
+  '@langchain/langgraph-checkpoint@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-checkpoint@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))':
+    dependencies:
+      '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
+      uuid: 10.0.0
+
   '@langchain/langgraph-checkpoint@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-checkpoint@9c3a00400d74dceef95b19911fae1cb37d801959(@langchain/core@1.1.43-dev-1777615538778(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))':
     dependencies:
       '@langchain/core': 1.1.43-dev-1777615538778(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
@@ -5745,14 +5860,14 @@ snapshots:
       '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
       uuid: 10.0.0
 
-  '@langchain/langgraph-cli@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@1.8.10(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3)))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)':
+  '@langchain/langgraph-cli@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@1.8.10(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3)))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)':
     dependencies:
       '@babel/code-frame': 7.29.0
       '@commander-js/extra-typings': 13.1.0(commander@13.1.0)
-      '@langchain/langgraph-api': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-api@9c3a00400d74dceef95b19911fae1cb37d801959(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@1.8.10(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3)))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
+      '@langchain/langgraph-api': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-api@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@1.8.10(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3)))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
       chokidar: 4.0.3
       commander: 13.1.0
-      create-langgraph: https://pkg.pr.new/langchain-ai/langgraphjs/create-langgraph@9c3a00400d74dceef95b19911fae1cb37d801959
+      create-langgraph: https://pkg.pr.new/langchain-ai/langgraphjs/create-langgraph@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc
       dedent: 1.7.2
       dotenv: 16.6.1
       execa: 9.6.1
@@ -5766,7 +5881,7 @@ snapshots:
       winston: 3.19.0
       winston-console-format: 1.0.8
       yaml: 2.8.3
-      zod: 3.25.76
+      zod: 4.4.2
     transitivePeerDependencies:
       - '@langchain/core'
       - '@langchain/langgraph'
@@ -5783,14 +5898,14 @@ snapshots:
       - utf-8-validate
       - ws
 
-  '@langchain/langgraph-cli@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)':
+  '@langchain/langgraph-cli@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-cli@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)':
     dependencies:
       '@babel/code-frame': 7.29.0
       '@commander-js/extra-typings': 13.1.0(commander@13.1.0)
-      '@langchain/langgraph-api': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-api@9c3a00400d74dceef95b19911fae1cb37d801959(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
+      '@langchain/langgraph-api': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-api@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)))(@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0))(@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(typescript@6.0.3)(ws@8.20.0)
       chokidar: 4.0.3
       commander: 13.1.0
-      create-langgraph: https://pkg.pr.new/langchain-ai/langgraphjs/create-langgraph@9c3a00400d74dceef95b19911fae1cb37d801959
+      create-langgraph: https://pkg.pr.new/langchain-ai/langgraphjs/create-langgraph@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc
       dedent: 1.7.2
       dotenv: 16.6.1
       execa: 9.6.1
@@ -5804,7 +5919,7 @@ snapshots:
       winston: 3.19.0
       winston-console-format: 1.0.8
       yaml: 2.8.3
-      zod: 3.25.76
+      zod: 4.4.2
     transitivePeerDependencies:
       - '@langchain/core'
       - '@langchain/langgraph'
@@ -5834,6 +5949,46 @@ snapshots:
       svelte: 5.55.5(@typescript-eslint/types@8.59.1)
       vue: 3.5.33(typescript@6.0.3)
     optional: true
+
+  '@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)':
+    dependencies:
+      '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
+      '@langchain/protocol': 0.0.15
+      '@types/json-schema': 7.0.15
+      p-queue: 9.2.0
+      p-retry: 7.1.1
+      uuid: 13.0.1
+    optionalDependencies:
+      react: 19.2.5
+      react-dom: 19.2.5(react@19.2.5)
+      svelte: 5.55.5(@typescript-eslint/types@8.59.1)
+      vue: 3.5.33(typescript@6.0.3)
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+      - '@opentelemetry/exporter-trace-otlp-proto'
+      - '@opentelemetry/sdk-trace-base'
+      - openai
+      - ws
+
+  '@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)':
+    dependencies:
+      '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
+      '@langchain/protocol': 0.0.15
+      '@types/json-schema': 7.0.15
+      p-queue: 9.2.0
+      p-retry: 7.1.1
+      uuid: 13.0.1
+    optionalDependencies:
+      react: 19.2.5
+      react-dom: 19.2.5(react@19.2.5)
+      svelte: 5.55.5(@typescript-eslint/types@8.59.1)
+      vue: 3.5.33(typescript@6.0.3)
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+      - '@opentelemetry/exporter-trace-otlp-proto'
+      - '@opentelemetry/sdk-trace-base'
+      - openai
+      - ws
 
   '@langchain/langgraph-sdk@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a004(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)':
     dependencies:
@@ -5875,13 +6030,35 @@ snapshots:
       - openai
       - ws
 
-  '@langchain/langgraph-ui@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-ui@9c3a00400d74dceef95b19911fae1cb37d801959':
+  '@langchain/langgraph-ui@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-ui@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc':
     dependencies:
       '@commander-js/extra-typings': 13.1.0(commander@13.1.0)
       commander: 13.1.0
       esbuild: 0.25.12
       esbuild-plugin-tailwindcss: 2.2.0
       zod: 4.4.2
+
+  '@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)':
+    dependencies:
+      '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
+      '@langchain/langgraph-checkpoint': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-checkpoint@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))
+      '@langchain/langgraph-sdk': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+      '@langchain/protocol': 0.0.15
+      '@standard-schema/spec': 1.1.0
+      uuid: 10.0.0
+      zod: 4.4.2
+    optionalDependencies:
+      zod-to-json-schema: 3.25.2(zod@4.4.2)
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+      - '@opentelemetry/exporter-trace-otlp-proto'
+      - '@opentelemetry/sdk-trace-base'
+      - openai
+      - react
+      - react-dom
+      - svelte
+      - vue
+      - ws
 
   '@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.43-dev-1777615538778(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@3.25.76)':
     dependencies:
@@ -5949,28 +6126,6 @@ snapshots:
       - vue
       - ws
 
-  '@langchain/langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)(zod-to-json-schema@3.25.2(zod@4.4.2))(zod@4.4.2)':
-    dependencies:
-      '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
-      '@langchain/langgraph-checkpoint': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-checkpoint@9c3a00400d74dceef95b19911fae1cb37d801959(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))
-      '@langchain/langgraph-sdk': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a00400d74dceef95b19911fae1cb37d801959(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
-      '@langchain/protocol': 0.0.15
-      '@standard-schema/spec': 1.1.0
-      uuid: 10.0.0
-      zod: 4.4.2
-    optionalDependencies:
-      zod-to-json-schema: 3.25.2(zod@4.4.2)
-    transitivePeerDependencies:
-      - '@opentelemetry/api'
-      - '@opentelemetry/exporter-trace-otlp-proto'
-      - '@opentelemetry/sdk-trace-base'
-      - openai
-      - react
-      - react-dom
-      - svelte
-      - vue
-      - ws
-
   '@langchain/openai@1.4.5(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(ws@8.20.0)':
     dependencies:
       '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
@@ -5982,10 +6137,10 @@ snapshots:
 
   '@langchain/protocol@0.0.15': {}
 
-  '@langchain/react@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)':
+  '@langchain/react@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/react@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)':
     dependencies:
       '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
-      '@langchain/langgraph-sdk': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a00400d74dceef95b19911fae1cb37d801959(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+      '@langchain/langgraph-sdk': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
       react: 19.2.5
     transitivePeerDependencies:
       - '@opentelemetry/api'
@@ -5997,10 +6152,10 @@ snapshots:
       - vue
       - ws
 
-  '@langchain/svelte@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/svelte@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)':
+  '@langchain/svelte@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/svelte@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)':
     dependencies:
       '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
-      '@langchain/langgraph-sdk': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a00400d74dceef95b19911fae1cb37d801959(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+      '@langchain/langgraph-sdk': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
       svelte: 5.55.5(@typescript-eslint/types@8.59.1)
     transitivePeerDependencies:
       - '@opentelemetry/api'
@@ -6012,10 +6167,10 @@ snapshots:
       - vue
       - ws
 
-  '@langchain/vue@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/vue@9c3a004(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)':
+  '@langchain/vue@https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/vue@48278e2(@langchain/core@1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0))(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)':
     dependencies:
       '@langchain/core': 1.1.44(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(ws@8.20.0)
-      '@langchain/langgraph-sdk': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@9c3a00400d74dceef95b19911fae1cb37d801959(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
+      '@langchain/langgraph-sdk': https://pkg.pr.new/langchain-ai/langgraphjs/@langchain/langgraph-sdk@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc(openai@6.35.0(ws@8.20.0)(zod@4.4.2))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(svelte@5.55.5(@typescript-eslint/types@8.59.1))(vue@3.5.33(typescript@6.0.3))(ws@8.20.0)
       vue: 3.5.33(typescript@6.0.3)
     transitivePeerDependencies:
       - '@opentelemetry/api'
@@ -7111,7 +7266,7 @@ snapshots:
       object-assign: 4.1.1
       vary: 1.1.2
 
-  create-langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/create-langgraph@9c3a00400d74dceef95b19911fae1cb37d801959:
+  create-langgraph@https://pkg.pr.new/langchain-ai/langgraphjs/create-langgraph@48278e2df8aa7ae77c8fa5575526cd569d5b6ecc:
     dependencies:
       '@clack/prompts': 0.9.1
       '@commander-js/extra-typings': 13.1.0(commander@13.1.0)
