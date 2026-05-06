@@ -1,0 +1,505 @@
+body {
+  margin: 0;
+  background: #030710;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.a2ui-shell {
+  --bg-primary: #030710;
+  --bg-secondary: #0d1322;
+  --bg-card: #161f34;
+  --text-primary: #f2faff;
+  --text-secondary: #99d3ff;
+  --accent: #7fc8ff;
+  --accent-bright: #006ddd;
+
+  box-sizing: border-box;
+  display: grid;
+  gap: 22px;
+  min-height: 100vh;
+  padding: 48px;
+  background:
+    radial-gradient(circle at top left, rgba(0, 109, 221, 0.26), transparent 30rem),
+    var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.hero-card,
+.composer,
+.surface-card,
+.debug-card {
+  box-sizing: border-box;
+  width: min(980px, 100%);
+  margin: 0 auto;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 28px;
+  background: color-mix(in srgb, var(--bg-secondary) 92%, transparent);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+}
+
+.hero-card {
+  display: grid;
+  gap: 18px;
+  padding: 34px;
+}
+
+.eyebrow,
+.composer button,
+.composer span,
+.section-heading span,
+.debug-card span,
+.error {
+  font-family:
+    "IBM Plex Mono",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+  letter-spacing: -0.02em;
+}
+
+.eyebrow,
+.section-heading span,
+.debug-card span {
+  color: var(--accent);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  max-width: 760px;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+
+h2 {
+  margin-top: 6px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+code {
+  font-family:
+    "IBM Plex Mono",
+    ui-monospace,
+    monospace;
+}
+
+.composer {
+  display: grid;
+  gap: 14px;
+  padding: 22px;
+}
+
+.composer textarea {
+  width: 100%;
+  min-height: 116px;
+  box-sizing: border-box;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 20px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font: inherit;
+  line-height: 1.5;
+  resize: vertical;
+  padding: 16px;
+}
+
+.composer textarea::placeholder {
+  color: color-mix(in srgb, var(--text-secondary) 70%, transparent);
+}
+
+.composer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.composer button {
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #030710;
+  cursor: pointer;
+  padding: 12px 18px;
+}
+
+.composer button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.composer span {
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+}
+
+.surface-card {
+  display: grid;
+  gap: 20px;
+  min-height: 420px;
+  overflow: hidden;
+  padding: 26px;
+}
+
+.section-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.section-heading code {
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-radius: 999px;
+  color: var(--accent);
+  padding: 8px 12px;
+}
+
+.empty-state {
+  display: grid;
+  min-height: 260px;
+  place-items: center;
+  border: 1px dashed color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 20px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.empty-state.loading {
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: a2ui-loading-spin 0.8s linear infinite;
+}
+
+.loading-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.surface-list {
+  --a2ui-color-surface: #161f34;
+  --a2ui-color-on-surface: #f2faff;
+  --a2ui-color-border: color-mix(in srgb, var(--accent) 35%, transparent);
+  --a2ui-color-primary: var(--accent);
+  --a2ui-color-on-primary: #030710;
+  --a2ui-color-secondary: #0d1322;
+  --a2ui-color-on-secondary: #f2faff;
+  --a2ui-border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  --a2ui-border-radius: 18px;
+  --a2ui-card-background: #161f34;
+  --a2ui-card-border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  --a2ui-card-border-radius: 20px;
+  --a2ui-card-box-shadow: none;
+  --a2ui-card-margin: 0;
+  --a2ui-card-padding: 18px;
+  --a2ui-column-gap: 14px;
+  --a2ui-row-gap: 14px;
+  --a2ui-list-gap: 10px;
+  --a2ui-text-body-color: var(--text-primary);
+  --a2ui-text-caption-color: var(--text-secondary);
+  --a2ui-input-background: #0d1322;
+  --a2ui-input-border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  --a2ui-input-border-radius: 12px;
+  --a2ui-input-color: var(--text-primary);
+  --a2ui-button-background: var(--accent);
+  --a2ui-button-color: #030710;
+  --a2ui-button-border-radius: 999px;
+
+  display: grid;
+  gap: 18px;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.surface-list > * {
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #0d1322;
+  color: var(--text-primary);
+  padding: 22px;
+}
+
+.surface-list * {
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.surface-list [style*="flex-direction: row"] {
+  /* Row defaults to align:stretch in A2UI, which makes sibling Buttons fill row height. */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.surface-list [style*="flex-direction: row"] button {
+  align-self: center;
+  flex: 0 0 auto;
+}
+
+/* Ensure button text doesn't overflow and handles object values gracefully */
+.surface-list button p,
+.surface-list button .body {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.surface-list h2,
+.surface-list h3,
+.surface-list p {
+  margin-block: 0;
+}
+
+.surface-list h2 {
+  font-size: 1.45rem;
+  line-height: 1.15;
+}
+
+.surface-list h3 {
+  font-size: 1.08rem;
+  line-height: 1.2;
+}
+
+.surface-list p {
+  line-height: 1.4;
+}
+
+/* Generated profile cards need room; avoid over-compressing every A2UI column. */
+.surface-list > div > div {
+  padding: 22px !important;
+}
+
+.surface-list [style*="flex-direction: column"] {
+  gap: 10px !important;
+}
+
+.surface-list [style*="flex-direction: row"] {
+  gap: 12px !important;
+}
+
+.surface-list [style*="justify-content: space-between"] {
+  gap: 18px !important;
+}
+
+.surface-list img[style*="border-radius: 50%"] {
+  flex: 0 0 auto;
+}
+
+.surface-list .material-symbols-outlined,
+.surface-list span[class*="material"] {
+  flex: 0 0 auto;
+  min-width: 1.4rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.surface-list [style*="width: 100%"][style*="height: 1px"] {
+  margin: 20px 0 !important;
+}
+
+.surface-list div[style*="color: gray"][style*="padding: 4px"] {
+  display: inline-grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  color: transparent !important;
+}
+
+.surface-list div[style*="color: gray"][style*="padding: 4px"]::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 2px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: a2ui-loading-spin 0.8s linear infinite;
+}
+
+.surface-list input,
+.surface-list textarea,
+.surface-list select {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  border-radius: 12px;
+  background: #0d1322;
+  color: var(--text-primary);
+  font: inherit;
+  padding: 10px 12px;
+}
+
+.surface-list button {
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #030710;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px 14px;
+}
+
+/*
+ * Global `p` / heading rules set light blue body text; without this, markdown
+ * <p> inside A2UI buttons overrides the button's inherited color and becomes
+ * unreadable on --accent pill backgrounds.
+ */
+.surface-list button p,
+.surface-list button .h1,
+.surface-list button .h2,
+.surface-list button .h3,
+.surface-list button .h4,
+.surface-list button .h5,
+.surface-list button .body,
+.surface-list button .caption {
+  color: var(--a2ui-color-on-primary, #030710);
+}
+
+/*
+ * Accessibility helper: visually hidden but available to screen readers.
+ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*
+ * Error and warning card styles.
+ */
+.error-card,
+.warning-card {
+  box-sizing: border-box;
+  width: min(980px, 100%);
+  margin: 0 auto;
+  border: 1px solid;
+  border-radius: 16px;
+  padding: 18px 22px;
+  font-family:
+    "IBM Plex Mono",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+}
+
+.error-card {
+  border-color: #ff4d4d;
+  background: rgba(255, 77, 77, 0.1);
+  color: #ff9999;
+}
+
+.error-title,
+.warning-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.error-title {
+  color: #ff4d4d;
+}
+
+.warning-card {
+  border-color: #ffaa33;
+  background: rgba(255, 170, 51, 0.1);
+  color: #ffcc80;
+}
+
+.warning-title {
+  color: #ffaa33;
+}
+
+@keyframes a2ui-loading-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.debug-card {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 18px;
+}
+
+.debug-card > div,
+.error {
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  border-radius: 16px;
+  background: var(--bg-card);
+  padding: 14px;
+}
+
+.debug-card strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.debug-card p {
+  margin-top: 6px;
+}
+
+.error {
+  grid-column: 1 / -1;
+  color: var(--accent);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 760px) {
+  .a2ui-shell {
+    padding: 28px 16px;
+  }
+
+  .debug-card {
+    grid-template-columns: 1fr;
+  }
+}

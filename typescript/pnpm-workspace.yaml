@@ -1,6 +1,7 @@
 packages:
   - "streaming"
   - "multimodal"
+  - "a2ui"
   - "react-custom-transport"
   - "ui-react"
   - "ui-angular"

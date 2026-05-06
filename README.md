@@ -26,10 +26,10 @@ The cookbook tracks these preview docs pages. These APIs and docs are still in p
 Client and framework SDK docs:
 
 - [Client Streaming SDK docs](https://github.com/langchain-ai/langgraphjs/blob/cb/stream-improvements/libs/sdk/docs)
-- [React v1 SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-react/docs)
-- [Vue v1 SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-vue/docs)
-- [Svelte v1 SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-svelte/docs)
-- [Angular v1 SDK docs](https://github.com/langchain-ai/langgraphjs/tree/cb/stream-improvements/libs/sdk-angular/docs)
+- [React v1 SDK docs](https://github.com/langchain-ai/langgraphjs/tree/main/libs/sdk-react/docs)
+- [Vue v1 SDK docs](https://github.com/langchain-ai/langgraphjs/tree/main/libs/sdk-vue/docs)
+- [Svelte v1 SDK docs](https://github.com/langchain-ai/langgraphjs/tree/main/libs/sdk-svelte/docs)
+- [Angular v1 SDK docs](https://github.com/langchain-ai/langgraphjs/tree/main/libs/sdk-angular/docs)
 
 Streaming protocol and generated bindings:
 
@@ -63,6 +63,20 @@ See `typescript/README.md` for the workspace overview and package-by-package com
 
 ![Multimodal storybook demo](assets/multimodal.png)
 
+#### A2UI Generative UI
+
+`typescript/a2ui` demonstrates generative UI where a ReAct Agent produces A2UI v0.9 declarative interface descriptions from natural language prompts. The agent streams messages through a `custom:a2ui` channel; the React frontend consumes them via `@langchain/react`, processes them with `@a2ui/web_core/MessageProcessor`, and renders live surfaces with `@a2ui/react`.
+
+**Key concepts shown**:
+- Custom `StreamTransformer` that parses `A2UI:` prefixed JSON lines from LLM output
+- `useExtension(stream, "a2ui")` hook for subscribing to custom projections
+- Real-time surface building as A2UI `createSurface`, `updateComponents`, and `updateDataModel` messages arrive
+- Action handling for interactive components (buttons, forms) with context captured back into the surface data model
+
+**Example prompt**: "Build a team directory with contact cards" produces a complete UI with headers, stat cards, scrollable lists, and detailed profile views without writing any React component code.
+
+See `typescript/a2ui/README.md` for full architecture details, system prompt explanation, and customization ideas.
+
 #### React Reconnect
 
 `typescript/ui-react` shows browser reconnect and replay with the standard LangGraph dev server. Start a streamed run, refresh the page while it is still loading, and the React UI reattaches to the same thread so buffered messages catch up before live events continue.
@@ -91,6 +105,7 @@ Then run individual examples:
 ```bash
 pnpm --filter @examples/streaming basic:in-process
 pnpm --filter @examples/streaming subagents:remote
+pnpm dev:a2ui
 pnpm dev:multimodal
 pnpm dev:react
 pnpm dev:react-transport
