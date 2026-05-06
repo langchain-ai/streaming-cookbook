@@ -15,8 +15,8 @@
     "@langchain/langgraph-sdk": "^1.9.1",
     "@langchain/openai": "^1.4.5",
     "@langchain/vue": "^1.0.1",
-    "vue": "^3.5.33",
-    "zod": "^4.4.2"
+    "vue": "^3.5.34",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@langchain/langgraph-cli": "^1.2.1",

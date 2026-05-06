@@ -15,11 +15,11 @@
     "@langchain/langgraph-sdk": "^1.9.1",
     "@langchain/openai": "^1.4.5",
     "@langchain/svelte": "^1.0.1",
-    "zod": "^4.4.2"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@langchain/langgraph-cli": "^1.2.1",
-    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "@sveltejs/vite-plugin-svelte": "^7.1.1",
     "svelte": "^5.55.5",
     "tsx": "^4.21.0",
     "typescript": "^6.0.3",
