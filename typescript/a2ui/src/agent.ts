@@ -12,9 +12,10 @@
 import {
   MemorySaver,
   StreamChannel,
-  type ProtocolEvent,
   type StreamTransformer,
+  type ProtocolEvent,
 } from "@langchain/langgraph";
+import type { MessagesData } from "@langchain/protocol";
 import type { A2uiMessage } from "@a2ui/web_core/v0_9";
 import { createAgent } from "langchain";
 
@@ -139,57 +140,6 @@ function isA2UIMessage(value: unknown): value is A2uiMessage {
 }
 
 /**
- * Type guard for text-delta event structure.
- */
-function isTextDelta(delta: unknown): delta is { type: "text-delta"; text: string } {
-  return (
-    typeof delta === "object" &&
-    delta !== null &&
-    "type" in delta &&
-    delta.type === "text-delta" &&
-    "text" in delta &&
-    typeof (delta as Record<string, unknown>).text === "string"
-  );
-}
-
-/**
- * Type guard for content event structure.
- */
-function isContentEvent(content: unknown): content is { type: "text"; text: string } {
-  return (
-    typeof content === "object" &&
-    content !== null &&
-    "type" in content &&
-    content.type === "text" &&
-    "text" in content &&
-    typeof (content as Record<string, unknown>).text === "string"
-  );
-}
-
-/**
- * Extracts text delta from various possible event data structures.
- *
- * Supports multiple message formats:
- * - LangGraph text-delta events: `{ delta: { type: "text-delta", text: "..." } }`
- * - Content events: `{ content: { type: "text", text: "..." } }`
- * - Direct text field: `{ text: "..." }`
- *
- * @param data - Event data from the protocol stream.
- * @returns The extracted text string, or empty string if not found.
- */
-function getTextDelta(data: Record<string, unknown>): string {
-  if ("delta" in data && isTextDelta(data.delta)) {
-    return data.delta.text;
-  }
-
-  if ("content" in data && isContentEvent(data.content)) {
-    return data.content.text;
-  }
-
-  return typeof data.text === "string" ? data.text : "";
-}
-
-/**
  * Factory function that creates a stream transformer for parsing A2UI messages.
  *
  * This transformer buffers incoming text chunks, splits them by newlines,
@@ -280,9 +230,9 @@ const createA2UITransformer = (): StreamTransformer<{
     process(event: ProtocolEvent) {
       if (event.method !== "messages") return true;
 
-      const data = event.params.data as Record<string, unknown>;
+      const data = event.params.data as MessagesData;
       if (data.event === "content-block-delta") {
-        const text = getTextDelta(data);
+        const text = data.delta.text;
         if (text.length > 0) {
           buffer += text;
           drainCompleteLines();

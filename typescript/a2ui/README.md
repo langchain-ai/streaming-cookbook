@@ -48,19 +48,19 @@ React and Vite example that renders A2UI v0.9 declarative UI surfaces from a ReA
        │                                  └──────────────────┘
        │
 ┌──────┴──────────┐
-│  useExtension   │
-│  ("a2ui")       │
+│   useExtension  │
+│     ("a2ui")    │
 └────────┬────────┘
          │
-┌────────▼────────┐
+┌────────▼─────────┐
 │ MessageProcessor │
 │ (basicCatalog)   │
-└────────┬────────┘
+└────────┬─────────┘
          │
-┌────────▼────────┐
+┌────────▼─────────┐
 │  A2uiSurface     │
 │  (React Render)  │
-└─────────────────┘
+└──────────────────┘
 ```
 
 ## Run It
