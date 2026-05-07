@@ -15,7 +15,7 @@
     "@langchain/langgraph-sdk": "^1.9.1",
     "@langchain/openai": "^1.4.5",
     "@langchain/react": "^1.0.1",
-    "deepagents": "^1.10.0",
+    "langchain": "^1.4.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "zod": "^4.4.2"

@@ -331,3 +331,358 @@ code {
     max-width: 100%;
   }
 }
+
+/* ==========================================================================
+   Demo Navigator (shared across all demos)
+   ========================================================================== */
+
+.demo-navigator {
+  box-sizing: border-box;
+  width: min(920px, 100%);
+  margin: 0 auto;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 28px;
+  background: var(--bg-secondary);
+  padding: 24px;
+}
+
+.demo-nav-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.demo-nav-header .framework-logo {
+  position: static;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+}
+
+.demo-nav-header .framework-logo svg {
+  width: 30px;
+  height: 30px;
+}
+
+.demo-nav-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.demo-nav-heading {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.demo-nav-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.demo-nav-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  padding: 14px 18px;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-radius: 16px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.demo-nav-item:hover {
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
+.demo-nav-item.active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 15%, var(--bg-card));
+}
+
+.demo-nav-label {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.demo-nav-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Demo content wrapper */
+.demo-content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ==========================================================================
+   Branching Demo Styles
+   ========================================================================== */
+
+.branch-navigator {
+  box-sizing: border-box;
+  width: min(920px, 100%);
+  margin: 0 auto;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 28px;
+  background: var(--bg-secondary);
+  padding: 24px;
+}
+
+.branch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.branch-label {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.thread-info {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.thread-info strong {
+  color: var(--text-primary);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+.branch-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.no-branches {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.branch-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-radius: 12px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.branch-item:hover {
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.branch-item.active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 15%, var(--bg-card));
+}
+
+.branch-icon {
+  font-size: 1.1rem;
+}
+
+.branch-name {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.85rem;
+}
+
+.branch-edit-hint {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reset-btn {
+  padding: 8px 14px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  transition: all 0.15s ease;
+}
+
+.reset-btn:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+/* Message edit form */
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.edit-btn {
+  padding: 4px 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  transition: all 0.15s ease;
+}
+
+.edit-btn:hover {
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+/* Message action buttons container */
+.message-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.branch-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.branch-pill,
+.branch-option {
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+.branch-pill {
+  padding: 4px 8px;
+}
+
+.branch-option {
+  background: transparent;
+  cursor: pointer;
+  padding: 3px 7px;
+}
+
+.branch-option:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  color: var(--accent);
+}
+
+.branch-option:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.regenerate-btn {
+  padding: 4px 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  transition: all 0.15s ease;
+}
+
+.regenerate-btn:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  color: var(--accent);
+}
+
+.regenerate-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.edit-form textarea {
+  width: 100%;
+  min-height: 80px;
+  box-sizing: border-box;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 12px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font: inherit;
+  line-height: 1.5;
+  resize: vertical;
+  padding: 12px;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-actions button {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #030710;
+  cursor: pointer;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.8rem;
+}
+
+.edit-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.edit-actions button.secondary {
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.edit-hint {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}

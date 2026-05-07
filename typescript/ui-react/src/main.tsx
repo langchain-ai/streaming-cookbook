@@ -2,14 +2,16 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 import { App } from "./App.js";
+import {
+  DemoSelectionProvider,
+} from "./shared/index.js";
 
 import "./styles.css";
-import { ReconnectProvider } from "./reconnect.js";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ReconnectProvider>
+    <DemoSelectionProvider>
       <App />
-    </ReconnectProvider>
+    </DemoSelectionProvider>
   </StrictMode>
 );
