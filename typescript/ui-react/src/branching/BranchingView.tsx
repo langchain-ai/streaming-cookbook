@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { BaseMessage, AIMessage } from "@langchain/core/messages";
+import { useMemo, useState } from "react";
 
 import { useBranchingDemo } from "./BranchingProvider.js";
 import { BranchingMessage } from "./components/index.js";
@@ -39,6 +40,11 @@ export function BranchingView() {
     error,
     messages,
   } = useBranchingDemo();
+
+  const showAssistantPendingSpinner = useMemo(
+    () => isAiResponsePending(messages, isLoading),
+    [isLoading, messages]
+  );
 
   function handleSubmit() {
     const nextContent = content.trim();
@@ -83,7 +89,7 @@ export function BranchingView() {
 
       {/* Chat Messages */}
       <section className="chat-card" aria-label="Chat messages">
-        {messages.length === 0 ? (
+        {messages.length === 0 && !isLoading ? (
           <div className="empty-state">
             Start a conversation, then edit any message to create a branch.
           </div>
@@ -106,6 +112,22 @@ export function BranchingView() {
             setEditingId={setEditingId}
           />
         ))}
+
+        {showAssistantPendingSpinner ? (
+          <div
+            aria-live="polite"
+            className="message assistant-loading"
+            role="status"
+          >
+            <div className="message-header">
+              <span>Assistant</span>
+            </div>
+            <span className="assistant-loading-sr-only">Generating response…</span>
+            <div className="message-body">
+              <div className="assistant-loading-spinner" aria-hidden />
+            </div>
+          </div>
+        ) : null}
 
         {messages.length === 0 && !isLoading && error ? (
           <div className="error">
@@ -136,4 +158,14 @@ export function BranchingView() {
       </form>
     </div>
   );
+}
+
+function isAiResponsePending(messages: BaseMessage[], isLoading: boolean) {
+  if (!isLoading) return false;
+  for (let i = messages.length - 1; i >= 0; i -= 1) {
+    if (AIMessage.isInstance(messages[i])) {
+      return messages[i].text.length === 0;
+    }
+  }
+  return true;
 }

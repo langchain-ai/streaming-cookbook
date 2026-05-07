@@ -113,7 +113,6 @@ function messagesFromBranchHistory(flatHistory: ThreadHistoryState[]): BaseMessa
       state.values != null && !Array.isArray(state.values)
         ? state.values.messages
         : undefined;
-    console.log(12221, state, historyToMessages(raw))
     return historyToMessages(raw) ?? [];
   }
   return [];
@@ -188,22 +187,8 @@ export function BranchingProvider({ children }: { children: ReactNode }) {
   const branchContext = useMemo(() => {
     return getBranchContext(activeBranch, checkpointHistory);
   }, [activeBranch, checkpointHistory]);
-  console.log('ahha', branchContext)
 
   const streamMessages = useMessages(stream);
-
-  const latestCheckpointId = useMemo(
-    () =>
-      getLatestCheckpointId(checkpointEvents) ??
-      history[0]?.checkpoint?.checkpoint_id,
-    [checkpointEvents, history]
-  );
-
-  const isViewingLiveHead = useMemo(() => {
-    const headId = branchContext.threadHead?.checkpoint?.checkpoint_id;
-    if (headId == null || latestCheckpointId == null) return false;
-    return headId === latestCheckpointId;
-  }, [branchContext.threadHead, latestCheckpointId]);
 
   const branchMessages = useMemo(
     () => messagesFromBranchHistory(branchContext.flatHistory),
@@ -211,19 +196,18 @@ export function BranchingProvider({ children }: { children: ReactNode }) {
   );
 
   const messages = useMemo(() => {
-    if (isViewingLiveHead && stream.isLoading) {
+    // While any run is in flight (including fork/regenerate), always mirror the
+    // stream. Until history refreshes after the run, branch head checkpoints
+    // lag behind live checkpoint events, which would otherwise keep stale
+    // branch messages on screen with no token-by-token updates.
+    if (stream.isLoading) {
       return streamMessages;
     }
     if (branchMessages.length > 0) {
       return branchMessages;
     }
     return streamMessages;
-  }, [
-    branchMessages,
-    isViewingLiveHead,
-    stream.isLoading,
-    streamMessages,
-  ]);
+  }, [branchMessages, stream.isLoading, streamMessages]);
 
   const historyMetadata = useMemo(() => {
     const byMessageId = new Map<string, BranchMetadata>();
