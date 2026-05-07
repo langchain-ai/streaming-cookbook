@@ -129,6 +129,8 @@ export function BranchingProvider({ children }: { children: ReactNode }) {
   const [history, setHistory] = useState<ThreadHistoryState[]>([]);
   const [activeBranch, setActiveBranch] = useState<string>("");
   const shouldSelectForkHeadRef = useRef(false);
+  /** Latest checkpoint id from stream events (buffer may clear before history refresh when replay is off). */
+  const lastStreamCheckpointIdRef = useRef<string | undefined>(undefined);
 
   // Bind to the LangGraph stream
   const stream = useStream({
@@ -146,6 +148,11 @@ export function BranchingProvider({ children }: { children: ReactNode }) {
     [checkpointEvents, history]
   );
 
+  useEffect(() => {
+    const id = getLatestCheckpointId(checkpointEvents);
+    if (typeof id === "string") lastStreamCheckpointIdRef.current = id;
+  }, [checkpointEvents]);
+
   // Fetch checkpoint history from server
   const refreshHistory = useCallback(async () => {
     if (!stream.threadId) return;
@@ -160,8 +167,10 @@ export function BranchingProvider({ children }: { children: ReactNode }) {
           checkpointEvents
         );
         const latestCheckpointId =
+          lastStreamCheckpointIdRef.current ??
           getLatestCheckpointId(checkpointEvents) ??
-          statesForBranching[0]?.checkpoint?.checkpoint_id;
+          pickLatestCheckpointIdFromHistory(statesForBranching);
+        lastStreamCheckpointIdRef.current = undefined;
 
         if (latestCheckpointId) {
           const forkBranch = findBranchForCheckpoint(latestCheckpointId, mergedStates);
@@ -498,6 +507,34 @@ function getLatestCheckpointId(checkpointEvents: CheckpointEvent[]) {
     if (typeof id === "string") return id;
   }
   return undefined;
+}
+
+/** History order is not guaranteed; pick the likely thread tip for branch resolution. */
+function pickLatestCheckpointIdFromHistory(
+  states: ThreadHistoryState[]
+): string | undefined {
+  let bestId: string | undefined;
+  let bestTime = -Infinity;
+  for (const state of states) {
+    const id = state.checkpoint?.checkpoint_id;
+    if (typeof id !== "string") continue;
+    const time =
+      typeof state.created_at === "string"
+        ? Date.parse(state.created_at)
+        : typeof state.created_at === "number"
+          ? state.created_at
+          : NaN;
+    const t = Number.isFinite(time) ? time : 0;
+    if (
+      bestId == null ||
+      t > bestTime ||
+      (t === bestTime && id > bestId)
+    ) {
+      bestTime = t;
+      bestId = id;
+    }
+  }
+  return bestId;
 }
 
 export function useBranchingDemo() {
