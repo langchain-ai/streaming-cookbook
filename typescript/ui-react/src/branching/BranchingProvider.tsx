@@ -195,6 +195,10 @@ export function BranchingProvider({ children }: { children: ReactNode }) {
     [branchContext.flatHistory]
   );
 
+  /** Resume runs from whatever branch the UI is displaying (SDK default is thread “latest”). */
+  const branchTipCheckpointId =
+    branchContext.threadHead?.checkpoint?.checkpoint_id;
+
   const messages = useMemo(() => {
     // While any run is in flight (including fork/regenerate), always mirror the
     // stream. Until history refreshes after the run, branch head checkpoints
@@ -318,17 +322,20 @@ export function BranchingProvider({ children }: { children: ReactNode }) {
     setActiveBranch("");
   }, []);
 
-  // Submit new prompt
+  // Submit new prompt — anchor to the viewed branch tip so forks keep prior turns.
   const submitPrompt = useCallback(
     (content: string) => {
       const nextContent = content.trim();
       if (nextContent.length === 0 || stream.isLoading) return;
 
-      void stream.submit({
-        messages: [{ content: nextContent, type: "human" }],
-      });
+      void stream.submit(
+        { messages: [{ content: nextContent, type: "human" }] },
+        branchTipCheckpointId != null
+          ? { forkFrom: { checkpointId: branchTipCheckpointId } }
+          : undefined
+      );
     },
-    [stream]
+    [branchTipCheckpointId, stream]
   );
 
   const value = useMemo<BranchingContextValue>(
