@@ -17,10 +17,10 @@
     "@langchain/openai": "^1.4.5",
     "@langchain/protocol": "^0.0.15",
     "@langchain/react": "^1.0.1",
-    "hono": "^4.12.16",
+    "hono": "^4.12.18",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "zod": "^4.4.2"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
