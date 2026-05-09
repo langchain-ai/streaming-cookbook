@@ -1,0 +1,30 @@
+[project]
+name = "streaming-cookbook-python"
+version = "0.1.0"
+description = "Runnable Python examples for LangChain and LangGraph streaming APIs."
+requires-python = ">=3.11"
+dependencies = [
+  "deepagents @ git+https://github.com/langchain-ai/deepagents@nh/deepagent-streamer#subdirectory=libs/deepagents",
+  "langchain==1.3.0a1",
+  "langchain-anthropic",
+  "langchain-core==1.4.0a2",
+  "langgraph==1.2.0a5",
+  "langgraph-cli",
+  "langgraph-sdk",
+]
+
+[tool.uv]
+package = true
+prerelease = "allow"
+override-dependencies = ["langgraph==1.2.0a5"]
+
+[project.scripts]
+basic = "streaming_examples.scripts.basic:main"
+messages = "streaming_examples.scripts.messages:main"
+messages-model = "streaming_examples.scripts.messages_model:main"
+parallel = "streaming_examples.scripts.parallel:main"
+custom-transformer = "streaming_examples.scripts.custom_transformer:main"
+subgraphs = "streaming_examples.scripts.subgraphs:main"
+hitl = "streaming_examples.scripts.human_in_the_loop:main"
+subagents = "streaming_examples.scripts.subagents:main"
+a2a = "streaming_examples.scripts.a2a:main"
