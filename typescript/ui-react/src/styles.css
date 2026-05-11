@@ -430,6 +430,48 @@ code {
   gap: 22px;
 }
 
+.demo-landing .demo-landing-links {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.demo-landing .demo-landing-links li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+.demo-landing .demo-landing-links li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.demo-landing-link {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.95rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.demo-landing-link:hover {
+  color: var(--accent-bright);
+  text-decoration: underline;
+}
+
+.demo-landing-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
 /* ==========================================================================
    Branching Demo Styles
    ========================================================================== */

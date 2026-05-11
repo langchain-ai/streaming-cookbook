@@ -13,13 +13,16 @@ import { useState, type ReactNode } from "react";
  */
 export type DemoId = "reconnect" | "branching";
 
+/** Set when no `?demo=` query is present (overview / landing). */
+export type ActiveDemo = DemoId | null;
+
 type DemoConfig = {
   id: DemoId;
   label: string;
   description: string;
 };
 
-const DEMOS: DemoConfig[] = [
+export const DEMOS: DemoConfig[] = [
   {
     id: "reconnect",
     label: "Reconnect & Replay",
@@ -33,8 +36,8 @@ const DEMOS: DemoConfig[] = [
 ];
 
 type DemoShellProps = {
-  /** The currently active demo */
-  activeDemo: DemoId;
+  /** The currently active demo, or `null` on the overview. */
+  activeDemo: ActiveDemo;
   /** Callback when user switches demos */
   onDemoChange: (demo: DemoId) => void;
   /** The demo content to render */

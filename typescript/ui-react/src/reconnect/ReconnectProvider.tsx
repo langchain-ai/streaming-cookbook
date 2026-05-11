@@ -4,7 +4,6 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useRef,
   useState,
 } from "react";
 
@@ -45,7 +44,7 @@ type MessageRow = {
   replayed: boolean;
 };
 
-type ReconnectContextValue = {
+export type ReconnectContextValue = {
   didReconnect: boolean;
   error: unknown;
   isLoading: boolean;
@@ -111,7 +110,13 @@ function getMessageId(message: { id?: string | null }, index: number) {
   return message.id ?? `message-${index}`;
 }
 
-export function ReconnectProvider({ children }: { children: ReactNode }) {
+export function ReconnectProvider({
+  children,
+}: {
+  children:
+    | ReactNode
+    | ((value: ReconnectContextValue) => ReactNode);
+}) {
   /**
    * Read once on mount. The value is intentionally stable for the lifetime of
    * this React tree; changing threads is modeled as clearing storage and
@@ -249,40 +254,11 @@ export function ReconnectProvider({ children }: { children: ReactNode }) {
     ]
   );
 
-  /**
-   * Keep the anchor outside the app shell so it truly represents the bottom of
-   * the page, including the composer below the chat transcript.
-   */
   return (
     <ReconnectContext.Provider value={value}>
-      {children}
-      <PageBottomAutoScroll isLoading={stream.isLoading} messages={messages} />
+      {typeof children === "function" ? children(value) : children}
     </ReconnectContext.Provider>
   );
-}
-
-function PageBottomAutoScroll({
-  isLoading,
-  messages,
-}: {
-  isLoading: boolean;
-  messages: BaseMessage[];
-}) {
-  const bottomRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    /**
-     * Token deltas update the last message in place, so the dependency is the
-     * whole messages array from the SDK. Loading changes also matter because a
-     * final hydration/update can land just as the run settles.
-     */
-    bottomRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-    });
-  }, [messages, isLoading]);
-
-  return <div aria-hidden="true" ref={bottomRef} />;
 }
 
 export function useReconnectDemo() {

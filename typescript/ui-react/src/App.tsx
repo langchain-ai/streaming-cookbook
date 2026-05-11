@@ -1,6 +1,11 @@
 import { BranchingProvider, BranchingView } from "./branching/index.js";
 import { ReconnectProvider, ReconnectView } from "./reconnect/index.js";
-import { useDemoSelection, DemoShell } from "./shared/index.js";
+import {
+  DemoLandingView,
+  DemoShell,
+  PageBottomAutoScroll,
+  useDemoSelection,
+} from "./shared/index.js";
 
 /**
  * App
@@ -18,7 +23,7 @@ import { useDemoSelection, DemoShell } from "./shared/index.js";
  * 1. Create a new directory under src/
  * 2. Export a Provider and View from that directory
  * 3. Add the demo to DemoShell's DEMOS array
- * 4. Add a case in the switch below
+ * 4. Add a case in the switch below (and an entry in `DEMOS` in DemoShell)
  */
 export function App() {
   const { activeDemo, setActiveDemo } = useDemoSelection();
@@ -34,6 +39,7 @@ export function App() {
         return (
           <ReconnectProvider key="reconnect">
             <ReconnectView />
+            <PageBottomAutoScroll />
           </ReconnectProvider>
         );
       case "branching":
@@ -43,11 +49,7 @@ export function App() {
           </BranchingProvider>
         );
       default:
-        return (
-          <ReconnectProvider key="reconnect">
-            <ReconnectView />
-          </ReconnectProvider>
-        );
+        return <DemoLandingView />;
     }
   }
 

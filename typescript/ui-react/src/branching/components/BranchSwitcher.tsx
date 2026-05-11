@@ -4,12 +4,12 @@ export function BranchSwitcher({
 }: {
   metadata: {
     branch?: string;
-    branchOptions?: string[];
+    siblingBranches?: string[];
     parentCheckpointId?: string;
   };
   onSelectBranch: (branch: string) => void;
 }) {
-  const options = metadata.branchOptions ?? [];
+  const options = metadata.siblingBranches ?? [];
   if (options.length === 0) {
     return (
       <span className="branch-pill">

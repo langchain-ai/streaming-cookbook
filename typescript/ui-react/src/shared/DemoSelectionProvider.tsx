@@ -9,19 +9,19 @@ import {
   type ReactNode,
 } from "react";
 
-import type { DemoId } from "./DemoShell.js";
+import type { ActiveDemo, DemoId } from "./DemoShell.js";
 
 const DEMO_SEARCH_PARAM = "demo";
 
-function readDemoFromLocation(): DemoId {
+function readDemoFromLocation(): ActiveDemo {
   const raw = new URLSearchParams(window.location.search).get(DEMO_SEARCH_PARAM);
   if (raw === "reconnect" || raw === "branching") return raw;
-  return "reconnect";
+  return null;
 }
 
 type DemoSelectionContextValue = {
-  activeDemo: DemoId;
-  setActiveDemo: (demo: DemoId) => void;
+  activeDemo: ActiveDemo;
+  setActiveDemo: (demo: ActiveDemo) => void;
 };
 
 const DemoSelectionContext = createContext<DemoSelectionContextValue | null>(null);
@@ -31,7 +31,7 @@ type DemoSelectionProviderProps = {
 };
 
 export function DemoSelectionProvider({ children }: DemoSelectionProviderProps) {
-  const [activeDemo, setActiveDemoState] = useState<DemoId>(() => readDemoFromLocation());
+  const [activeDemo, setActiveDemoState] = useState<DemoId | null>(() => readDemoFromLocation());
   const activeDemoRef = useRef(activeDemo);
   activeDemoRef.current = activeDemo;
 
@@ -43,10 +43,14 @@ export function DemoSelectionProvider({ children }: DemoSelectionProviderProps) 
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
-  const setActiveDemo = useCallback((demo: DemoId) => {
+  const setActiveDemo = useCallback((demo: ActiveDemo) => {
     if (activeDemoRef.current === demo) return;
     const url = new URL(window.location.href);
-    url.searchParams.set(DEMO_SEARCH_PARAM, demo);
+    if (demo === null) {
+      url.searchParams.delete(DEMO_SEARCH_PARAM);
+    } else {
+      url.searchParams.set(DEMO_SEARCH_PARAM, demo);
+    }
     window.history.pushState(null, "", url);
     setActiveDemoState(demo);
   }, []);
