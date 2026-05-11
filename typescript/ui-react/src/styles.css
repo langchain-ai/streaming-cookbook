@@ -244,10 +244,12 @@ code {
 }
 
 .message {
+  box-sizing: border-box;
   display: grid;
   gap: 8px;
   justify-items: start;
   max-width: 82%;
+  min-width: 0;
   padding: 16px 18px;
   border-radius: 20px;
   background: var(--bg-card);
@@ -273,7 +275,156 @@ code {
 
 .message p {
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
   line-height: 1.55;
+}
+
+.reasoning-meta-card {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+}
+
+.reasoning-meta-card button:last-child {
+  border: 0;
+  background: var(--accent);
+  color: #030710;
+}
+
+.reasoning-inline-code {
+  font-size: 0.88em;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--accent) 14%, var(--bg-card));
+}
+
+.reasoning-ai-response {
+  box-sizing: border-box;
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  width: 100%;
+}
+
+.thinking-bubble {
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg-card));
+  padding: 12px 14px;
+}
+
+.thinking-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+}
+
+.thinking-icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+}
+
+.thinking-label {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.thinking-chevron {
+  transition: transform 0.2s ease;
+  opacity: 0.85;
+}
+
+.thinking-chevron.expanded {
+  transform: rotate(90deg);
+}
+
+.thinking-content {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.thinking-content pre {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  font: inherit;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.thinking-preview {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: color-mix(in srgb, var(--text-secondary) 92%, transparent);
+  overflow-wrap: anywhere;
+  line-height: 1.45;
+}
+
+.thinking-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-top-color: var(--accent);
+  animation: thinking-spin 0.85s linear infinite;
+}
+
+.thinking-spinner-small {
+  width: 10px;
+  height: 10px;
+  border-width: 1.5px;
+}
+
+.message-thinking-text {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+@keyframes thinking-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.reasoning-text-bubble {
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+}
+
+.reasoning-text-bubble p {
+  margin: 0;
+}
+
+.reasoning-cursor {
+  animation: reasoning-blink 1s step-end infinite;
+  margin-left: 2px;
+  color: var(--accent);
+}
+
+@keyframes reasoning-blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 .error {

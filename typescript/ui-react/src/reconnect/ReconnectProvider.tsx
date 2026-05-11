@@ -114,8 +114,8 @@ export function ReconnectProvider({
   children,
 }: {
   children:
-    | ReactNode
-    | ((value: ReconnectContextValue) => ReactNode);
+  | ReactNode
+  | ((value: ReconnectContextValue) => ReactNode);
 }) {
   /**
    * Read once on mount. The value is intentionally stable for the lifetime of

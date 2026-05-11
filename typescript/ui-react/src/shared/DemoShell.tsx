@@ -11,18 +11,7 @@ import { useState, type ReactNode } from "react";
  * This keeps each demo focused on its specific concept while providing
  * a consistent user experience across the cookbook.
  */
-export type DemoId = "reconnect" | "branching";
-
-/** Set when no `?demo=` query is present (overview / landing). */
-export type ActiveDemo = DemoId | null;
-
-type DemoConfig = {
-  id: DemoId;
-  label: string;
-  description: string;
-};
-
-export const DEMOS: DemoConfig[] = [
+export const DEMOS = [
   {
     id: "reconnect",
     label: "Reconnect & Replay",
@@ -33,7 +22,17 @@ export const DEMOS: DemoConfig[] = [
     label: "Branching",
     description: "Conversation forking via checkpoint commands",
   },
-];
+  {
+    id: "reasoning",
+    label: "Reasoning tokens",
+    description: "Reasoning summaries vs answer text from content blocks",
+  },
+] as const;
+
+export type DemoId = (typeof DEMOS)[number]["id"];
+
+/** Set when no `?demo=` query is present (overview / landing). */
+export type ActiveDemo = DemoId | null;
 
 type DemoShellProps = {
   /** The currently active demo, or `null` on the overview. */

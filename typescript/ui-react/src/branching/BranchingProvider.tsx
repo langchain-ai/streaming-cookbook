@@ -100,7 +100,7 @@ export function BranchingProvider({ children }: { children: ReactNode }) {
 
   // Bind to the LangGraph stream
   const stream = useStream({
-    assistantId: "agent",
+    assistantId: "basicAgent",
     apiUrl: "http://localhost:2024",
     threadId,
   });

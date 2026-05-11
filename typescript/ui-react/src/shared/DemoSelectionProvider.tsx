@@ -9,14 +9,14 @@ import {
   type ReactNode,
 } from "react";
 
-import type { ActiveDemo, DemoId } from "./DemoShell.js";
+import { DEMOS, type ActiveDemo, type DemoId } from "./DemoShell.js";
 
 const DEMO_SEARCH_PARAM = "demo";
 
 function readDemoFromLocation(): ActiveDemo {
   const raw = new URLSearchParams(window.location.search).get(DEMO_SEARCH_PARAM);
-  if (raw === "reconnect" || raw === "branching") return raw;
-  return null;
+  const match = DEMOS.find((demo) => demo.id === raw);
+  return match?.id ?? null;
 }
 
 type DemoSelectionContextValue = {

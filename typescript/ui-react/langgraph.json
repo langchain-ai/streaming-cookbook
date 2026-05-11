@@ -1,7 +1,8 @@
 {
   "node_version": "22",
   "graphs": {
-    "agent": "./src/agent.mts:agent"
+    "agent": "./src/agent.mts:agent",
+    "basicAgent": "./src/agent.mts:basicAgent"
   },
   "env": "../../.env"
 }

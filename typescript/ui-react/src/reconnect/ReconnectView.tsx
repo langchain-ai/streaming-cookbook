@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
+
+import { AIMessage, type BaseMessage } from "langchain";
 
 import { useReconnectDemo } from "./ReconnectProvider.js";
 
@@ -95,7 +97,7 @@ export function ReconnectView() {
               key={id}
             >
               <span>{message.type === "human" ? "You" : "Assistant"}</span>
-              <p>{message.text}</p>
+              <p>{displayMessageText(message)}</p>
               {didReconnect ? (
                 <small>
                   {replayed ? "replayed after refresh" : "live after reconnect"}
@@ -133,4 +135,19 @@ export function ReconnectView() {
       </form>
     </div>
   );
+}
+
+// Reasoning models can emit reasoning blocks before answer text exists; show
+// either a subtle thinking label or spinner so replay never renders empty bubbles.
+function displayMessageText(message: BaseMessage): ReactNode {
+  if (message.text.trim().length > 0) return message.text;
+  if (
+    AIMessage.isInstance(message) &&
+    message.contentBlocks.some(
+      (block) => block.type === "reasoning" && block.reasoning.trim().length > 0
+    )
+  ) {
+    return <span className="message-thinking-text">Thinking...</span>;
+  }
+  return <span aria-label="Thinking" className="thinking-spinner thinking-spinner-small" role="status" />;
 }

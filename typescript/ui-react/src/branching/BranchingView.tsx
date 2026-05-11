@@ -97,7 +97,7 @@ export function BranchingView() {
 
         {messages.map((message, index) => (
           <BranchingMessage
-
+            key={message.id}
             index={index}
             editingId={editingId}
             isLoading={isLoading}
