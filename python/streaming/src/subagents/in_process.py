@@ -59,7 +59,7 @@ async def main() -> None:
 
     await asyncio.gather(*watchers)
 
-    output = await run.output
+    output = await run.output()
     last = (output or {}).get("messages", [])[-1] if output else None
     print("\n--- Output ---")
     print(getattr(last, "content", last) if last else "(no output)")

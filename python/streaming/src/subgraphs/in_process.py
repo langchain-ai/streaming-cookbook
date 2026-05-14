@@ -48,7 +48,8 @@ async def main() -> None:
                     sys.stdout.write(delta)
                     sys.stdout.flush()
 
-                usage = await msg.usage
+                final_msg = await msg.output
+                usage = getattr(final_msg, "usage_metadata", None) or {}
                 if usage and (usage.get("input_tokens") or usage.get("output_tokens")):
                     sys.stdout.write(
                         f"\n  (tokens: {usage.get('input_tokens') or 0} in / "
@@ -58,7 +59,7 @@ async def main() -> None:
 
         workers.append(asyncio.create_task(consume()))
 
-        output = await sub.output
+        output = await sub.output()
         summary = json.dumps(output, default=str)[:120] if output else "null"
         print(f"\n--- Subgraph {name} completed: {summary} ---")
 

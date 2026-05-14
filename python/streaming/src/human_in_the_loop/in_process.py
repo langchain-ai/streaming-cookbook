@@ -52,10 +52,10 @@ async def main() -> None:
         if text:
             print(f"  [assistant] {text}")
 
-    await run1.output
+    await run1.output()
 
-    interrupted = getattr(run1, "interrupted", False)
-    interrupts = getattr(run1, "interrupts", []) or []
+    interrupted = await run1.interrupted()
+    interrupts = await run1.interrupts() or []
     print(f"\n  interrupted: {interrupted}")
     print(f"  interrupts:  {json.dumps(interrupts, default=str, indent=2)}")
 
@@ -96,9 +96,9 @@ async def main() -> None:
         if text:
             print(f"  [assistant] {text}")
 
-    final_state = await run2.output
+    final_state = await run2.output()
     final_msgs = (final_state or {}).get("messages", []) if final_state else []
-    print(f"\n  interrupted: {getattr(run2, 'interrupted', False)}")
+    print(f"\n  interrupted: {await run2.interrupted()}")
     print(f"  final messages: {len(final_msgs)}")
     print("\nDone.")
 

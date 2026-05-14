@@ -61,7 +61,7 @@ async def main() -> None:
         count_messages(), count_values(), count_events()
     )
 
-    final = await run.output
+    final = await run.output()
     final_msgs = (final or {}).get("messages", []) if final else []
 
     print("\n--- Summary ---")

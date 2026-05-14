@@ -52,7 +52,7 @@ async def main() -> None:
             f"\n  content blocks: {len(blocks) if isinstance(blocks, list) else 1}"
         )
 
-        usage = await message.usage
+        usage = getattr(output, "usage_metadata", None) or {}
         if usage:
             sys.stdout.write(
                 f"\n  tokens: {usage.get('input_tokens') or 0} in, "
@@ -61,7 +61,7 @@ async def main() -> None:
         sys.stdout.write("\n\n")
 
     print("--- Final output ---")
-    state = await run.output
+    state = await run.output()
     last = (state or {}).get("messages", [])[-1] if state else None
     print(last)
 

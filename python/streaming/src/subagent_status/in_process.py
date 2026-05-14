@@ -56,7 +56,7 @@ async def main() -> None:
     async def watch(sub) -> None:
         nonlocal started, completed, failed
         try:
-            await sub.output
+            await sub.output()
             started -= 1
             completed += 1
             print(f"[{elapsed()}] {sub.name}: completed")
