@@ -16,6 +16,7 @@ from __future__ import annotations
 from langchain.agents import create_agent
 from langchain.agents.middleware import HumanInTheLoopMiddleware
 from langchain_core.tools import tool
+from langgraph.checkpoint.memory import InMemorySaver
 from pydantic import BaseModel, Field
 
 from .shared import model
@@ -55,6 +56,7 @@ agent = create_agent(
     model=model,
     tools=[send_release_update_email],
     middleware=[_hitl_middleware],
+    checkpointer=InMemorySaver(),
     system_prompt=(
         "You are a helpful assistant that sends emails on behalf of the user.\n"
         "When the user asks you to send, notify, email, or announce something,\n"

@@ -15,7 +15,6 @@ import asyncio
 import json
 import time
 
-from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.types import Command
 
 from agents.hitl_agent import agent
@@ -23,12 +22,6 @@ from agents.hitl_agent import agent
 
 async def main() -> None:
     thread_id = f"hitl-example-{int(time.time())}"
-    # `create_agent` doesn't accept a checkpointer kwarg directly in
-    # this langchain version; bind one via `with_config` on the
-    # compiled agent or use the checkpointer slot the framework
-    # provides. We attach via runtime config below.
-    checkpointer = InMemorySaver()
-    compiled = agent.with_config({"checkpointer": checkpointer})  # noqa: F841
     config = {"configurable": {"thread_id": thread_id}}
 
     # --- Turn 1: run until interrupt ----------------------------------
@@ -64,20 +57,15 @@ async def main() -> None:
         return
 
     # Build the approval payload the Python middleware expects.
+    # `interrupts` is list[langgraph.types.Interrupt]; each `.value` is
+    # the dict the middleware passed to `interrupt(...)` — for HITL it
+    # carries `action_requests: list[ActionRequest]`.
     decisions: list[dict] = []
     for interrupt in interrupts:
-        payload = interrupt.get("value") if isinstance(interrupt, dict) else None
+        payload = getattr(interrupt, "value", None)
         if not isinstance(payload, dict):
             continue
-        # Python middleware uses snake_case keys.
-        for req in payload.get("action_requests") or []:
-            decisions.append({"type": "approve"})
-        # Some envelopes nest the payload deeper.
-        for req in (
-            payload.get("payload", {}).get("action_requests") or []
-            if isinstance(payload.get("payload"), dict)
-            else []
-        ):
+        for _req in payload.get("action_requests") or []:
             decisions.append({"type": "approve"})
 
     print(f"\n  User decision: APPROVED {len(decisions)} pending action(s)")

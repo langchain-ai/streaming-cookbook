@@ -19,46 +19,61 @@ from typing import Any
 from langgraph.stream import StreamChannel, StreamTransformer
 
 
+def _unwrap_messages(event: dict[str, Any]) -> Any:
+    """Return the payload dict of a `messages` v3 protocol event.
+
+    The graph emits each event as `(payload, metadata)`; the payload
+    carries the `event` discriminator (`message-start`,
+    `content-block-start`, etc.).
+    """
+    data = event.get("params", {}).get("data")
+    if isinstance(data, tuple) and len(data) == 2:
+        return data[0]
+    return data
+
+
 class StatsTransformer(StreamTransformer):
     """Final values — total tool calls and total token usage."""
 
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, scope: tuple[str, ...] = ()) -> None:
+        super().__init__(scope)
         self._tool_calls = 0
         self._tokens = 0
-        self._loop = asyncio.get_event_loop()
-        self._tool_call_count: asyncio.Future[int] = self._loop.create_future()
-        self._total_tokens: asyncio.Future[int] = self._loop.create_future()
+        self._tool_call_count: asyncio.Future[int] | None = None
+        self._total_tokens: asyncio.Future[int] | None = None
 
     def init(self) -> dict[str, Any]:
+        loop = asyncio.get_running_loop()
+        self._tool_call_count = loop.create_future()
+        self._total_tokens = loop.create_future()
         return {
             "toolCallCount": self._tool_call_count,
             "totalTokens": self._total_tokens,
         }
 
     def process(self, event: dict[str, Any]) -> bool:
-        method = event.get("method")
-        data = event.get("params", {}).get("data") or {}
-        # `messages` events sometimes arrive wrapped as (payload, meta).
-        if method == "messages" and isinstance(data, tuple) and len(data) == 2:
-            data = data[0] if isinstance(data[0], dict) else {}
+        if event.get("method") != "messages":
+            return True
+        payload = _unwrap_messages(event)
+        if not isinstance(payload, dict):
+            return True
 
-        if method == "tools" and isinstance(data, dict):
-            if data.get("event") == "tool-started":
+        evt = payload.get("event")
+        if evt == "content-block-start":
+            content = payload.get("content") or {}
+            if isinstance(content, dict) and content.get("type") == "tool_call_chunk":
                 self._tool_calls += 1
-
-        if method == "messages" and isinstance(data, dict):
-            if data.get("event") == "message-finish":
-                usage = data.get("usage") or {}
-                if isinstance(usage, dict):
-                    self._tokens += int(usage.get("input_tokens") or 0)
-                    self._tokens += int(usage.get("output_tokens") or 0)
+        elif evt == "message-finish":
+            usage = payload.get("usage") or {}
+            if isinstance(usage, dict):
+                self._tokens += int(usage.get("input_tokens") or 0)
+                self._tokens += int(usage.get("output_tokens") or 0)
         return True
 
     def finalize(self) -> None:
-        if not self._tool_call_count.done():
+        if self._tool_call_count is not None and not self._tool_call_count.done():
             self._tool_call_count.set_result(self._tool_calls)
-        if not self._total_tokens.done():
+        if self._total_tokens is not None and not self._total_tokens.done():
             self._total_tokens.set_result(self._tokens)
 
     def fail(self, err: BaseException) -> None:  # noqa: ARG002
@@ -74,8 +89,8 @@ class ToolActivityTransformer(StreamTransformer):
     the run ends.
     """
 
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, scope: tuple[str, ...] = ()) -> None:
+        super().__init__(scope)
         self._channel: StreamChannel[dict[str, str]] = StreamChannel("toolActivity")
         # maps tool_call_id -> tool_name
         self._tool_names: dict[str, str] = {}
@@ -84,25 +99,32 @@ class ToolActivityTransformer(StreamTransformer):
         return {"toolActivity": self._channel}
 
     def process(self, event: dict[str, Any]) -> bool:
-        if event.get("method") != "tools":
+        if event.get("method") != "messages":
             return True
-        data = event.get("params", {}).get("data") or {}
-        if not isinstance(data, dict):
+        payload = _unwrap_messages(event)
+        if not isinstance(payload, dict):
             return True
 
-        ev = data.get("event")
-        tcid = data.get("tool_call_id") or ""
-        if ev == "tool-started":
-            name = data.get("tool_name") or "tool"
+        evt = payload.get("event")
+        content = payload.get("content") or {}
+        if not isinstance(content, dict):
+            return True
+
+        # The model streams a tool_call_chunk while it's assembling the
+        # call, then emits a finalized tool_call on block-finish. Python
+        # langgraph doesn't surface a separate tool-execution event in
+        # the v3 protocol, so the chat-model block lifecycle is the best
+        # proxy for "tool started/finished" in a demo.
+        if evt == "content-block-start" and content.get("type") == "tool_call_chunk":
+            name = content.get("name") or "tool"
+            tcid = content.get("id") or ""
             self._channel.push({"name": name, "status": "started"})
             if tcid:
                 self._tool_names[tcid] = name
-        elif ev == "tool-finished":
-            name = self._tool_names.get(tcid, tcid)
+        elif evt == "content-block-finish" and content.get("type") == "tool_call":
+            tcid = content.get("id") or ""
+            name = self._tool_names.get(tcid) or content.get("name") or "tool"
             self._channel.push({"name": name, "status": "finished"})
-        elif ev == "tool-error":
-            name = self._tool_names.get(tcid, tcid)
-            self._channel.push({"name": name, "status": "error"})
         return True
 
 
