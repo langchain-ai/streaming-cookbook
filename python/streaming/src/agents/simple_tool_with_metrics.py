@@ -13,7 +13,7 @@ from shared.custom_transformers import (
 )
 
 # Re-export the simple-tool-graph definition.
-from .simple_tool_graph import graph as graph
+from agents.simple_tool_graph import graph as graph
 
 
 def stream_transformers() -> list:

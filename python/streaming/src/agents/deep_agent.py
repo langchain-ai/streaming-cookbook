@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from deepagents import create_deep_agent
 
-from .shared import MODEL_NAME
+from agents.shared import MODEL_NAME
 
 agent = create_deep_agent(
     model=MODEL_NAME,

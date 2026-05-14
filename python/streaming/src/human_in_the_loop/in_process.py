@@ -17,7 +17,7 @@ import time
 
 from langgraph.types import Command
 
-from agents.hitl_agent import agent
+from agents.hitl_agent import agent_with_memory as agent
 
 
 async def main() -> None:

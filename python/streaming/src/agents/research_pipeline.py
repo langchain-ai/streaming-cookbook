@@ -17,7 +17,7 @@ from langgraph.graph import END, START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode
 from pydantic import BaseModel, Field
 
-from .shared import model, search_web
+from agents.shared import model, search_web
 
 
 class _SummarizeArgs(BaseModel):

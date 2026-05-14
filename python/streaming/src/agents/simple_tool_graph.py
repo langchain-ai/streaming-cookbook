@@ -11,7 +11,7 @@ from langchain_core.messages import AIMessage, SystemMessage
 from langgraph.graph import END, START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode
 
-from .shared import calculator, model, search_web
+from agents.shared import calculator, model, search_web
 
 _model_with_tools = model.bind_tools([search_web, calculator])
 _tool_node = ToolNode([search_web, calculator])
