@@ -15,34 +15,58 @@ The graph is a six-way fan-out after a single storyteller pass:
 ```
 
 Once `storyteller` writes `paragraphs` into state, the six worker nodes
-fire in a single superstep. Each worker is its own graph node so LangGraph
-gives it a stable per-page checkpoint namespace (`<node_name>:<uuid>`),
-which is how the React client scopes `useImages` / `useAudio` /
-`useMessages` to the right per-page slot with no shared-tool plumbing.
+fire in a single superstep. **Each worker is compiled as its own subgraph**
+so LangGraph assigns it a checkpoint namespace of the form
+`<node_name>:<uuid>` — which is how the React client's `useNodeRun` scopes
+`useImages` / `useAudio` / `useMessages` to the right per-page slot.
+Without the subgraph wrapping, parallel function-nodes share the parent's
+root namespace and the frontend collapses all three images onto page 0.
 
-## Stubs vs. the JS sibling
+## Workers as chat models
 
-The TypeScript version uses `ChatOpenAI.bindTools` against OpenAI's
-first-class `image_generation` and audio tools. The Python `langchain-openai`
-package does not yet surface those as bindable tools, so this port calls the
-OpenAI Python SDK directly inside each worker node:
+OpenAI's `image_generation` and audio tools aren't surfaced as bindable
+`ChatOpenAI` tools in the Python `langchain-openai` package yet, but we
+can't just call the SDK directly and shove the result into an `AIMessage`
+either — the v3 `messages` protocol only emits `content-block-start` /
+`content-block-delta` / `content-block-finish` events for *streamed*
+chat-model output. A plain `AIMessage` written into state is visible on
+`run.messages` in-process but never reaches JS clients, so `useImages` /
+`useAudio` see nothing.
 
-- `visualizer_<i>` calls `client.images.generate` (`gpt-image-1`, soft
-  watercolor style guide baked into the prompt) and attaches the resulting
-  URL / revised_prompt onto the `AIMessage`'s `additional_kwargs.image`.
-  Raw image bytes are kept out of persisted state.
-- `narrator_<i>` calls `client.audio.speech.create` (`gpt-4o-mini-tts`,
-  voice `nova`, `mp3`) and writes only metadata (`format`, `byte_length`)
-  to `additional_kwargs.audio`. The audio bytes themselves are deliberately
-  not persisted; the streamed event surfaces the worker's progress under
-  the `narrator_<i>` node namespace.
+The fix: wrap each modality as a `BaseChatModel` subclass whose
+`_astream` yields `ChatGenerationChunk`s carrying the right content
+block. Then the chat-model callback machinery fires the v3 events the
+frontend's `MediaAssembler` consumes.
 
-The architectural shape (parallel fan-out, per-page namespaces, three
-paragraphs) is preserved.
+- **`_ImageGenChatModel`** calls OpenAI's `images.generate` (`gpt-image-1`,
+  soft watercolor style guide in the prompt) and yields a single
+  `AIMessageChunk` with content `[{type:"image", data:<b64>,
+  mime_type:"image/png", encoding:"base64"}]`.
+- **`_NarratorChatModel`** streams `gpt-4o-audio-preview` with
+  `modalities=["text", "audio"]` and `audio.format="pcm16"`. Each
+  streamed chunk yields a `ChatGenerationChunk` carrying the PCM16
+  bytes as an `audio` content block with `mime_type:"audio/pcm"`.
+  The 24 kHz mono PCM matches `useAudioPlayer`'s default sample rate.
 
-The JS sibling attaches a `MemorySaver` checkpointer. This Python build
-drops it because `langgraph-api` provides persistence and rejects graphs
-that bake in a custom one.
+The PCM path is intentional: an mp3 delivered via `audio.speech.create`
+in one shot would route the frontend player through its HTMLAudioElement
+strategy, which doesn't auto-reset `currentTime` after `ended` — replays
+would resume from the end of the clip. PCM16 streaming uses Web Audio
+scheduling, which restarts cleanly on every play.
+
+## Other notable choices
+
+- All OpenAI calls use `AsyncOpenAI`. `langgraph dev`'s blockbuster
+  middleware catches sync HTTP calls on the event loop (including
+  the sync SDK's `time.sleep` retry path).
+- `_paragraphs_reducer` is needed because six parallel subgraphs each
+  echo the parent's `paragraphs` value back unchanged; without a reducer
+  that's six writes per superstep and `InvalidUpdateError` fires.
+- `_message_text` flattens both string-content and list-of-blocks-content
+  AIMessages so the storyteller's output parses correctly regardless of
+  which content shape the model returns.
+- No checkpointer — `langgraph-api` provides its own and rejects graphs
+  that bake one in.
 
 ## Run the backend
 
@@ -63,17 +87,36 @@ repository root:
 
 ```bash
 pnpm install
-pnpm --filter @examples/multimodal dev
+pnpm --filter @examples/ui-multimodal dev
 ```
 
 Open the Vite URL and submit a story prompt. The page renders three
 illustrations and three narrations as they stream in parallel.
 
+## Requires `@langchain/langgraph-sdk` with BaseMessage normalization
+
+The frontend uses `new HumanMessage(prompt)` and ships it through
+`stream.submit(...)`. Older `@langchain/langgraph-sdk` releases call
+`JSON.stringify` on the request body, which invokes
+`BaseMessage.toJSON()` and emits the legacy
+`{lc:1, type:"constructor", id:[...], kwargs:{...}}` envelope. Python's
+`langchain_core.messages.utils._convert_to_message` rejects that shape
+with `MESSAGE_COERCION_FAILURE` on the first input.
+
+This example assumes a `@langchain/langgraph-sdk` release that
+normalizes `BaseMessage` instances to the canonical
+`{type, content, ...}` dict shape before stringify (see
+[langchain-ai/langgraphjs#2395](https://github.com/langchain-ai/langgraphjs/pull/2395)).
+If you see `MESSAGE_COERCION_FAILURE` in the `langgraph dev` log,
+upgrade `@langchain/langgraph-sdk` in the workspace and reinstall.
+
 ## Files
 
-- `src/agent.py`: `StateGraph` with one storyteller node fanning out into
-  six parallel `visualizer_<i>` / `narrator_<i>` workers, exported as `graph`.
-- `langgraph.json`: assistant id (`bedtime-story`), Python version, and
+- `src/agent.py` — `StateGraph` with one storyteller node fanning out into
+  six per-page subgraphs (`visualizer_<i>` / `narrator_<i>`), each driven by
+  a small `BaseChatModel` subclass. Exported as `graph`.
+- `langgraph.json` — assistant id (`bedtime-story`), Python version, and
   shared root `.env` location.
-- `pyproject.toml`: pinned `langgraph-api` / `langgraph-runtime-inmem` combo
-  that works with the current preview release.
+- `pyproject.toml` — pinned `langgraph-api` / `langgraph-runtime-inmem`
+  combo that works with the current preview release, plus `langchain-openai`
+  and a direct `openai` dependency for the async client.
