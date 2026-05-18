@@ -141,3 +141,13 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Python (cookbook's python/ packages)
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.python-version
+
+# langgraph dev / langgraph-api scratch directories
+.langgraph_api/

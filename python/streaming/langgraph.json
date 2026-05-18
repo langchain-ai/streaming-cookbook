@@ -1,0 +1,13 @@
+{
+  "python_version": "3.12",
+  "dependencies": ["."],
+  "graphs": {
+    "simple-tool-graph": "./src/agents/simple_tool_graph.py:graph",
+    "simple-tool-with-metrics": "./src/agents/simple_tool_with_metrics.py:graph",
+    "research-pipeline": "./src/agents/research_pipeline.py:graph",
+    "human-in-the-loop": "./src/agents/hitl_agent.py:agent",
+    "deep-agent": "./src/agents/deep_agent.py:agent",
+    "a2a-research": "./src/agents/a2a_research.py:graph"
+  },
+  "env": "../../.env"
+}
