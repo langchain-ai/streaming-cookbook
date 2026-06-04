@@ -13,7 +13,8 @@ dependencies = [
     "langchain-core>=1.0.0,<2.0.0",
     "langgraph>=1.2.0,<2.0.0",
     "langgraph-prebuilt>=1.0.0,<2.0.0",
-    "langgraph-sdk>=0.3.0,<1.0.0",
+    # v3 ``client.threads.stream()`` requires langgraph-sdk >= 0.4.
+    "langgraph-sdk>=0.4.0,<1.0.0",
     "deepagents>=0.6.0",
     "pydantic>=2.0",
     # The langgraph-api server used by the `remote` examples to serve
@@ -33,9 +34,15 @@ override-dependencies = [
     "langgraph-runtime-inmem==0.29.0.dev1",
 ]
 
+# Use the sibling langgraph repo when developing locally; omit or switch to
+# PyPI once langgraph-sdk 0.4.x is published.
+[tool.uv.sources]
+langgraph-sdk = { path = "../../../python_langgraph/libs/sdk-py", editable = true }
+
 [tool.hatch.build.targets.wheel]
-packages = ["src/agents", "src/basic"]
+packages = ["src/agents", "src/basic", "src/shared"]
 
 [tool.hatch.build.targets.wheel.sources]
 "src/agents" = "agents"
 "src/basic" = "basic"
+"src/shared" = "shared"

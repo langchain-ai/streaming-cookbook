@@ -21,6 +21,12 @@ cd python/streaming
 uv sync
 ```
 
+Remote examples need **langgraph-sdk ≥ 0.4** (`client.threads.stream()`). This
+package pins a path dependency on the sibling
+[`python_langgraph`](../../../python_langgraph) checkout when present; if you
+only have the cookbook repo, install a 0.4+ SDK from PyPI or git once it is
+available.
+
 Optional:
 
 ```bash
@@ -52,27 +58,41 @@ uv run python -m subagent_status.in_process
 uv run python -m a2a.in_process
 ```
 
-> **Note:** the JS sibling has matching `:remote` variants that open an SDK client to `langgraph dev`. Python equivalents aren't included yet — there isn't a Python `langgraph-sdk` client for the streaming protocol. Until that exists, the in-process scripts are the primary entry point; serving these graphs over the wire is covered by the UI examples (which use the JS SDK client against the Python `langgraph dev` server).
+Remote examples spawn a local LangGraph dev server in a child process (see `src/shared/dev_server.py`), connect with `langgraph-sdk`, and stop the server when the script exits — mirroring the TypeScript `:remote` scripts:
+
+```bash
+uv run python -m basic.remote
+uv run python -m messages.remote
+uv run python -m parallel.remote
+uv run python -m custom_transformer.remote
+uv run python -m subgraphs.remote
+uv run python -m human_in_the_loop.remote
+uv run python -m subagents.remote
+uv run python -m subagent_status.remote
+uv run python -m a2a.remote
+```
 
 ## Example Map
 
-| Area | Script | What it demonstrates |
+| Area | Scripts | What it demonstrates |
 | --- | --- | --- |
-| Basic protocol events | `basic.in_process` | Iterating the run stream itself, inspecting protocol event methods and namespaces. |
-| Messages | `messages.in_process` | Streaming text and reasoning deltas, awaiting full message output, reading `usage_metadata`. |
-| Parallel consumers | `parallel.in_process` | Consuming `run.messages`, `run.values`, and raw protocol events concurrently without draining each other. |
-| Custom transformers | `custom_transformer.in_process` | Adding `StreamTransformer` projections under `run.extensions` and exposing remote `StreamChannel` values. |
-| Subgraphs | `subgraphs.in_process` | Discovering nested graph runs with `run.subgraphs`, then reading scoped messages from each. |
-| Human in the loop | `human_in_the_loop.in_process` | Pausing on interrupts, reading `await run.interrupted()` / `await run.interrupts()`, then resuming with `Command(resume=...)`. |
-| Deep Agents subagents | `subagents.in_process`, `subagent_status.in_process` | Reading `run.subagents`, watching delegated task input, messages, tool calls, and completion status. |
-| A2A projection | `a2a.in_process` | Translating LangGraph protocol events into A2A `status-update` and `artifact-update` events through a custom transformer. |
+| Basic protocol events | `basic.in_process`, `basic.remote` | Iterating protocol events and awaiting terminal `output` / `thread.output`. |
+| Messages | `messages.in_process`, `messages.remote` | Streaming text and reasoning deltas, awaiting full message output, reading usage metadata. |
+| Parallel consumers | `parallel.in_process`, `parallel.remote` | Consuming messages, values, and raw protocol events concurrently on one session. |
+| Custom transformers | `custom_transformer.in_process`, `custom_transformer.remote` | `StreamTransformer` projections under `run.extensions` / `thread.extensions`. |
+| Subgraphs | `subgraphs.in_process`, `subgraphs.remote` | Discovering nested runs with `run.subgraphs` / `thread.subgraphs`, then scoped messages. |
+| Human in the loop | `human_in_the_loop.in_process`, `human_in_the_loop.remote` | Interrupts and resume via `Command(resume=...)` or `thread.run.respond(...)`. |
+| Deep Agents subagents | `subagents.in_process`, `subagents.remote`, `subagent_status.*` | `run.subagents` / `thread.subagents`, messages, tool calls, and lifecycle status. |
+| A2A projection | `a2a.in_process`, `a2a.remote` | A2A-shaped events on the `custom:a2a` channel. |
 
 ## API Surface Cheatsheet
 
 A few Python-specific notes that diverge from the JS sibling:
 
-- `await graph.astream_events(input, version="v3")` returns an `AsyncGraphRunStream` — await the call itself, not just the iterator.
-- `run.output`, `run.interrupted`, `run.interrupts` are **methods**, not properties: `await run.output()`. Forgetting the parentheses returns a coroutine that is never awaited.
+- **In-process:** `await graph.astream_events(input, version="v3")` returns an `AsyncGraphRunStream` — await the call itself, not just the iterator.
+- **Remote:** `async with client.threads.stream(assistant_id=...)` returns an `AsyncThreadStream`; use `await thread.output` (property, not a method).
+- **In-process:** `run.output`, `run.interrupted`, `run.interrupts` are **methods**: `await run.output()`.
+- **Remote subagent handles** expose `graph_name` and `trigger_call_id` (not `name` / `callId`); there is no `taskInput` helper on the Python SDK yet.
 - `AsyncChatModelStream` exposes `.text`, `.reasoning`, `.tool_calls`, `.output` (all `AsyncProjection`s — both async-iterable and awaitable). There is no `.usage` projection; read token counts from `(await msg.output).usage_metadata`.
 - Custom `StreamTransformer` subclasses must accept `scope: tuple[str, ...] = ()` in their `__init__` — the mux calls factories as `factory(scope)`.
 - The Python v3 protocol emits two event methods at the top level: `messages` and `values`. Tool activity is derived from `content-block-{start,finish}` blocks of type `tool_call_chunk` / `tool_call` inside messages events, not from a dedicated `tools` event.
@@ -87,3 +107,4 @@ A few Python-specific notes that diverge from the JS sibling:
 - `src/agents/a2a_research.py` — research pipeline compiled with the A2A stream transformer.
 - `src/shared/custom_transformers.py` — reusable stream transformers for tool activity and aggregate token/tool stats.
 - `src/shared/a2a_transformer.py` — emits A2A-compatible events into a `StreamChannel("a2a")`.
+- `src/shared/dev_server.py` — starts `langgraph dev` for remote SDK examples (mirrors `typescript/streaming/src/shared/dev-server.ts`).
