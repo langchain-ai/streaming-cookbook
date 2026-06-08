@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "react-custom-transport"
+version = "0.0.0"
+description = "Python backend for the react-custom-transport cookbook example. Serves Agent Streaming Protocol endpoints via LocalThreadSession so the existing React frontend can use HttpAgentServerAdapter against a Python server."
+requires-python = ">=3.11"
+dependencies = [
+    "langchain>=1.0.0,<2.0.0",
+    "langchain-core>=1.0.0,<2.0.0",
+    "langchain-openai>=1.0.0,<2.0.0",
+    "langgraph>=1.2.0,<2.0.0",
+    "pydantic>=2.0",
+    "python-dotenv>=1.0.0",
+    "starlette>=0.40.0",
+    "uvicorn>=0.30.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
