@@ -19,9 +19,16 @@ The new streaming work moves LangGraph and LangChain from low-level stream-mode 
 
 The cookbook tracks these preview docs pages. These APIs and docs are still in preview and may change:
 
+**TypeScript**
+
 - [LangGraph event streaming](https://docs.langchain.com/oss/javascript/langgraph/event-streaming): LangGraph streaming overview, Event Streaming, remote streaming, namespaces, protocol, `StreamChannel`, and custom transformers.
 - [LangChain event streaming](https://docs.langchain.com/oss/javascript/langchain/event-streaming): LangChain agent streaming projections for messages, reasoning, tool calls, state, output, and extensions.
 - [DeepAgents event streaming](https://docs.langchain.com/oss/javascript/deepagents/event-streaming): Deep Agents subagent streaming, nested messages, subagent tool calls, and subagent-vs-subgraph guidance.
+
+**Python**
+
+- [LangGraph overview](https://docs.langchain.com/oss/python/langgraph/overview): Python graphs, checkpointers, and `astream_events(..., version="v3")`.
+- [LangChain agents (Python)](https://docs.langchain.com/oss/python/langchain/agents): agent construction used by several Python backends in this repo.
 
 Client and framework SDK docs:
 
@@ -48,6 +55,22 @@ cp .env.example .env
 Then fill in the provider keys listed in `.env`. The real `.env` file is ignored by git; keep `.env.example` as the documented template.
 
 ## Examples
+
+Each concept below has a **TypeScript** and/or **Python** package. Most UI examples are split: a Python `langgraph dev` backend plus the existing TypeScript frontend in `typescript/`. The exception is `python/react-custom-transport`, which ships its own React UI.
+
+| Concept | TypeScript | Python |
+| --- | --- | --- |
+| Terminal streaming scripts | `typescript/streaming` | `python/streaming` |
+| Multimodal storybook | `typescript/multimodal` | `python/multimodal` (backend) |
+| A2UI generative UI | `typescript/a2ui` | `python/a2ui` (backend) |
+| React reconnect | `typescript/ui-react` | `python/ui-react` (backend) |
+| Custom React transport | `typescript/react-custom-transport` | `python/react-custom-transport` (full stack) |
+| Angular chat | `typescript/ui-angular` | `python/ui-angular` (backend) |
+| Svelte chat | `typescript/ui-svelte` | `python/ui-svelte` (backend) |
+| Vue chat | `typescript/ui-vue` | `python/ui-vue` (backend) |
+
+- TypeScript workspace overview: [`typescript/README.md`](typescript/README.md)
+- Python workspace overview: [`python/README.md`](python/README.md)
 
 ### TypeScript
 
@@ -116,7 +139,73 @@ pnpm dev:vue
 
 ### Python
 
-`python/` is reserved for Python cookbook examples that mirror the same streaming concepts.
+See `python/README.md` for the package overview, `uv` setup, and per-example commands.
+
+Python examples use [`uv`](https://docs.astral.sh/uv/) per package (`cd python/<example> && uv sync`). They load the same root `.env` as the TypeScript workspace.
+
+#### Terminal Streaming Scripts
+
+`python/streaming` mirrors `typescript/streaming`: in-process and remote scripts for protocol events, message projections, custom transformers, subgraphs, interrupts, Deep Agents subagents, and A2A projections.
+
+```bash
+cd python/streaming
+uv sync
+uv run python -m basic.in_process
+uv run python -m messages.remote
+```
+
+#### Multimodal Storybook (Python backend)
+
+`python/multimodal` serves the same graph wire-shape as `typescript/multimodal` on port `2024`. Run the Python backend, then the unchanged React frontend from `typescript/multimodal`.
+
+```bash
+cd python/multimodal && uv sync && uv run langgraph dev --port 2024
+# other terminal:
+cd typescript && pnpm install && pnpm dev:multimodal
+```
+
+#### A2UI Generative UI (Python backend)
+
+`python/a2ui` exposes the same `custom:a2ui` projection as `typescript/a2ui`. Point the existing React app at the Python dev server with no frontend changes.
+
+```bash
+cd python/a2ui && uv sync && uv run langgraph dev --port 2024
+# other terminal:
+cd typescript && pnpm install && pnpm dev:a2ui
+```
+
+#### React Reconnect (Python backend)
+
+`python/ui-react` serves the same reconnect demo graph as `typescript/ui-react` on port `2024`.
+
+```bash
+cd python/ui-react && uv sync && uv run langgraph dev --port 2024
+# other terminal:
+cd typescript && pnpm install && pnpm dev:react
+```
+
+#### Custom React Transport (full stack)
+
+`python/react-custom-transport` is a self-contained Python stack: `LocalThreadSession` on port `9123`, per-thread checkpoints, tool-calling agent, and a bundled React UI via `HttpAgentServerAdapter`.
+
+```bash
+cd python/react-custom-transport && uv sync && uv run python src/main.py
+# other terminal:
+cd python/react-custom-transport/frontend && npm install && npm run dev
+```
+
+See `python/react-custom-transport/README.md` for the Agent Protocol routes and thread model.
+
+#### Framework Chat SDKs (Python backends)
+
+`python/ui-angular`, `python/ui-svelte`, and `python/ui-vue` each serve a minimal chat agent on port `2024`. Pair them with the matching frontend in `typescript/ui-*`.
+
+```bash
+# Example: Svelte
+cd python/ui-svelte && uv sync && uv run langgraph dev
+# other terminal:
+cd typescript/ui-svelte && pnpm install && pnpm dev
+```
 
 ## Streaming Surfaces Covered
 
