@@ -17,14 +17,14 @@
     "@langchain/openai": "^1.4.7",
     "@langchain/protocol": "^0.0.16",
     "@langchain/react": "^1.0.20",
-    "hono": "^4.12.23",
+    "hono": "^4.12.25",
     "langchain": "^1.4.4",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@types/react": "^19.2.16",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.2",
     "tsx": "^4.22.4",
