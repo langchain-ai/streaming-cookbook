@@ -56,13 +56,17 @@ Then fill in the provider keys listed in `.env`. The real `.env` file is ignored
 
 ## Examples
 
-Each concept below has a **TypeScript** and/or **Python** package. Most UI examples are split: a Python `langgraph dev` backend plus the existing TypeScript frontend in `typescript/`. The exception is `python/react-custom-backend`, which ships its own React UI.
+Each concept below has a **TypeScript** and/or **Python** package. Several UI
+examples pair a Python `langgraph dev` backend with a TypeScript frontend,
+while `typescript/a2ui`, `typescript/openui`, and the custom-backend examples
+also demonstrate self-contained full-stack variants.
 
 | Concept                    | TypeScript                        | Python                                     |
 | -------------------------- | --------------------------------- | ------------------------------------------ |
 | Terminal streaming scripts | `typescript/streaming`            | `python/streaming`                         |
 | Multimodal storybook       | `typescript/multimodal`           | `python/multimodal` (backend)              |
 | A2UI generative UI         | `typescript/a2ui`                 | `python/a2ui` (backend)                    |
+| OpenUI parallel dashboard  | `typescript/openui`               | —                                          |
 | React reconnect            | `typescript/ui-react`             | `python/ui-react` (backend)                |
 | Custom React backend       | `typescript/react-custom-backend` | `python/react-custom-backend` (full stack) |
 | Angular chat               | `typescript/ui-angular`           | `python/ui-angular` (backend)              |
@@ -100,6 +104,19 @@ See `typescript/README.md` for the workspace overview and package-by-package com
 
 See `typescript/a2ui/README.md` for full architecture details, system prompt explanation, and customization ideas.
 
+#### OpenUI Parallel Dashboard
+
+`typescript/openui` demonstrates a Deep Agents coordinator that delegates
+Stripe, PostHog, GitHub, and Calendar panels in one parallel task turn. The
+React client discovers those subagents through `stream.subagents`, scopes
+each panel with `useMessages(stream, snapshot)`, and feeds each independent
+OpenUI Lang stream into its own OpenUI renderer. This shows dynamic panel
+discovery and render isolation without a custom stream transformer or manual
+event demultiplexing.
+
+The example runs with deterministic mock business data by default and
+supports explicitly configured live provider adapters.
+
 #### React Reconnect
 
 `typescript/ui-react` shows browser reconnect and replay with the standard LangGraph dev server. Start a streamed run, refresh the page while it is still loading, and the React UI reattaches to the same thread so buffered messages catch up before live events continue.
@@ -129,6 +146,7 @@ Then run individual examples:
 pnpm --filter @examples/streaming basic:in-process
 pnpm --filter @examples/streaming subagents:remote
 pnpm dev:a2ui
+pnpm dev:openui
 pnpm dev:multimodal
 pnpm dev:react
 pnpm dev:react-custom-backend
@@ -214,6 +232,7 @@ cd typescript/ui-svelte && pnpm install && pnpm dev
 - Message projections for text, reasoning, output, usage, and tool-call chunks.
 - State snapshots and final output through `values` and `output`.
 - Subgraph and subagent discovery.
+- Parallel OpenUI Lang rendering from namespace-scoped subagent messages.
 - Human-in-the-loop interrupts and resume commands.
 - Custom projections through `StreamTransformer`, `StreamChannel`, and `extensions`.
 - Reconnect and replay behavior with browser refresh recovery, sequence cursors, filtered subscriptions, and event-id deduplication.

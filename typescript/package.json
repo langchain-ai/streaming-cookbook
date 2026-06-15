@@ -2,10 +2,11 @@
   "name": "typescript-streaming-cookbook",
   "private": true,
   "scripts": {
-    "build": "pnpm --filter @examples/ui-multimodal build && pnpm --filter @examples/ui-a2ui build:internal && pnpm --filter @examples/ui-angular build && pnpm --filter @examples/ui-react build:internal && pnpm --filter @examples/react-custom-backend build:internal && pnpm --filter @examples/ui-svelte build:internal && pnpm --filter @examples/ui-vue build:internal",
+    "build": "pnpm --filter @examples/ui-multimodal build && pnpm --filter @examples/ui-a2ui build:internal && pnpm --filter @examples/openui build:internal && pnpm --filter @examples/ui-angular build && pnpm --filter @examples/ui-react build:internal && pnpm --filter @examples/react-custom-backend build:internal && pnpm --filter @examples/ui-svelte build:internal && pnpm --filter @examples/ui-vue build:internal",
     "lint": "pnpm --filter @examples/ui-multimodal lint",
     "dev:multimodal": "pnpm --filter @examples/ui-multimodal dev",
     "dev:a2ui": "pnpm --filter @examples/ui-a2ui dev",
+    "dev:openui": "pnpm --filter @examples/openui dev",
     "dev:react": "pnpm --filter @examples/ui-react dev",
     "dev:react-custom-backend": "pnpm --filter @examples/react-custom-backend dev",
     "dev:angular": "pnpm --filter @examples/ui-angular dev",

@@ -1,0 +1,42 @@
+{
+  "name": "@examples/openui",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter . run --parallel \"/^dev:(client|server)$/\"",
+    "dev:client": "vite",
+    "dev:server": "langgraphjs dev --no-browser",
+    "build:internal": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "test:data-sources": "tsx scripts/test-data-sources.mts",
+    "smoke": "tsx scripts/smoke.mts"
+  },
+  "dependencies": {
+    "@langchain/core": "1.1.48",
+    "@langchain/langgraph": "1.3.4",
+    "@langchain/langgraph-sdk": "1.9.15",
+    "@langchain/openai": "1.4.7",
+    "@langchain/react": "1.0.15",
+    "@openuidev/react-headless": "0.8.2",
+    "@openuidev/react-lang": "0.2.6",
+    "@openuidev/react-ui": "0.11.8",
+    "deepagents": "1.10.2",
+    "langchain": "1.4.4",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "zod": "4.4.3",
+    "zustand": "4.5.7"
+  },
+  "devDependencies": {
+    "@langchain/langgraph-cli": "1.2.4",
+    "@types/node": "25.9.1",
+    "@types/react": "19.2.16",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "playwright": "1.60.0",
+    "tsx": "4.22.4",
+    "typescript": "6.0.3",
+    "vite": "8.0.16"
+  }
+}

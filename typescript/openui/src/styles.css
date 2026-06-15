@@ -1,0 +1,748 @@
+/* App shell for the deepagents dashboard. The OpenUI Card is the visual unit
+   inside a content-driven bento grid. */
+
+/* The shell uses the OpenUI kit's own design tokens, including its native
+   prefers-color-scheme light/dark behavior. */
+:root {
+    --bg: var(--openui-background);
+    --surface: var(--openui-foreground);
+    --line: var(--openui-border-default);
+    --line-strong: var(--openui-border-interactive);
+    --text: var(--openui-text-neutral-primary);
+    --muted: var(--openui-text-neutral-secondary);
+    --accent: var(--openui-interactive-accent-default);
+    --accent-hover: var(--openui-interactive-accent-hover);
+    --accent-fg: var(--openui-text-accent-primary);
+    --info: var(--openui-border-info-emphasis);
+    --red: var(--openui-interactive-destructive-accent-default);
+    --radius: var(--openui-radius-xl);
+    --radius-s: var(--openui-radius-m);
+    --shadow: 0 1px 2px oklch(0 0 0 / 0.035);
+    color-scheme: light dark;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family:
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        sans-serif;
+}
+
+/* --- app shell ------------------------------------------------------ */
+
+.app {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 22px 22px;
+    gap: 12px;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex: 0 0 auto;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+}
+
+.brand-copy {
+    min-width: 0;
+}
+
+.brand-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.brand h1 {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    white-space: nowrap;
+}
+
+.openui-attribution {
+    padding: 3px 7px;
+    border: 1px solid var(--line);
+    border-radius: 500px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+        border-color 0.15s ease,
+        color 0.15s ease;
+}
+
+.openui-attribution:hover {
+    border-color: var(--line-strong);
+    color: var(--text);
+}
+
+.tagline {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.brand-mark {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    background:
+        linear-gradient(var(--text) 0 0) 2px 2px / 6px 6px,
+        linear-gradient(var(--text) 0 0) 10px 2px / 6px 6px,
+        linear-gradient(var(--text) 0 0) 2px 10px / 6px 6px,
+        linear-gradient(var(--info) 0 0) 10px 10px / 6px 6px;
+    background-repeat: no-repeat;
+    flex: 0 0 auto;
+    align-self: center;
+}
+
+button {
+    font: inherit;
+    font-weight: 500;
+    border: none;
+    border-radius: 7px;
+    padding: 8px 13px;
+    background: var(--accent);
+    color: var(--accent-fg);
+    cursor: pointer;
+    transition:
+        background 0.15s ease,
+        opacity 0.15s ease,
+        border-color 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+    background: var(--accent-hover);
+}
+
+button:focus-visible,
+.command-panel:has(textarea:focus-visible) {
+    outline: 2px solid var(--info);
+    outline-offset: 2px;
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+button.ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid transparent;
+}
+
+button.ghost:hover:not(:disabled) {
+    color: var(--text);
+    background: var(--openui-sunk);
+}
+
+/* --- dashboard brief ------------------------------------------------ */
+
+.command-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 0 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px;
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.command-panel:focus-within {
+    border-color: var(--line-strong);
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--info) 9%, transparent);
+}
+
+.prompt-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.prompt-label {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+}
+
+.prompt-field textarea {
+    width: 100%;
+    min-height: 44px;
+    max-height: 112px;
+    font: inherit;
+    font-size: 15px;
+    line-height: 1.45;
+    border: none;
+    padding: 0;
+    resize: vertical;
+    background: transparent;
+    color: var(--text);
+    caret-color: var(--accent);
+}
+
+.prompt-field textarea::placeholder {
+    color: var(--muted);
+}
+
+.prompt-field textarea:focus {
+    outline: none;
+}
+
+.command-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+}
+
+.command-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+}
+
+.keyboard-hint {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.build-button {
+    min-height: 34px;
+    padding: 7px 13px;
+    border-radius: 7px;
+    background: var(--text);
+    color: var(--surface);
+}
+
+.build-button:hover:not(:disabled) {
+    background: color-mix(in oklch, var(--text) 86%, transparent);
+}
+
+.composer-loader {
+    width: 13px;
+    height: 13px;
+    border: 2px solid color-mix(in oklch, var(--accent-fg) 35%, transparent);
+    border-top-color: var(--accent-fg);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+.new-dashboard {
+    flex: 0 0 auto;
+    padding: 6px 9px;
+    font-size: 12px;
+}
+
+.presets {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+}
+
+.presets-label {
+    margin-right: 5px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* --- sub bar (chips + summary) -------------------------------------- */
+
+.subbar {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    min-height: 0;
+}
+
+.subbar:empty {
+    display: none;
+}
+
+.chip {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 11.5px;
+    font-weight: 500;
+    box-shadow: none;
+}
+
+.chip:hover:not(:disabled) {
+    color: var(--text);
+    background: var(--openui-sunk);
+}
+
+.chip-active {
+    background: var(--openui-sunk);
+    color: var(--text);
+    border-color: var(--line);
+}
+
+.summary {
+    color: var(--muted);
+    font-size: 12.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.run-error {
+    width: 100%;
+    padding: 8px 10px;
+    border-left: 2px solid var(--red);
+    color: var(--openui-text-danger-primary);
+    background: var(--openui-danger-background);
+    font-size: 12px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* --- bento grid ----------------------------------------------------- */
+
+.grid {
+    flex: 0 0 auto;
+    min-height: 0;
+    display: grid;
+    gap: 12px;
+    align-items: stretch;
+}
+
+/* One panel: single full cell. */
+.grid-n1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(440px, auto);
+    grid-template-areas: "a";
+}
+
+/* Two panels: equal by default. Engineering gets more room than schedule
+   because its tables need materially more horizontal space. */
+.grid-n2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: minmax(400px, auto);
+    grid-template-areas: "a b";
+}
+
+.grid-n2:has(.panel[data-source="github-panel"]):has(
+        .panel[data-source="calendar-panel"]
+    ) {
+    grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+}
+
+/* Three panels: two focused panels followed by a full-width supporting view.
+   This avoids the narrow stacked cells of the old layout. */
+.grid-n3 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(360px, auto));
+    grid-template-areas:
+        "a a a a a a a b b b b b"
+        "c c c c c c c c c c c c";
+}
+
+/* The chart-oriented Stripe panel shares a compact lead row with Calendar.
+   Table-heavy PostHog and GitHub panels receive full-width rows. */
+.grid-n4 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(360px, auto));
+    grid-template-areas:
+        "a a a a a a a d d d d d"
+        "b b b b b b b b b b b b"
+        "c c c c c c c c c c c c";
+}
+
+/* Five or more: preserve useful reading width rather than forcing three
+   narrow columns. */
+.grid-many {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(360px, auto);
+}
+
+.empty,
+.coordinating {
+    flex: 1 1 auto;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.empty-copy {
+    width: min(440px, 100%);
+    text-align: left;
+}
+
+.empty-kicker {
+    color: var(--info);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.empty h2 {
+    margin: 8px 0 7px;
+    font-size: clamp(23px, 3vw, 34px);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+}
+
+.empty p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.coordinating {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* --- panel cell (chrome-less host for the OpenUI Card) -------------- */
+
+.panel {
+    --panel-accent: var(--info);
+    --panel-tint: color-mix(in oklch, var(--panel-accent) 3%, var(--surface));
+    position: relative;
+    container-type: inline-size;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-top: 2px solid var(--panel-accent);
+    background: var(--panel-tint);
+}
+
+.panel[data-source="stripe-panel"] {
+    --panel-accent: oklch(0.62 0.2 300);
+}
+
+.panel[data-source="posthog-panel"] {
+    --panel-accent: oklch(0.72 0.17 55);
+}
+
+.panel[data-source="github-panel"] {
+    --panel-accent: oklch(0.58 0.04 250);
+}
+
+.panel[data-source="calendar-panel"] {
+    --panel-accent: oklch(0.63 0.18 245);
+}
+
+.panel[data-source="general-purpose"] {
+    --panel-accent: oklch(0.65 0.14 165);
+}
+
+.panel-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
+    overflow-y: visible;
+    overflow-x: hidden;
+}
+
+/* Let generated content establish the panel's height. The page scrolls
+   naturally instead of introducing nested scroll areas in every card. */
+.panel-body > * {
+    min-height: 0;
+    height: auto !important;
+}
+
+/* Normalize the kit's generous chat-card styling for dense dashboard tiles. */
+.panel .openui-card-card,
+.panel .openui-card-sunk {
+    padding: 18px;
+    border: 0;
+    border-radius: 9px;
+    box-shadow: none;
+    background: transparent;
+}
+
+.panel .openui-card {
+    gap: 16px;
+}
+
+/* Keep the floating source badge clear of OpenUI card titles. */
+.panel .openui-header-top {
+    padding-right: 78px;
+}
+
+.panel .openui-header {
+    position: static;
+    z-index: 1;
+    background: transparent;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+}
+
+/* A plain source label keeps status visible without adding another pill. */
+.panel-badge {
+    position: absolute;
+    top: 14px;
+    right: 15px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    font-size: 10px;
+    color: var(--muted);
+    pointer-events: none;
+}
+
+.panel-source {
+    font-weight: 600;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+    color: var(--panel-accent);
+}
+
+.panel-activity {
+    color: var(--info);
+}
+
+.panel-badge[data-status="complete"] {
+    opacity: 1;
+}
+
+.panel-badge[data-status="error"] {
+    color: var(--red);
+    border-color: var(--openui-border-danger-emphasis);
+}
+
+@container (max-width: 360px) {
+    .panel-activity {
+        display: none;
+    }
+}
+
+.spinner {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--line-strong);
+    border-top-color: var(--info);
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- skeleton (card-like placeholder before content streams) -------- */
+
+.panel-skeleton {
+    flex: 1 1 auto;
+    background: var(--surface);
+    border: 0;
+    border-radius: 8px;
+    padding: 16px 15px;
+    box-shadow: none;
+}
+
+.panel-skeleton .skeleton-task {
+    margin: 14px 2px 0;
+    color: var(--muted);
+    font-size: 12.5px;
+}
+
+.panel-error {
+    margin: 0;
+    color: var(--red);
+    font-size: 13px;
+}
+
+.skeleton-bar {
+    height: 10px;
+    border-radius: 3px;
+    margin-bottom: 9px;
+    width: 55%;
+    background: linear-gradient(
+        90deg,
+        var(--openui-sunk) 25%,
+        var(--openui-highlight) 45%,
+        var(--openui-sunk) 65%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.skeleton-bar.wide {
+    width: 85%;
+}
+
+@keyframes shimmer {
+    from {
+        background-position: 180% 0;
+    }
+    to {
+        background-position: -20% 0;
+    }
+}
+
+/* On smaller screens the bento collapses to a single scrolling column. */
+@media (max-width: 1100px) {
+    .tagline {
+        display: none;
+    }
+}
+
+@media (max-width: 920px) {
+    .app {
+        min-height: 100dvh;
+    }
+
+    .command-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .presets {
+        max-width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+    }
+
+    .presets::-webkit-scrollbar {
+        display: none;
+    }
+
+    .chip {
+        white-space: nowrap;
+    }
+
+    .summary,
+    .run-error {
+        white-space: normal;
+    }
+
+    .grid {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: none !important;
+        grid-template-areas: none !important;
+        grid-auto-rows: minmax(280px, auto);
+    }
+    .panel {
+        grid-area: auto !important;
+    }
+
+    .panel-body {
+        height: auto;
+        overflow: visible;
+    }
+
+    .panel-body > * {
+        min-height: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .app {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .brand h1 {
+        font-size: 15px;
+    }
+
+    .openui-attribution {
+        padding-inline: 6px;
+        font-size: 9px;
+    }
+
+    .openui-attribution-prefix {
+        display: none;
+    }
+
+    .command-panel {
+        padding: 10px;
+    }
+
+    .prompt-field textarea {
+        font-size: 14px;
+    }
+
+    .command-submit {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .new-dashboard {
+        padding-inline: 8px;
+    }
+
+    .keyboard-hint {
+        display: none;
+    }
+
+    .build-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .empty,
+    .coordinating {
+        padding-inline: 20px;
+    }
+}
