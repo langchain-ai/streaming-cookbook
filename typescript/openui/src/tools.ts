@@ -1,9 +1,10 @@
 /**
  * Stable tool contracts for the four dashboard panel agents.
  *
- * DATA_MODE controls whether the execute bodies use deterministic mocks,
- * live provider adapters, or an explicitly enabled live-to-mock fallback.
- * Tool names, schemas, and display-ready return shapes stay constant.
+ * Each tool attempts its live provider adapter first and automatically falls
+ * back to deterministic mock data when credentials or providers are
+ * unavailable. Tool names, schemas, and display-ready return shapes stay
+ * constant.
  *
  * @module tools
  */

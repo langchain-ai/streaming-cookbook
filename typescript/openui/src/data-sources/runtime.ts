@@ -4,32 +4,8 @@ import { promisify } from "node:util";
 const execFileAsync = promisify(execFile);
 
 export type DataProvider = "stripe" | "posthog" | "github" | "google-calendar";
-export type DataMode = "mock" | "live" | "live-with-mock-fallback";
 
 type JsonObject = Record<string, unknown>;
-
-const DATA_MODES = new Set<DataMode>([
-  "mock",
-  "live",
-  "live-with-mock-fallback",
-]);
-
-const providerEnvPrefix = (provider: DataProvider): string =>
-  provider.toUpperCase().replaceAll("-", "_");
-
-const readMode = (provider: DataProvider): DataMode => {
-  const raw =
-    process.env[`${providerEnvPrefix(provider)}_DATA_MODE`] ??
-    process.env.DATA_MODE ??
-    "mock";
-
-  if (!DATA_MODES.has(raw as DataMode)) {
-    throw new Error(
-      `Invalid data mode "${raw}" for ${provider}. Use mock, live, or live-with-mock-fallback.`
-    );
-  }
-  return raw as DataMode;
-};
 
 export const requiredEnv = (name: string): string => {
   const value = process.env[name]?.trim();
@@ -82,48 +58,16 @@ export const runDataSource = async (
   live: () => Promise<unknown>,
   mock: () => unknown | Promise<unknown>
 ): Promise<string> => {
-  let mode: DataMode;
-  try {
-    mode = readMode(provider);
-  } catch (error) {
-    return JSON.stringify(
-      withMeta({}, {
-        provider,
-        source: "unavailable",
-        error: errorMessage(error),
-      })
-    );
-  }
-
-  if (mode === "mock") {
-    return JSON.stringify(
-      withMeta(await mock(), { provider, source: "mock", mode })
-    );
-  }
-
   try {
     return JSON.stringify(
-      withMeta(await live(), { provider, source: "live", mode })
+      withMeta(await live(), { provider, source: "live" })
     );
   } catch (error) {
-    const message = errorMessage(error);
-    if (mode === "live-with-mock-fallback") {
-      return JSON.stringify(
-        withMeta(await mock(), {
-          provider,
-          source: "mock",
-          mode,
-          fallbackReason: message,
-        })
-      );
-    }
-
     return JSON.stringify(
-      withMeta({}, {
+      withMeta(await mock(), {
         provider,
-        source: "unavailable",
-        mode,
-        error: message,
+        source: "mock",
+        fallbackReason: errorMessage(error),
       })
     );
   }

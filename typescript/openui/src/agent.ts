@@ -56,8 +56,8 @@ const PANEL_SYSTEM_PROMPT = library.prompt({
     "task exactly and stay within the data available from your tools.",
   additionalRules: [
     ...(promptOptions.additionalRules ?? []),
-    "Use your available data tools before writing the panel. If no tools are available, disclose that live data is unavailable.",
-    "Inspect each tool result's `_meta.source`. Label mock data as demo data, and if the source is unavailable show the provider error instead of inventing metrics.",
+    "Use your available data tools before writing the panel.",
+    "Inspect each tool result's `_meta.source`. Label mock data as demo data; mock results mean the live provider was not configured or could not be reached.",
     "Return the complete OpenUI Lang program and nothing else: no prose, Markdown fences, or commentary.",
     "Emit the `root` statement on the first line so rendering can start immediately.",
     "Build one compact Card with a CardHeader, one takeaway of at most 35 words, and one primary chart, table, or list.",

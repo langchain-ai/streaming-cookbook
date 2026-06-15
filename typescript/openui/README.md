@@ -17,10 +17,10 @@ renders its OpenUI Lang output as soon as it arrives.
   module loads. Every panel receives the same OpenUI component vocabulary;
   the coordinator's task description supplies the panel-specific objective.
 - **Stable data tools:** each panel has provider-specific LangChain tools
-  whose JSON contracts remain the same in mock and live modes.
-- **Explicit source behavior:** data tools return `_meta.source` as `mock`,
-  `live`, or `unavailable`. Live failures only use mock data when
-  `live-with-mock-fallback` is explicitly configured.
+  whose JSON contracts remain the same for live and mock results.
+- **Automatic fallback:** data tools attempt the live provider first, then
+  return deterministic mock data if credentials are missing or a request
+  fails.
 
 ### Frontend
 
@@ -92,25 +92,13 @@ or write a custom dashboard brief.
 
 ## Data Sources
 
-The default `DATA_MODE=mock` needs no provider credentials. The mock payloads
-are deterministic and date-relative so the example is repeatable while still
-exercising the full fetch-then-render flow.
+Data sources require no mode configuration. Each tool attempts its live
+provider and automatically falls back to deterministic, date-relative mock
+data when credentials are missing, a local CLI is unavailable, or a provider
+request fails.
 
-Enable live providers independently in the root `.env`:
-
-```bash
-STRIPE_DATA_MODE=live
-POSTHOG_DATA_MODE=live
-GITHUB_DATA_MODE=live
-GOOGLE_CALENDAR_DATA_MODE=live
-```
-
-Available modes are:
-
-- `mock`: always use deterministic example data.
-- `live`: use the provider and return an unavailable result on failure.
-- `live-with-mock-fallback`: use mock data after a live failure and include
-  the failure reason in `_meta`.
+Every result includes `_meta.source` as `live` or `mock`. Mock results also
+include `_meta.fallbackReason`, and panels label them as demo data.
 
 Provider behavior:
 

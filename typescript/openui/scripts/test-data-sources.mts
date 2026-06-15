@@ -4,12 +4,52 @@ import {
   posthogTools,
   stripeTools,
 } from "../src/tools.ts";
+import { runDataSource } from "../src/data-sources/runtime.ts";
 
-process.env.DATA_MODE = "mock";
-delete process.env.STRIPE_DATA_MODE;
-delete process.env.POSTHOG_DATA_MODE;
-delete process.env.GITHUB_DATA_MODE;
-delete process.env.GOOGLE_CALENDAR_DATA_MODE;
+delete process.env.STRIPE_SECRET_KEY;
+delete process.env.POSTHOG_PERSONAL_API_KEY;
+delete process.env.POSTHOG_PROJECT_ID;
+delete process.env.GITHUB_TOKEN;
+delete process.env.GH_TOKEN;
+delete process.env.GOOGLE_ACCESS_TOKEN;
+delete process.env.GOOGLE_CLIENT_ID;
+delete process.env.GOOGLE_CLIENT_SECRET;
+delete process.env.GOOGLE_REFRESH_TOKEN;
+
+// Avoid picking up locally authenticated CLIs during this deterministic test.
+process.env.GITHUB_TRANSPORT = "token";
+process.env.GOOGLE_CALENDAR_TRANSPORT = "api";
+
+const liveResult = JSON.parse(
+  await runDataSource(
+    "stripe",
+    async () => ({ value: "live" }),
+    () => ({ value: "mock" })
+  )
+) as { value?: string; _meta?: { source?: string } };
+if (liveResult.value !== "live" || liveResult._meta?.source !== "live") {
+  throw new Error("runDataSource did not preserve a successful live result");
+}
+
+const fallbackResult = JSON.parse(
+  await runDataSource(
+    "stripe",
+    async () => {
+      throw new Error("test provider failure");
+    },
+    () => ({ value: "mock" })
+  )
+) as {
+  value?: string;
+  _meta?: { source?: string; fallbackReason?: string };
+};
+if (
+  fallbackResult.value !== "mock" ||
+  fallbackResult._meta?.source !== "mock" ||
+  fallbackResult._meta.fallbackReason !== "test provider failure"
+) {
+  throw new Error("runDataSource did not fall back after a provider failure");
+}
 
 const cases = [
   [stripeTools[0], {}],
@@ -33,10 +73,17 @@ for (const [dataTool, input] of cases) {
     throw new Error(`${dataTool.name} returned a non-string result`);
   }
   const parsed = JSON.parse(raw) as {
-    _meta?: { provider?: string; source?: string };
+    _meta?: {
+      provider?: string;
+      source?: string;
+      fallbackReason?: string;
+    };
   };
   if (parsed._meta?.source !== "mock") {
-    throw new Error(`${dataTool.name} did not use mock mode`);
+    throw new Error(`${dataTool.name} did not fall back to mock data`);
+  }
+  if (!parsed._meta.fallbackReason) {
+    throw new Error(`${dataTool.name} did not explain its mock fallback`);
   }
   console.log(
     `${dataTool.name}: ${parsed._meta.provider}/${parsed._meta.source}`
