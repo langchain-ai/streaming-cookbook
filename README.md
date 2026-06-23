@@ -114,6 +114,8 @@ OpenUI Lang stream into its own OpenUI renderer. This shows dynamic panel
 discovery and render isolation without a custom stream transformer or manual
 event demultiplexing.
 
+![OpenUI parallel dashboard demo](assets/openui-dashboard.png)
+
 The example runs with deterministic mock business data by default and
 supports explicitly configured live provider adapters.
 
