@@ -22,6 +22,7 @@
  */
 
 import { createDeepAgent, type SubAgent } from "deepagents";
+import { ChatOpenAI } from "@langchain/openai";
 
 import { library, promptOptions } from "./library.js";
 import {
@@ -34,10 +35,19 @@ import {
 // Two model dials. The coordinator only routes (emit parallel task calls,
 // then one summary sentence), so a fast mini model handles it and shaves the
 // front-cost that gates every panel. Panels generate strict OpenUI Lang and
-// stay on the frontier model — each is pinned below so it can never fall
-// back to the coordinator's mini default.
+// stay on the frontier model.
 const COORDINATOR_MODEL = "openai:gpt-5.4-mini";
-const PANEL_MODEL = "openai:gpt-5.5";
+
+// Shared panel model for all subagents — high `maxConcurrency` keeps parallel
+// `Promise.all` tasks from queueing, and retry/timeout lets throttled panels
+// recover without stalling the dashboard. Low reasoning effort trims
+// time-to-first-token because panels format fetched data into OpenUI Lang.
+const PANEL_MODEL = new ChatOpenAI({
+  model: "gpt-5.5",
+  useResponsesApi: true,
+  // no reasoning effort for fast panel rendering
+  reasoning: { effort: "none" },
+});
 
 /**
  * One byte-identical system prompt for every panel. The coordinator's task

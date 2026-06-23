@@ -69,6 +69,33 @@ const SOURCE_LABELS: Record<string, string> = {
 };
 
 /**
+ * Human-readable labels for each panel tool, so the live activity feed reads
+ * like a task list ("Account balance", "Revenue trend") instead of raw tool
+ * identifiers. Unknown tools fall back to a de-snaked title via `toolLabel`.
+ */
+const TOOL_LABELS: Record<string, string> = {
+  get_stripe_balance: "Account balance",
+  get_stripe_charges: "Recent charges",
+  get_stripe_revenue: "Revenue trend",
+  get_stripe_subscriptions: "Subscriptions & MRR",
+  get_product_trends: "Usage trends",
+  get_top_events: "Top events",
+  get_conversion_funnel: "Conversion funnel",
+  get_github_repos: "Repositories",
+  get_recent_activity: "PRs & issues",
+  get_commit_activity: "Commit activity",
+  get_upcoming_events: "Upcoming events",
+  get_day_schedule: "Day schedule",
+};
+
+const toolLabel = (name: string): string =>
+  TOOL_LABELS[name] ??
+  name
+    .replace(/^get_/, "")
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+
+/**
  * Fixed display priority so the bento layout is deterministic regardless of
  * the order the coordinator happens to delegate in — the highest-priority
  * panel lands in the large feature cell.
@@ -159,6 +186,31 @@ const readableError = (error: unknown): string => {
 };
 
 /**
+ * Whole seconds elapsed since `active` last became true; 0 while inactive.
+ *
+ * Drives the "Composing… (Ns)" hint: once a panel has fetched its data, the
+ * model spends several seconds reasoning before the first program token
+ * streams. A ticking counter makes that unavoidable latency read as deliberate
+ * progress rather than a stalled card.
+ */
+function useElapsedSeconds(active: boolean): number {
+  const [seconds, setSeconds] = useState(0);
+  useEffect(() => {
+    if (!active) {
+      setSeconds(0);
+      return;
+    }
+    const start = Date.now();
+    const id = setInterval(
+      () => setSeconds(Math.floor((Date.now() - start) / 1000)),
+      1000,
+    );
+    return () => clearInterval(id);
+  }, [active]);
+  return seconds;
+}
+
+/**
  * One dashboard panel, scoped to one subagent.
  *
  * Memoized so the app shell's re-renders (coordinator tokens, lifecycle
@@ -201,6 +253,15 @@ const Panel = memo(
     const doneTools = toolCalls.filter((call) => call.status !== "running").length;
     const source = SOURCE_LABELS[snapshot.name] ?? snapshot.name;
 
+    // "Composing" = data is in, but the model is still reasoning toward the
+    // first program token. Surface a live timer for that window only.
+    const composing =
+      status === "running" &&
+      program === "" &&
+      toolCalls.length > 0 &&
+      doneTools >= toolCalls.length;
+    const composingSeconds = useElapsedSeconds(composing);
+
     // What the corner badge says: fetch progress, then "writing", then the
     // bare source name once the panel is done (keeps finished cards clean).
     const activity =
@@ -236,6 +297,25 @@ const Panel = memo(
           <div className="panel-skeleton">
             {snapshot.error ? (
               <p className="panel-error">{snapshot.error}</p>
+            ) : toolCalls.length > 0 ? (
+              <div className="panel-activity-feed">
+                <p className="activity-heading">Gathering {source} data</p>
+                <ul className="activity-list">
+                  {toolCalls.map((call) => (
+                    <li key={call.id} className={`activity-row is-${call.status}`}>
+                      <span className="activity-icon" aria-hidden />
+                      <span className="activity-label">
+                        {toolLabel(call.name)}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="skeleton-task">
+                  {doneTools < toolCalls.length
+                    ? `Fetching ${toolCalls.length - doneTools} of ${toolCalls.length}…`
+                    : `Composing the ${source} panel…${composingSeconds > 0 ? ` (${composingSeconds}s)` : ""}`}
+                </p>
+              </div>
             ) : (
               <>
                 <div className="skeleton-bar wide" />

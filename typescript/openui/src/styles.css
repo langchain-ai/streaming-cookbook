@@ -1,24 +1,76 @@
 /* App shell for the deepagents dashboard. The OpenUI Card is the visual unit
    inside a content-driven bento grid. */
 
-/* The shell uses the OpenUI kit's own design tokens, including its native
-   prefers-color-scheme light/dark behavior. */
+/* LangChain brand identity. The shell follows prefers-color-scheme so it stays
+   in sync with the OpenUI-rendered panel content, shipping both a dark-mode
+   (primary/default) and a light-mode variant of the brand palette. */
 :root {
-    --bg: var(--openui-background);
-    --surface: var(--openui-foreground);
-    --line: var(--openui-border-default);
-    --line-strong: var(--openui-border-interactive);
-    --text: var(--openui-text-neutral-primary);
-    --muted: var(--openui-text-neutral-secondary);
-    --accent: var(--openui-interactive-accent-default);
-    --accent-hover: var(--openui-interactive-accent-hover);
-    --accent-fg: var(--openui-text-accent-primary);
-    --info: var(--openui-border-info-emphasis);
-    --red: var(--openui-interactive-destructive-accent-default);
-    --radius: var(--openui-radius-xl);
-    --radius-s: var(--openui-radius-m);
-    --shadow: 0 1px 2px oklch(0 0 0 / 0.035);
-    color-scheme: light dark;
+    /* --- LangChain brand palette ----------------------------------- */
+    --lc-dark-blue: #030710;
+    --lc-dark-1: #0d1322;
+    --lc-dark-2: #161f34;
+    --lc-dark-3: #2f4b68;
+    --lc-dark-4: #40668d;
+    --lc-blue: #006ddd;
+    --lc-light-blue: #7fc8ff;
+    --lc-tint-1: #99d3ff;
+    --lc-tint-2: #b2deff;
+    --lc-tint-3: #cce9ff;
+    --lc-tint-4: #e5f4ff;
+    --lc-tint-5: #f2faff;
+    /* Peach — the only sanctioned warning/error family. */
+    --lc-peach: #fbb0a5;
+    --lc-peach-deep: #885270;
+
+    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
+        "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular",
+        "SF Mono", Menlo, monospace;
+
+    /* --- semantic tokens: dark mode (default) ---------------------- */
+    --bg: var(--lc-dark-blue);
+    --surface: var(--lc-dark-1);
+    --surface-2: var(--lc-dark-2);
+    --line: color-mix(in oklab, var(--lc-dark-3) 60%, transparent);
+    --line-strong: var(--lc-dark-4);
+    --text: var(--lc-tint-5);
+    --muted: var(--lc-tint-1);
+    /* Accent (CTA surface) is Light Blue in BOTH modes per brand rules. */
+    --accent: var(--lc-light-blue);
+    --accent-hover: var(--lc-tint-1);
+    --accent-fg: var(--lc-dark-blue);
+    /* Accent used on text / borders, needs enough contrast per mode. */
+    --info: var(--lc-light-blue);
+    --sunk: color-mix(in oklab, var(--lc-light-blue) 9%, var(--surface));
+    --highlight: color-mix(in oklab, var(--lc-light-blue) 20%, var(--surface));
+    --red: var(--lc-peach);
+    --danger-bg: color-mix(in oklab, var(--lc-peach) 14%, transparent);
+
+    --radius: 14px;
+    --radius-s: 10px;
+    --shadow: 0 1px 2px oklch(0 0 0 / 0.35);
+    color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: var(--lc-tint-4);
+        --surface: var(--lc-tint-5);
+        --surface-2: var(--lc-tint-3);
+        --line: color-mix(in oklab, var(--lc-tint-2) 75%, transparent);
+        --line-strong: var(--lc-tint-1);
+        --text: var(--lc-dark-blue);
+        --muted: var(--lc-dark-3);
+        --accent: var(--lc-light-blue);
+        --accent-hover: var(--lc-blue);
+        --accent-fg: var(--lc-dark-blue);
+        --info: var(--lc-blue);
+        --sunk: color-mix(in oklab, var(--lc-blue) 6%, var(--surface));
+        --highlight: color-mix(in oklab, var(--lc-blue) 16%, var(--surface));
+        --red: var(--lc-peach-deep);
+        --danger-bg: color-mix(in oklab, var(--lc-peach-deep) 12%, transparent);
+        color-scheme: light;
+    }
 }
 
 * {
@@ -35,12 +87,9 @@ body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family:
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        "Segoe UI",
-        sans-serif;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 /* --- app shell ------------------------------------------------------ */
@@ -81,19 +130,23 @@ body {
 
 .brand h1 {
     margin: 0;
-    font-size: 16px;
-    line-height: 1.2;
-    letter-spacing: -0.015em;
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1;
+    letter-spacing: -0.02em;
     white-space: nowrap;
 }
 
 .openui-attribution {
-    padding: 3px 7px;
+    padding: 3px 8px;
     border: 1px solid var(--line);
     border-radius: 500px;
     color: var(--muted);
+    font-family: var(--font-mono);
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 400;
+    letter-spacing: -0.02em;
     line-height: 1;
     text-decoration: none;
     white-space: nowrap;
@@ -109,9 +162,11 @@ body {
 
 .tagline {
     display: block;
-    margin-top: 3px;
+    margin-top: 4px;
     color: var(--muted);
+    font-family: var(--font-mono);
     font-size: 11px;
+    letter-spacing: -0.02em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -132,10 +187,12 @@ body {
 }
 
 button {
-    font: inherit;
+    font-family: var(--font-mono);
+    font-size: 13px;
     font-weight: 500;
+    letter-spacing: -0.02em;
     border: none;
-    border-radius: 7px;
+    border-radius: 8px;
     padding: 8px 13px;
     background: var(--accent);
     color: var(--accent-fg);
@@ -169,7 +226,7 @@ button.ghost {
 
 button.ghost:hover:not(:disabled) {
     color: var(--text);
-    background: var(--openui-sunk);
+    background: var(--sunk);
 }
 
 /* --- dashboard brief ------------------------------------------------ */
@@ -202,9 +259,10 @@ button.ghost:hover:not(:disabled) {
 
 .prompt-label {
     color: var(--muted);
+    font-family: var(--font-mono);
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.055em;
+    font-weight: 400;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
 }
 
@@ -212,7 +270,8 @@ button.ghost:hover:not(:disabled) {
     width: 100%;
     min-height: 44px;
     max-height: 112px;
-    font: inherit;
+    font-family: var(--font-sans);
+    font-weight: 300;
     font-size: 15px;
     line-height: 1.45;
     border: none;
@@ -249,22 +308,30 @@ button.ghost:hover:not(:disabled) {
 
 .keyboard-hint {
     color: var(--muted);
+    font-family: var(--font-mono);
     font-size: 11px;
+    letter-spacing: -0.02em;
 }
 
 .build-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     min-height: 34px;
-    padding: 7px 13px;
-    border-radius: 7px;
-    background: var(--text);
-    color: var(--surface);
+    padding: 7px 14px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--accent-fg);
 }
 
 .build-button:hover:not(:disabled) {
-    background: color-mix(in oklch, var(--text) 86%, transparent);
+    background: var(--accent-hover);
 }
 
 .composer-loader {
+    flex: 0 0 auto;
+    box-sizing: border-box;
     width: 13px;
     height: 13px;
     border: 2px solid color-mix(in oklch, var(--accent-fg) 35%, transparent);
@@ -289,8 +356,10 @@ button.ghost:hover:not(:disabled) {
 .presets-label {
     margin-right: 5px;
     color: var(--muted);
+    font-family: var(--font-mono);
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 400;
+    letter-spacing: -0.02em;
 }
 
 /* --- sub bar (chips + summary) -------------------------------------- */
@@ -319,18 +388,20 @@ button.ghost:hover:not(:disabled) {
 
 .chip:hover:not(:disabled) {
     color: var(--text);
-    background: var(--openui-sunk);
+    background: var(--sunk);
 }
 
 .chip-active {
-    background: var(--openui-sunk);
+    background: var(--sunk);
     color: var(--text);
     border-color: var(--line);
 }
 
 .summary {
     color: var(--muted);
-    font-size: 12.5px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: -0.01em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -338,12 +409,14 @@ button.ghost:hover:not(:disabled) {
 
 .run-error {
     width: 100%;
-    padding: 8px 10px;
+    padding: 8px 11px;
     border-left: 2px solid var(--red);
-    color: var(--openui-text-danger-primary);
-    background: var(--openui-danger-background);
+    border-radius: 0 var(--radius-s) var(--radius-s) 0;
+    color: var(--red);
+    background: var(--danger-bg);
+    font-family: var(--font-mono);
     font-size: 12px;
-    font-weight: 500;
+    letter-spacing: -0.01em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -423,29 +496,36 @@ button.ghost:hover:not(:disabled) {
 
 .empty-kicker {
     color: var(--info);
+    font-family: var(--font-mono);
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
+    font-weight: 400;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
 }
 
 .empty h2 {
-    margin: 8px 0 7px;
-    font-size: clamp(23px, 3vw, 34px);
-    line-height: 1.12;
-    letter-spacing: -0.035em;
+    margin: 10px 0 9px;
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
 }
 
 .empty p {
     margin: 0;
     color: var(--muted);
+    font-family: var(--font-sans);
+    font-weight: 300;
     font-size: 14px;
     line-height: 1.55;
 }
 
 .coordinating {
     color: var(--muted);
+    font-family: var(--font-mono);
     font-size: 13px;
+    letter-spacing: -0.01em;
 }
 
 /* --- panel cell (chrome-less host for the OpenUI Card) -------------- */
@@ -462,28 +542,45 @@ button.ghost:hover:not(:disabled) {
     display: flex;
     flex-direction: column;
     border: 1px solid var(--line);
-    border-top: 2px solid var(--panel-accent);
     background: var(--panel-tint);
 }
 
+/* Panels are differentiated by shade within the brand blue family only —
+   the extended palette is reserved for product imagery, never UI chrome. */
 .panel[data-source="stripe-panel"] {
-    --panel-accent: oklch(0.62 0.2 300);
+    --panel-accent: var(--lc-light-blue);
 }
 
 .panel[data-source="posthog-panel"] {
-    --panel-accent: oklch(0.72 0.17 55);
+    --panel-accent: var(--lc-blue);
 }
 
 .panel[data-source="github-panel"] {
-    --panel-accent: oklch(0.58 0.04 250);
+    --panel-accent: var(--lc-dark-4);
 }
 
 .panel[data-source="calendar-panel"] {
-    --panel-accent: oklch(0.63 0.18 245);
+    --panel-accent: var(--lc-tint-1);
 }
 
 .panel[data-source="general-purpose"] {
-    --panel-accent: oklch(0.65 0.14 165);
+    --panel-accent: var(--lc-dark-3);
+}
+
+/* On light backgrounds the lightest tints lose contrast as a 2px accent and
+   as label text, so shift those two panels to mid-range blues. */
+@media (prefers-color-scheme: light) {
+    .panel[data-source="stripe-panel"] {
+        --panel-accent: var(--lc-blue);
+    }
+
+    .panel[data-source="calendar-panel"] {
+        --panel-accent: var(--lc-dark-4);
+    }
+
+    .panel[data-source="github-panel"] {
+        --panel-accent: var(--lc-dark-3);
+    }
 }
 
 .panel-body {
@@ -541,14 +638,16 @@ button.ghost:hover:not(:disabled) {
     background: transparent;
     border: 0;
     box-shadow: none;
+    font-family: var(--font-mono);
     font-size: 10px;
+    letter-spacing: -0.01em;
     color: var(--muted);
     pointer-events: none;
 }
 
 .panel-source {
-    font-weight: 600;
-    letter-spacing: 0.055em;
+    font-weight: 500;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--panel-accent);
 }
@@ -563,7 +662,6 @@ button.ghost:hover:not(:disabled) {
 
 .panel-badge[data-status="error"] {
     color: var(--red);
-    border-color: var(--openui-border-danger-emphasis);
 }
 
 @container (max-width: 360px) {
@@ -601,13 +699,132 @@ button.ghost:hover:not(:disabled) {
 .panel-skeleton .skeleton-task {
     margin: 14px 2px 0;
     color: var(--muted);
-    font-size: 12.5px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: -0.01em;
 }
 
 .panel-error {
     margin: 0;
     color: var(--red);
     font-size: 13px;
+}
+
+/* --- live tool-call activity feed ----------------------------------- */
+
+/* While a subagent fetches data (before its OpenUI program streams), show
+   each tool call as a task row so the panel reflects real, per-step
+   progress instead of an opaque spinner. */
+.panel-activity-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.activity-heading {
+    margin: 0;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.activity-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.activity-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    color: var(--text);
+    animation: activity-in 0.24s ease both;
+}
+
+@keyframes activity-in {
+    from {
+        opacity: 0;
+        transform: translateY(-3px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.activity-icon {
+    position: relative;
+    flex: 0 0 auto;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+/* Running: reuse the badge spinner ring. */
+.activity-row.is-running .activity-icon {
+    border: 2px solid var(--line-strong);
+    border-top-color: var(--info);
+    animation: spin 0.7s linear infinite;
+}
+
+/* Finished: accent dot with a checkmark drawn in the panel surface color. */
+.activity-row.is-finished {
+    color: var(--muted);
+}
+
+.activity-row.is-finished .activity-icon {
+    background: var(--panel-accent);
+}
+
+.activity-row.is-finished .activity-icon::after {
+    content: "";
+    position: absolute;
+    left: 4.5px;
+    top: 2px;
+    width: 3px;
+    height: 6px;
+    border: solid var(--surface);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Error: red dot with an X. */
+.activity-row.is-error {
+    color: var(--red);
+}
+
+.activity-row.is-error .activity-icon {
+    background: var(--red);
+}
+
+.activity-row.is-error .activity-icon::before,
+.activity-row.is-error .activity-icon::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    width: 2px;
+    height: 8px;
+    background: var(--surface);
+}
+
+.activity-row.is-error .activity-icon::before {
+    transform: rotate(45deg);
+}
+
+.activity-row.is-error .activity-icon::after {
+    transform: rotate(-45deg);
 }
 
 .skeleton-bar {
@@ -617,9 +834,9 @@ button.ghost:hover:not(:disabled) {
     width: 55%;
     background: linear-gradient(
         90deg,
-        var(--openui-sunk) 25%,
-        var(--openui-highlight) 45%,
-        var(--openui-sunk) 65%
+        var(--sunk) 25%,
+        var(--highlight) 45%,
+        var(--sunk) 65%
     );
     background-size: 200% 100%;
     animation: shimmer 1.4s ease-in-out infinite;
