@@ -107,6 +107,10 @@ const textOf = (message: BaseMessage): string => {
     .join("");
 };
 
+/** True when streamed text starts with an OpenUI Lang root assignment. */
+const isOpenUiProgramStart = (text: string): boolean =>
+  /^\s*(?:```[a-zA-Z-]*\s*)?\s*root\s*=/.test(text);
+
 /**
  * The OpenUI Lang program for a panel: the text of the LAST AI message that
  * has any. Panel agents first make tool calls (AI messages with no text),
@@ -125,7 +129,7 @@ const programFromMessages = (messages: BaseMessage[]): string => {
     const text = textOf(message);
     const trimmed = text.trim();
     if (trimmed === "") continue;
-    if (/^\s*root\s*=/.test(text)) return text;
+    if (isOpenUiProgramStart(text)) return text;
     if (fallback === "") fallback = text;
   }
   return fallback;
