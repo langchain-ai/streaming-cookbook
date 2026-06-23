@@ -1,0 +1,7 @@
+{
+  "node_version": "22",
+  "graphs": {
+    "dashboard": "./src/agent.ts:dashboard"
+  },
+  "env": "../../.env"
+}

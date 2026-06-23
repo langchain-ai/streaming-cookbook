@@ -1,0 +1,965 @@
+/* App shell for the deepagents dashboard. The OpenUI Card is the visual unit
+   inside a content-driven bento grid. */
+
+/* LangChain brand identity. The shell follows prefers-color-scheme so it stays
+   in sync with the OpenUI-rendered panel content, shipping both a dark-mode
+   (primary/default) and a light-mode variant of the brand palette. */
+:root {
+    /* --- LangChain brand palette ----------------------------------- */
+    --lc-dark-blue: #030710;
+    --lc-dark-1: #0d1322;
+    --lc-dark-2: #161f34;
+    --lc-dark-3: #2f4b68;
+    --lc-dark-4: #40668d;
+    --lc-blue: #006ddd;
+    --lc-light-blue: #7fc8ff;
+    --lc-tint-1: #99d3ff;
+    --lc-tint-2: #b2deff;
+    --lc-tint-3: #cce9ff;
+    --lc-tint-4: #e5f4ff;
+    --lc-tint-5: #f2faff;
+    /* Peach — the only sanctioned warning/error family. */
+    --lc-peach: #fbb0a5;
+    --lc-peach-deep: #885270;
+
+    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
+        "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular",
+        "SF Mono", Menlo, monospace;
+
+    /* --- semantic tokens: dark mode (default) ---------------------- */
+    --bg: var(--lc-dark-blue);
+    --surface: var(--lc-dark-1);
+    --surface-2: var(--lc-dark-2);
+    --line: color-mix(in oklab, var(--lc-dark-3) 60%, transparent);
+    --line-strong: var(--lc-dark-4);
+    --text: var(--lc-tint-5);
+    --muted: var(--lc-tint-1);
+    /* Accent (CTA surface) is Light Blue in BOTH modes per brand rules. */
+    --accent: var(--lc-light-blue);
+    --accent-hover: var(--lc-tint-1);
+    --accent-fg: var(--lc-dark-blue);
+    /* Accent used on text / borders, needs enough contrast per mode. */
+    --info: var(--lc-light-blue);
+    --sunk: color-mix(in oklab, var(--lc-light-blue) 9%, var(--surface));
+    --highlight: color-mix(in oklab, var(--lc-light-blue) 20%, var(--surface));
+    --red: var(--lc-peach);
+    --danger-bg: color-mix(in oklab, var(--lc-peach) 14%, transparent);
+
+    --radius: 14px;
+    --radius-s: 10px;
+    --shadow: 0 1px 2px oklch(0 0 0 / 0.35);
+    color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: var(--lc-tint-4);
+        --surface: var(--lc-tint-5);
+        --surface-2: var(--lc-tint-3);
+        --line: color-mix(in oklab, var(--lc-tint-2) 75%, transparent);
+        --line-strong: var(--lc-tint-1);
+        --text: var(--lc-dark-blue);
+        --muted: var(--lc-dark-3);
+        --accent: var(--lc-light-blue);
+        --accent-hover: var(--lc-blue);
+        --accent-fg: var(--lc-dark-blue);
+        --info: var(--lc-blue);
+        --sunk: color-mix(in oklab, var(--lc-blue) 6%, var(--surface));
+        --highlight: color-mix(in oklab, var(--lc-blue) 16%, var(--surface));
+        --red: var(--lc-peach-deep);
+        --danger-bg: color-mix(in oklab, var(--lc-peach-deep) 12%, transparent);
+        color-scheme: light;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* --- app shell ------------------------------------------------------ */
+
+.app {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 22px 22px;
+    gap: 12px;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex: 0 0 auto;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+}
+
+.brand-copy {
+    min-width: 0;
+}
+
+.brand-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.brand h1 {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+}
+
+.openui-attribution {
+    padding: 3px 8px;
+    border: 1px solid var(--line);
+    border-radius: 500px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+        border-color 0.15s ease,
+        color 0.15s ease;
+}
+
+.openui-attribution:hover {
+    border-color: var(--line-strong);
+    color: var(--text);
+}
+
+.tagline {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.brand-mark {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    background:
+        linear-gradient(var(--text) 0 0) 2px 2px / 6px 6px,
+        linear-gradient(var(--text) 0 0) 10px 2px / 6px 6px,
+        linear-gradient(var(--text) 0 0) 2px 10px / 6px 6px,
+        linear-gradient(var(--info) 0 0) 10px 10px / 6px 6px;
+    background-repeat: no-repeat;
+    flex: 0 0 auto;
+    align-self: center;
+}
+
+button {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 13px;
+    background: var(--accent);
+    color: var(--accent-fg);
+    cursor: pointer;
+    transition:
+        background 0.15s ease,
+        opacity 0.15s ease,
+        border-color 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+    background: var(--accent-hover);
+}
+
+button:focus-visible,
+.command-panel:has(textarea:focus-visible) {
+    outline: 2px solid var(--info);
+    outline-offset: 2px;
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+button.ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid transparent;
+}
+
+button.ghost:hover:not(:disabled) {
+    color: var(--text);
+    background: var(--sunk);
+}
+
+/* --- dashboard brief ------------------------------------------------ */
+
+.command-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 0 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px;
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.command-panel:focus-within {
+    border-color: var(--line-strong);
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--info) 9%, transparent);
+}
+
+.prompt-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.prompt-label {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.prompt-field textarea {
+    width: 100%;
+    min-height: 44px;
+    max-height: 112px;
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.45;
+    border: none;
+    padding: 0;
+    resize: vertical;
+    background: transparent;
+    color: var(--text);
+    caret-color: var(--accent);
+}
+
+.prompt-field textarea::placeholder {
+    color: var(--muted);
+}
+
+.prompt-field textarea:focus {
+    outline: none;
+}
+
+.command-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+}
+
+.command-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+}
+
+.keyboard-hint {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: -0.02em;
+}
+
+.build-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 34px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--accent-fg);
+}
+
+.build-button:hover:not(:disabled) {
+    background: var(--accent-hover);
+}
+
+.composer-loader {
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    width: 13px;
+    height: 13px;
+    border: 2px solid color-mix(in oklch, var(--accent-fg) 35%, transparent);
+    border-top-color: var(--accent-fg);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+.new-dashboard {
+    flex: 0 0 auto;
+    padding: 6px 9px;
+    font-size: 12px;
+}
+
+.presets {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+}
+
+.presets-label {
+    margin-right: 5px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+/* --- sub bar (chips + summary) -------------------------------------- */
+
+.subbar {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    min-height: 0;
+}
+
+.subbar:empty {
+    display: none;
+}
+
+.chip {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 11.5px;
+    font-weight: 500;
+    box-shadow: none;
+}
+
+.chip:hover:not(:disabled) {
+    color: var(--text);
+    background: var(--sunk);
+}
+
+.chip-active {
+    background: var(--sunk);
+    color: var(--text);
+    border-color: var(--line);
+}
+
+.summary {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.run-error {
+    width: 100%;
+    padding: 8px 11px;
+    border-left: 2px solid var(--red);
+    border-radius: 0 var(--radius-s) var(--radius-s) 0;
+    color: var(--red);
+    background: var(--danger-bg);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* --- bento grid ----------------------------------------------------- */
+
+.grid {
+    flex: 0 0 auto;
+    min-height: 0;
+    display: grid;
+    gap: 12px;
+    align-items: stretch;
+}
+
+/* One panel: single full cell. */
+.grid-n1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(440px, auto);
+    grid-template-areas: "a";
+}
+
+/* Two panels: equal by default. Engineering gets more room than schedule
+   because its tables need materially more horizontal space. */
+.grid-n2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: minmax(400px, auto);
+    grid-template-areas: "a b";
+}
+
+.grid-n2:has(.panel[data-source="github-panel"]):has(
+        .panel[data-source="calendar-panel"]
+    ) {
+    grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+}
+
+/* Three panels: two focused panels followed by a full-width supporting view.
+   This avoids the narrow stacked cells of the old layout. */
+.grid-n3 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(360px, auto));
+    grid-template-areas:
+        "a a a a a a a b b b b b"
+        "c c c c c c c c c c c c";
+}
+
+/* The chart-oriented Stripe panel shares a compact lead row with Calendar.
+   Table-heavy PostHog and GitHub panels receive full-width rows. */
+.grid-n4 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(360px, auto));
+    grid-template-areas:
+        "a a a a a a a d d d d d"
+        "b b b b b b b b b b b b"
+        "c c c c c c c c c c c c";
+}
+
+/* Five or more: preserve useful reading width rather than forcing three
+   narrow columns. */
+.grid-many {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(360px, auto);
+}
+
+.empty,
+.coordinating {
+    flex: 1 1 auto;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.empty-copy {
+    width: min(440px, 100%);
+    text-align: left;
+}
+
+.empty-kicker {
+    color: var(--info);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.empty h2 {
+    margin: 10px 0 9px;
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+
+.empty p {
+    margin: 0;
+    color: var(--muted);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.coordinating {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: -0.01em;
+}
+
+/* --- panel cell (chrome-less host for the OpenUI Card) -------------- */
+
+.panel {
+    --panel-accent: var(--info);
+    --panel-tint: color-mix(in oklch, var(--panel-accent) 3%, var(--surface));
+    position: relative;
+    container-type: inline-size;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    background: var(--panel-tint);
+}
+
+/* Panels are differentiated by shade within the brand blue family only —
+   the extended palette is reserved for product imagery, never UI chrome. */
+.panel[data-source="stripe-panel"] {
+    --panel-accent: var(--lc-light-blue);
+}
+
+.panel[data-source="posthog-panel"] {
+    --panel-accent: var(--lc-blue);
+}
+
+.panel[data-source="github-panel"] {
+    --panel-accent: var(--lc-dark-4);
+}
+
+.panel[data-source="calendar-panel"] {
+    --panel-accent: var(--lc-tint-1);
+}
+
+.panel[data-source="general-purpose"] {
+    --panel-accent: var(--lc-dark-3);
+}
+
+/* On light backgrounds the lightest tints lose contrast as a 2px accent and
+   as label text, so shift those two panels to mid-range blues. */
+@media (prefers-color-scheme: light) {
+    .panel[data-source="stripe-panel"] {
+        --panel-accent: var(--lc-blue);
+    }
+
+    .panel[data-source="calendar-panel"] {
+        --panel-accent: var(--lc-dark-4);
+    }
+
+    .panel[data-source="github-panel"] {
+        --panel-accent: var(--lc-dark-3);
+    }
+}
+
+.panel-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
+    overflow-y: visible;
+    overflow-x: hidden;
+}
+
+/* Let generated content establish the panel's height. The page scrolls
+   naturally instead of introducing nested scroll areas in every card. */
+.panel-body > * {
+    min-height: 0;
+    height: auto !important;
+}
+
+/* Normalize the kit's generous chat-card styling for dense dashboard tiles. */
+.panel .openui-card-card,
+.panel .openui-card-sunk {
+    padding: 18px;
+    border: 0;
+    border-radius: 9px;
+    box-shadow: none;
+    background: transparent;
+}
+
+.panel .openui-card {
+    gap: 16px;
+}
+
+/* Keep the floating source badge clear of OpenUI card titles. */
+.panel .openui-header-top {
+    padding-right: 78px;
+}
+
+.panel .openui-header {
+    position: static;
+    z-index: 1;
+    background: transparent;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+}
+
+/* A plain source label keeps status visible without adding another pill. */
+.panel-badge {
+    position: absolute;
+    top: 14px;
+    right: 15px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: -0.01em;
+    color: var(--muted);
+    pointer-events: none;
+}
+
+.panel-source {
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--panel-accent);
+}
+
+.panel-activity {
+    color: var(--info);
+}
+
+.panel-badge[data-status="complete"] {
+    opacity: 1;
+}
+
+.panel-badge[data-status="error"] {
+    color: var(--red);
+}
+
+@container (max-width: 360px) {
+    .panel-activity {
+        display: none;
+    }
+}
+
+.spinner {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--line-strong);
+    border-top-color: var(--info);
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- skeleton (card-like placeholder before content streams) -------- */
+
+.panel-skeleton {
+    flex: 1 1 auto;
+    background: var(--surface);
+    border: 0;
+    border-radius: 8px;
+    padding: 16px 15px;
+    box-shadow: none;
+}
+
+.panel-skeleton .skeleton-task {
+    margin: 14px 2px 0;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: -0.01em;
+}
+
+.panel-error {
+    margin: 0;
+    color: var(--red);
+    font-size: 13px;
+}
+
+/* --- live tool-call activity feed ----------------------------------- */
+
+/* While a subagent fetches data (before its OpenUI program streams), show
+   each tool call as a task row so the panel reflects real, per-step
+   progress instead of an opaque spinner. */
+.panel-activity-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.activity-heading {
+    margin: 0;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.activity-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.activity-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    color: var(--text);
+    animation: activity-in 0.24s ease both;
+}
+
+@keyframes activity-in {
+    from {
+        opacity: 0;
+        transform: translateY(-3px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.activity-icon {
+    position: relative;
+    flex: 0 0 auto;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+/* Running: reuse the badge spinner ring. */
+.activity-row.is-running .activity-icon {
+    border: 2px solid var(--line-strong);
+    border-top-color: var(--info);
+    animation: spin 0.7s linear infinite;
+}
+
+/* Finished: accent dot with a checkmark drawn in the panel surface color. */
+.activity-row.is-finished {
+    color: var(--muted);
+}
+
+.activity-row.is-finished .activity-icon {
+    background: var(--panel-accent);
+}
+
+.activity-row.is-finished .activity-icon::after {
+    content: "";
+    position: absolute;
+    left: 4.5px;
+    top: 2px;
+    width: 3px;
+    height: 6px;
+    border: solid var(--surface);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Error: red dot with an X. */
+.activity-row.is-error {
+    color: var(--red);
+}
+
+.activity-row.is-error .activity-icon {
+    background: var(--red);
+}
+
+.activity-row.is-error .activity-icon::before,
+.activity-row.is-error .activity-icon::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    width: 2px;
+    height: 8px;
+    background: var(--surface);
+}
+
+.activity-row.is-error .activity-icon::before {
+    transform: rotate(45deg);
+}
+
+.activity-row.is-error .activity-icon::after {
+    transform: rotate(-45deg);
+}
+
+.skeleton-bar {
+    height: 10px;
+    border-radius: 3px;
+    margin-bottom: 9px;
+    width: 55%;
+    background: linear-gradient(
+        90deg,
+        var(--sunk) 25%,
+        var(--highlight) 45%,
+        var(--sunk) 65%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.skeleton-bar.wide {
+    width: 85%;
+}
+
+@keyframes shimmer {
+    from {
+        background-position: 180% 0;
+    }
+    to {
+        background-position: -20% 0;
+    }
+}
+
+/* On smaller screens the bento collapses to a single scrolling column. */
+@media (max-width: 1100px) {
+    .tagline {
+        display: none;
+    }
+}
+
+@media (max-width: 920px) {
+    .app {
+        min-height: 100dvh;
+    }
+
+    .command-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .presets {
+        max-width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+    }
+
+    .presets::-webkit-scrollbar {
+        display: none;
+    }
+
+    .chip {
+        white-space: nowrap;
+    }
+
+    .summary,
+    .run-error {
+        white-space: normal;
+    }
+
+    .grid {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: none !important;
+        grid-template-areas: none !important;
+        grid-auto-rows: minmax(280px, auto);
+    }
+    .panel {
+        grid-area: auto !important;
+    }
+
+    .panel-body {
+        height: auto;
+        overflow: visible;
+    }
+
+    .panel-body > * {
+        min-height: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .app {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .brand h1 {
+        font-size: 15px;
+    }
+
+    .openui-attribution {
+        padding-inline: 6px;
+        font-size: 9px;
+    }
+
+    .openui-attribution-prefix {
+        display: none;
+    }
+
+    .command-panel {
+        padding: 10px;
+    }
+
+    .prompt-field textarea {
+        font-size: 14px;
+    }
+
+    .command-submit {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .new-dashboard {
+        padding-inline: 8px;
+    }
+
+    .keyboard-hint {
+        display: none;
+    }
+
+    .build-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .empty,
+    .coordinating {
+        padding-inline: 20px;
+    }
+}

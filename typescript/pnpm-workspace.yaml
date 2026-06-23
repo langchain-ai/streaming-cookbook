@@ -2,6 +2,7 @@ packages:
   - "streaming"
   - "multimodal"
   - "a2ui"
+  - "openui"
   - "react-custom-backend"
   - "ui-react"
   - "ui-angular"
