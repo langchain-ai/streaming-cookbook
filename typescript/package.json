@@ -11,7 +11,9 @@
     "dev:react-custom-backend": "pnpm --filter @examples/react-custom-backend dev",
     "dev:angular": "pnpm --filter @examples/ui-angular dev",
     "dev:svelte": "pnpm --filter @examples/ui-svelte dev",
-    "dev:vue": "pnpm --filter @examples/ui-vue dev"
+    "dev:vue": "pnpm --filter @examples/ui-vue dev",
+    "dev:shadcn": "pnpm --filter @langchain/ui-shadcn dev",
+    "dev:openui": "pnpm --filter @examples/ui-openui dev"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.13",

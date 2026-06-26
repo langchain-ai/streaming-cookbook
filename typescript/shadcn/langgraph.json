@@ -1,0 +1,7 @@
+{
+  "node_version": "22",
+  "graphs": {
+    "deep_agent_code_review": "./src/server/agent.ts:agent"
+  },
+  "env": "../../.env"
+}

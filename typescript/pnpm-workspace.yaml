@@ -8,3 +8,4 @@ packages:
   - "ui-angular"
   - "ui-svelte"
   - "ui-vue"
+  - "shadcn"

@@ -72,6 +72,7 @@ also demonstrate self-contained full-stack variants.
 | Angular chat               | `typescript/ui-angular`           | `python/ui-angular` (backend)              |
 | Svelte chat                | `typescript/ui-svelte`            | `python/ui-svelte` (backend)               |
 | Vue chat                   | `typescript/ui-vue`               | `python/ui-vue` (backend)                  |
+| shadcn code review crew    | `typescript/shadcn`               | —                                          |
 
 - TypeScript workspace overview: [`typescript/README.md`](typescript/README.md)
 - Python workspace overview: [`python/README.md`](python/README.md)
@@ -129,6 +130,20 @@ supports explicitly configured live provider adapters.
 
 ![Custom React backend demo](assets/custom-backend.png)
 
+#### shadcn Code Review Crew
+
+`typescript/shadcn` is a self-contained chat app built on the new [shadcn/ui chat components](https://ui.shadcn.com/docs/changelog) and `@langchain/react`, backed by a `createDeepAgent` orchestrator. It frames a real-world workflow — automated code review: the deep agent checks a small `todo-api` project into a per-thread filesystem sandbox, counts the files, and fans out **one specialist reviewer subagent per file** so the whole codebase is reviewed in parallel. The lead engineer then writes a final overview.
+
+**Key concepts shown**:
+- Deep agent orchestration with `createDeepAgent` that lists project files and dispatches one `file-reviewer` subagent per file in a single turn
+- Subagent discovery through the `@langchain/react` API (`stream.subagents`, `useMessages`, `useToolCalls`) to render a live card per reviewer and drill into each one's transcript
+- A per-thread filesystem sandbox (LangSmith Sandboxes when available, local backend in development)
+- New shadcn chat primitives (`MessageScroller`, `Message`, `Bubble`, `Marker`) with `shimmer` and `scroll-fade` utilities for live status
+
+![shadcn code review crew demo](assets/shadcn.gif)
+
+It requires `ANTHROPIC_API_KEY` and a running LangGraph server exposing the `deep_agent_code_review` assistant. See `typescript/shadcn/README.md` for the full component map, layout, and Vite alias details.
+
 #### Framework Chat SDKs
 
 `typescript/ui-angular`, `typescript/ui-svelte`, and `typescript/ui-vue` are compact chat apps for the framework SDKs. They share the same shape: a simple LangGraph chat agent, streamed message state, loading/error handling, and optimistic user-message updates through `@langchain/angular`, `@langchain/svelte`, and `@langchain/vue`.
@@ -148,13 +163,14 @@ Then run individual examples:
 pnpm --filter @examples/streaming basic:in-process
 pnpm --filter @examples/streaming subagents:remote
 pnpm dev:a2ui
-pnpm dev:openui
 pnpm dev:multimodal
 pnpm dev:react
 pnpm dev:react-custom-backend
 pnpm dev:angular
 pnpm dev:svelte
 pnpm dev:vue
+pnpm dev:openui
+pnpm dev:shadcn
 ```
 
 ### Python

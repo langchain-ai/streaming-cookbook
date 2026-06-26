@@ -31,22 +31,24 @@ The workspace is declared in `pnpm-workspace.yaml` and includes:
 - `ui-angular`
 - `ui-svelte`
 - `ui-vue`
+- `openui`
+- `shadcn`
 
 Many packages use `workspace:*` LangChain dependencies because these examples were imported from active LangChain development. Keep those linked to the local LangChain packages while the streaming APIs are still previewing, or replace them with published versions when the matching packages are available.
 
 ## Example Set
 
-| Package                  | Focus                                                             | Start here                                                                                                                                          |
-| ------------------------ | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `streaming`              | Terminal scripts for in-process and remote streaming projections. | Learn `streamEvents`, `client.threads.stream`, messages, values, subgraphs, subagents, custom transformers, interrupts, and A2A projection streams. |
-| `multimodal`             | React storybook with text, images, audio, and video.              | See how media projections and subgraph-scoped hooks build a rich streamed UI.                                                                       |
-| `a2ui`                   | React A2UI generative UI.                                         | Render A2UI v0.9 surfaces from a Deep Agent over a `custom:a2ui` stream projection. See `a2ui/README.md` for architecture details.                  |
-| `openui`                 | Parallel Deep Agents dashboard rendered with OpenUI.              | Discover delegated panels through `stream.subagents`, scope each with `useMessages`, and render concurrent OpenUI Lang streams.                    |
-| `ui-react`               | React reconnect chat.                                             | Refresh the page mid-stream and reattach to the same LangGraph thread.                                                                              |
-| `react-custom-backend` | React app with a custom local Agent Protocol backend.                 | Use when you need to serve protocol events from your own HTTP/SSE server instead of `langgraph dev`.                                                |
-| `ui-angular`             | Minimal Angular chat.                                             | Learn `@langchain/angular` `injectStream` with optimistic message state.                                                                            |
-| `ui-svelte`              | Minimal Svelte chat.                                              | Learn `@langchain/svelte` `useStream` with reactive message state.                                                                                  |
-| `ui-vue`                 | Minimal Vue chat.                                                 | Learn `@langchain/vue` `useStream` with computed message state.                                                                                     |
+| Package                | Focus                                                             | Start here                                                                                                                                               |
+| ---------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `streaming`            | Terminal scripts for in-process and remote streaming projections. | Learn `streamEvents`, `client.threads.stream`, messages, values, subgraphs, subagents, custom transformers, interrupts, and A2A projection streams.      |
+| `multimodal`           | React storybook with text, images, audio, and video.              | See how media projections and subgraph-scoped hooks build a rich streamed UI.                                                                            |
+| `a2ui`                 | React A2UI generative UI.                                         | Render A2UI v0.9 surfaces from a Deep Agent over a `custom:a2ui` stream projection. See `a2ui/README.md` for architecture details.                       |
+| `ui-react`             | React reconnect chat.                                             | Refresh the page mid-stream and reattach to the same LangGraph thread.                                                                                   |
+| `react-custom-backend` | React app with a custom local Agent Protocol backend.             | Use when you need to serve protocol events from your own HTTP/SSE server instead of `langgraph dev`.                                                     |
+| `ui-angular`           | Minimal Angular chat.                                             | Learn `@langchain/angular` `injectStream` with optimistic message state.                                                                                 |
+| `ui-svelte`            | Minimal Svelte chat.                                              | Learn `@langchain/svelte` `useStream` with reactive message state.                                                                                       |
+| `ui-vue`               | Minimal Vue chat.                                                 | Learn `@langchain/vue` `useStream` with computed message state.                                                                                          |
+| `shadcn`               | Deep agent code review crew with shadcn chat UI.                  | Self-contained: ships its own `createDeepAgent` graph (`langgraphjs dev`) that fans out one reviewer subagent per file, rendered via `stream.subagents`. |
 
 ## SDK Documentation
 
@@ -66,13 +68,14 @@ Run package commands from the package directory, or from this workspace root wit
 pnpm --filter @examples/streaming basic:in-process
 pnpm --filter @examples/streaming subagents:remote
 pnpm --filter @examples/ui-a2ui dev
-pnpm --filter @examples/openui dev
 pnpm --filter @examples/ui-multimodal dev
 pnpm --filter @examples/ui-react dev
 pnpm --filter @examples/react-custom-backend dev
 pnpm --filter @examples/ui-angular dev
 pnpm --filter @examples/ui-svelte dev
 pnpm --filter @examples/ui-vue dev
+pnpm --filter @examples/openui dev
+pnpm --filter @examples/shadcn dev
 ```
 
 Convenience scripts are also available at the workspace root:
@@ -80,17 +83,18 @@ Convenience scripts are also available at the workspace root:
 ```bash
 pnpm dev:multimodal
 pnpm dev:a2ui
-pnpm dev:openui
 pnpm dev:react
 pnpm dev:react-custom-backend
 pnpm dev:angular
 pnpm dev:svelte
 pnpm dev:vue
+pnpm dev:openui
+pnpm dev:shadcn
 ```
 
 ## Environment
 
-The script package uses the Anthropic provider key from the root `.env`. The UI packages use the OpenAI provider key from the same root `.env`.
+The script package uses the Anthropic provider key from the root `.env`. The UI packages use the OpenAI provider key from the same root `.env`. The `shadcn` code review crew uses the Anthropic key and a local filesystem sandbox (deepagents' `LocalShellBackend`) — no LangSmith account required.
 
 LangGraph dev-server examples read `../../.env` through `langgraph.json`. The terminal scripts and custom React backend server read the same file through `tsx --env-file=../../.env`.
 
