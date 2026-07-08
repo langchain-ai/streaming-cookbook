@@ -32,7 +32,7 @@
     "@angular/build": "^22.0.5",
     "@angular/cli": "^22.0.5",
     "@angular/compiler-cli": "^22.0.5",
-    "@langchain/langgraph-cli": "^1.4.1",
+    "@langchain/langgraph-cli": "^1.4.2",
     "typescript": "~6.0.3"
   }
 }
