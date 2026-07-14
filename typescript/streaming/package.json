@@ -28,12 +28,12 @@
     "@langchain/anthropic": "^1.5.1",
     "@langchain/core": "1.2.1",
     "@langchain/langgraph": "^1.4.7",
-    "@langchain/langgraph-cli": "^1.4.1",
+    "@langchain/langgraph-cli": "^1.4.2",
     "@langchain/langgraph-sdk": "^1.9.25",
     "@langchain/protocol": "^0.0.18",
     "deepagents": "^1.10.5",
     "langchain": "^1.5.2",
-    "tsx": "^4.22.4",
+    "tsx": "^4.23.0",
     "zod": "^4.4.3"
   }
 }
