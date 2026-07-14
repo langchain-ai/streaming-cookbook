@@ -21,7 +21,11 @@
   },
   "pnpm": {
     "overrides": {
-      "linkify-it": "5.0.2"
+      "@babel/core": "7.29.6",
+      "dompurify": "3.4.11",
+      "esbuild": "0.28.1",
+      "linkify-it": "5.0.2",
+      "markdown-it": "14.3.0"
     }
   },
   "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
