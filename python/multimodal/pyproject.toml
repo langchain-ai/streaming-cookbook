@@ -32,8 +32,8 @@ override-dependencies = [
 ]
 
 [tool.uv.sources]
-langchain = { git = "https://github.com/langchain-ai/langchain.git", branch = "master", subdirectory = "libs/langchain_v1" }
-langchain-core = { git = "https://github.com/langchain-ai/langchain.git", branch = "master", subdirectory = "libs/core" }
+langchain = { git = "https://github.com/langchain-ai/langchain.git", tag = "langchain==1.3.9", subdirectory = "libs/langchain_v1" }
+langchain-core = { git = "https://github.com/langchain-ai/langchain.git", tag = "langchain==1.3.9", subdirectory = "libs/core" }
 
 [tool.hatch.build.targets.wheel]
 packages = ["src"]
