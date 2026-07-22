@@ -12,16 +12,16 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "^22.0.6",
-    "@angular/compiler": "^22.0.6",
-    "@angular/core": "^22.0.6",
-    "@angular/forms": "^22.0.6",
-    "@angular/platform-browser": "^22.0.6",
-    "@angular/router": "^22.0.6",
-    "@langchain/angular": "^1.0.27",
+    "@angular/common": "^22.0.7",
+    "@angular/compiler": "^22.0.7",
+    "@angular/core": "^22.0.7",
+    "@angular/forms": "^22.0.7",
+    "@angular/platform-browser": "^22.0.7",
+    "@angular/router": "^22.0.7",
+    "@langchain/angular": "^1.0.29",
     "@langchain/core": "1.2.3",
     "@langchain/langgraph": "^1.4.8",
-    "@langchain/langgraph-sdk": "^1.9.26",
+    "@langchain/langgraph-sdk": "^1.9.28",
     "@langchain/openai": "^1.5.5",
     "rxjs": "~7.8.2",
     "tslib": "^2.8.1",
@@ -29,9 +29,9 @@
     "zone.js": "~0.16.2"
   },
   "devDependencies": {
-    "@angular/build": "^22.0.6",
-    "@angular/cli": "^22.0.6",
-    "@angular/compiler-cli": "^22.0.6",
+    "@angular/build": "^22.0.7",
+    "@angular/cli": "^22.0.7",
+    "@angular/compiler-cli": "^22.0.7",
     "@langchain/langgraph-cli": "^1.4.3",
     "typescript": "~7.0.2"
   }
