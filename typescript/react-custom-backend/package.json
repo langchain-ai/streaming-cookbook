@@ -10,25 +10,25 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@hono/node-server": "^2.0.9",
-    "@langchain/core": "1.2.3",
-    "@langchain/langgraph": "^1.4.8",
-    "@langchain/langgraph-sdk": "^1.9.26",
-    "@langchain/openai": "^1.5.5",
+    "@hono/node-server": "^2.1.1",
+    "@langchain/core": "1.2.8",
+    "@langchain/langgraph": "^1.4.10",
+    "@langchain/langgraph-sdk": "^1.9.29",
+    "@langchain/openai": "^1.5.8",
     "@langchain/protocol": "^0.0.18",
-    "@langchain/react": "^1.0.27",
-    "hono": "^4.12.30",
-    "langchain": "^1.5.3",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
+    "@langchain/react": "^1.0.30",
+    "hono": "^4.13.2",
+    "langchain": "^1.5.9",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.3",
-    "tsx": "^4.23.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^6.0.5",
+    "tsx": "^4.23.12",
     "typescript": "^7.0.2",
-    "vite": "^8.1.4"
+    "vite": "^8.2.1"
   }
 }
