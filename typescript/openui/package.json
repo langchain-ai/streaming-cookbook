@@ -13,30 +13,30 @@
     "smoke": "tsx scripts/smoke.mts"
   },
   "dependencies": {
-    "@langchain/core": "1.2.3",
-    "@langchain/langgraph": "1.4.8",
-    "@langchain/langgraph-sdk": "1.9.26",
-    "@langchain/openai": "1.5.5",
-    "@langchain/react": "1.0.27",
-    "@openuidev/react-headless": "0.9.2",
-    "@openuidev/react-lang": "0.2.8",
-    "@openuidev/react-ui": "0.12.1",
-    "deepagents": "1.10.8",
-    "langchain": "1.5.3",
-    "react": "19.2.7",
-    "react-dom": "19.2.7",
-    "zod": "4.4.3",
-    "zustand": "5.0.14"
+    "@langchain/core": "1.2.9",
+    "@langchain/langgraph": "1.4.13",
+    "@langchain/langgraph-sdk": "1.10.0",
+    "@langchain/openai": "1.5.10",
+    "@langchain/react": "1.0.33",
+    "@openuidev/react-headless": "0.9.13",
+    "@openuidev/react-lang": "0.2.15",
+    "@openuidev/react-ui": "0.13.10",
+    "deepagents": "1.13.2",
+    "langchain": "1.5.10",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "4.5.4",
+    "zustand": "5.0.15"
   },
   "devDependencies": {
-    "@langchain/langgraph-cli": "1.4.3",
-    "@types/node": "26.1.1",
-    "@types/react": "19.2.17",
-    "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react": "6.0.3",
-    "playwright": "1.61.1",
-    "tsx": "4.23.1",
+    "@langchain/langgraph-cli": "1.4.5",
+    "@types/node": "26.4.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "@vitejs/plugin-react": "6.1.1",
+    "playwright": "1.62.1",
+    "tsx": "4.23.13",
     "typescript": "7.0.2",
-    "vite": "8.1.4"
+    "vite": "8.2.2"
   }
 }
