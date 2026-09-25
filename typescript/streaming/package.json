@@ -24,16 +24,16 @@
     "a2a:remote": "tsx --env-file=../../.env src/a2a/remote.ts"
   },
   "devDependencies": {
-    "@a2a-js/sdk": "^1.1.0",
+    "@a2a-js/sdk": "^1.2.0",
     "@langchain/anthropic": "^1.5.10",
     "@langchain/core": "1.2.11",
-    "@langchain/langgraph": "^1.4.15",
-    "@langchain/langgraph-cli": "^1.4.6",
-    "@langchain/langgraph-sdk": "^1.11.0",
+    "@langchain/langgraph": "^1.4.16",
+    "@langchain/langgraph-cli": "^1.5.0",
+    "@langchain/langgraph-sdk": "^1.11.1",
     "@langchain/protocol": "^0.0.19",
-    "deepagents": "^1.13.4",
+    "deepagents": "^1.14.0",
     "langchain": "^1.5.11",
     "tsx": "^4.23.13",
-    "zod": "^4.6.4"
+    "zod": "^4.6.5"
   }
 }

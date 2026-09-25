@@ -12,16 +12,16 @@
   "dependencies": {
     "@hono/node-server": "^2.1.1",
     "@langchain/core": "1.2.11",
-    "@langchain/langgraph": "^1.4.15",
-    "@langchain/langgraph-sdk": "^1.11.0",
+    "@langchain/langgraph": "^1.4.16",
+    "@langchain/langgraph-sdk": "^1.11.1",
     "@langchain/openai": "^1.5.13",
     "@langchain/protocol": "^0.0.19",
-    "@langchain/react": "^1.1.0",
-    "hono": "^4.13.7",
+    "@langchain/react": "^1.1.1",
+    "hono": "^4.13.8",
     "langchain": "^1.5.11",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "zod": "^4.6.4"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",
