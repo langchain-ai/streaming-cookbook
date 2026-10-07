@@ -10,19 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@langchain/core": "1.2.12",
-    "@langchain/langgraph": "^1.4.18",
-    "@langchain/langgraph-sdk": "^1.12.0",
-    "@langchain/openai": "^1.5.13",
-    "@langchain/svelte": "^1.2.0",
+    "@langchain/core": "1.2.14",
+    "@langchain/langgraph": "^1.4.19",
+    "@langchain/langgraph-sdk": "^1.12.1",
+    "@langchain/openai": "^1.6.2",
+    "@langchain/svelte": "^1.2.1",
     "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@langchain/langgraph-cli": "^1.5.1",
+    "@langchain/langgraph-cli": "^1.5.2",
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
     "svelte": "^5.57.1",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
-    "vite": "^8.3.1"
+    "vite": "^8.3.2"
   }
 }
