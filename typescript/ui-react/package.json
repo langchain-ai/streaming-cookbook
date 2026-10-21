@@ -10,18 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@langchain/core": "1.2.17",
-    "@langchain/langgraph": "^1.4.21",
-    "@langchain/langgraph-sdk": "^1.12.3",
+    "@langchain/core": "1.2.18",
+    "@langchain/langgraph": "^1.5.1",
+    "@langchain/langgraph-sdk": "^1.12.5",
     "@langchain/openai": "^1.6.2",
-    "@langchain/react": "^1.2.3",
-    "deepagents": "^1.14.2",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
-    "zod": "^4.6.6"
+    "@langchain/react": "^1.2.5",
+    "deepagents": "^1.15.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@langchain/langgraph-cli": "^1.5.2",
+    "@langchain/langgraph-cli": "^1.5.4",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
