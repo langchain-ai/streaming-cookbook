@@ -95,7 +95,7 @@ NARRATOR_SYSTEM = (
     "Speak only the paragraph exactly as written."
 )
 
-IMAGE_MODEL = "gpt-image-1-mini"
+IMAGE_MODEL = "gpt-image-2.6-flare"
 IMAGE_SIZE = "1024x1024"
 IMAGE_QUALITY = "low"
 
