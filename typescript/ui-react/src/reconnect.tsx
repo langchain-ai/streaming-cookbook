@@ -111,6 +111,127 @@ function getMessageId(message: { id?: string | null }, index: number) {
   return message.id ?? `message-${index}`;
 }
 
+function requestHref(input: RequestInfo | URL): string {
+  if (typeof input === "string") return input;
+  if (input instanceof URL) return input.href;
+  return input.url;
+}
+
+function isRunStartCommand(init?: RequestInit): boolean {
+  /**
+   * Protocol v2 posts JSON-RPC style commands to `/threads/:id/commands`.
+   * A user submit becomes `run.start`; other methods (state.get, etc.) should
+   * not reset the TTFT clock.
+   */
+  const body = init?.body;
+  return typeof body === "string" && /"method"\s*:\s*"run\.start"/.test(body);
+}
+
+function looksLikeFirstTextToken(chunk: string): boolean {
+  /**
+   * Message tokens arrive on the SSE `messages` channel as content-block
+   * deltas. Matching the wire shape keeps this demo free of an SSE parser.
+   */
+  return (
+    /"event"\s*:\s*"content-block-delta"/.test(chunk) &&
+    /"type"\s*:\s*"text(?:-delta)?"/.test(chunk)
+  );
+}
+
+async function watchStreamForFirstToken(
+  stream: ReadableStream<Uint8Array>,
+  onFirstToken: () => void
+) {
+  const reader = stream.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      buffer += decoder.decode(value, { stream: true });
+      if (looksLikeFirstTextToken(buffer)) {
+        onFirstToken();
+        break;
+      }
+
+      /**
+       * Bound the scan window so a long-lived `/stream/events` connection
+       * cannot grow this probe without limit.
+       */
+      if (buffer.length > 8_192) {
+        buffer = buffer.slice(-4_096);
+      }
+    }
+  } catch {
+    /**
+     * Probe cancellation (tab close, reconnect, tee teardown) is expected.
+     * Never let metrics code disturb the SDK consumer.
+     */
+  } finally {
+    try {
+      await reader.cancel();
+    } catch {
+      // already closed
+    }
+  }
+}
+
+/**
+ * Custom `fetch` for `useStream` that measures time-to-first-token (TTFT).
+ *
+ * `useStream` forwards `fetch` into the SSE transport, so every protocol
+ * request — including the long-lived `POST /threads/:id/stream/events`
+ * connection — goes through this wrapper. We:
+ * 1. Start a clock when a `run.start` command is posted.
+ * 2. Tee the event-stream body and scan the copy for the first text delta.
+ * 3. Log TTFT once per run (demo only — swap `console.log` for your metrics).
+ */
+function createTtftFetch(
+  baseFetch: typeof fetch = globalThis.fetch
+): typeof fetch {
+  let runStartedAt: number | null = null;
+  let loggedForRun = false;
+
+  const fetchWithTtft: typeof fetch = async (input, init) => {
+    const href = requestHref(input);
+
+    if (href.includes("/commands") && isRunStartCommand(init)) {
+      runStartedAt = performance.now();
+      loggedForRun = false;
+    }
+
+    const response = await baseFetch(input, init);
+
+    if (!href.includes("/stream/events") || response.body == null) {
+      return response;
+    }
+
+    /**
+     * `tee()` gives the SDK an untouched byte stream while we independently
+     * inspect a clone for the first token. Cancel the probe after the first
+     * hit so the tee cannot backpressure the SDK consumer.
+     */
+    const [forSdk, forProbe] = response.body.tee();
+    void watchStreamForFirstToken(forProbe, () => {
+      if (runStartedAt == null || loggedForRun) return;
+      loggedForRun = true;
+      const ttftMs = performance.now() - runStartedAt;
+      console.log(`[ttft] ${ttftMs.toFixed(1)} ms`);
+    });
+
+    return new Response(forSdk, {
+      status: response.status,
+      statusText: response.statusText,
+      headers: response.headers,
+    });
+  };
+
+  return fetchWithTtft;
+}
+
 export function ReconnectProvider({ children }: { children: ReactNode }) {
   /**
    * Read once on mount. The value is intentionally stable for the lifetime of
@@ -137,14 +258,26 @@ export function ReconnectProvider({ children }: { children: ReactNode }) {
   );
 
   /**
+   * Stable for the provider lifetime. `useStream` captures `fetch` when its
+   * controller is constructed, so a new function identity each render would
+   * be ignored after mount anyway.
+   */
+  const ttftFetch = useMemo(() => createTtftFetch(), []);
+
+  /**
    * Bind the React SDK to the preserved thread id. This is the core reconnect
    * behavior: after reload, the hook attaches to the same remote thread and
    * hydrates/streams its messages instead of creating a new conversation.
+   *
+   * The custom `fetch` is the extension point for client-side TTFT: it sees
+   * both `run.start` commands and the SSE event stream without changing UI
+   * code that reads `useMessages(stream)`.
    */
   const stream = useStream({
     assistantId: "agent",
     apiUrl: "http://localhost:2024",
     threadId: initialState.threadId,
+    fetch: ttftFetch,
   });
 
   /**
